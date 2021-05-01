@@ -1,7 +1,7 @@
 ---
 # ES4 Final Project : Brick Breaker
 ---
-* Authors: Willy Lin, Ibrahima Barry, James Edison, Zach Osman
+* Authors: Willy Lin, Ibrahima Barry, James Eidson, Zach Osman
 * Files: 
  1. 
  2.
