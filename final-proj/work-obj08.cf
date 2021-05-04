@@ -1,0 +1,4 @@
+v 4
+file . "brick_gen.vhdl" "4997bc2df302ac87cf492aff60da409d2a4a3ee5" "20210427160902.904":
+  entity brick_gen at 1( 0) + 0 on 11;
+  architecture synth of brick_gen at 12( 170) + 0 on 12;
