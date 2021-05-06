@@ -22,7 +22,7 @@ architecture sim of nes is
             CLKHF : out std_logic := '0');
 	end component;
 	
-    component counter is
+    component nes_counter is
         generic(N: integer := 17);
         port(
             clk : in std_logic;
@@ -37,7 +37,7 @@ architecture sim of nes is
 	
 begin
     HSOSC_C : HSOSC port map(CLKHFPU => '1', CLKHFEN => '1', CLKHF => clk_d);
-    counter_C : counter port map(clk => clk_d, reset => '0', q => q_d);
+    counter_C : nes_counter port map(clk => clk_d, reset => '0', q => q_d);
 
     NESclk <= q_d(8);
     NEScount <= q_d(16 downto 9);

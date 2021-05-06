@@ -1,0 +1,22 @@
+
+"/home/es4user/tools/radiant/2.2/tcltk/linux/bin/tclsh" "game_logic_impl_1_synthesize.tcl"
+
+postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o game_logic_impl_1_syn.udb game_logic_impl_1.vm
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2.2.0.97.3
+Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o game_logic_impl_1_syn.udb -gui -msgset /home/es4user/getBricked/game_logic/promote.xml game_logic_impl_1.vm 
+   Architecture:     iCE40UP
+   Device:           iCE40UP5K
+   Package:          SG48
+   Performance:      High-Performance_1.2V
+Reading input file 'game_logic_impl_1.vm' ...
+CPU Time to convert: 0.042829
+REAL Time to convert: 0
+convert PEAK Memory Usage: 139 MB
+convert CURRENT Memory Usage: 139 MB
+Removing unused logic...
+    <postMsg mid="35811145" type="Info" dynamic="1" navigation="0" arg0="i24"  />
+    <postMsg mid="35811145" type="Info" dynamic="1" navigation="0" arg0="i25"  />
+Starting design annotation....
+child killed: segmentation violation
+
+Fail to run postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o game_logic_impl_1_syn.udb game_logic_impl_1.vm -gui -msgset /home/es4user/getBricked/game_logic/promote.xml 

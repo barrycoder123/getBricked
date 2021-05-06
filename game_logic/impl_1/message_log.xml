@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="Synthesis">
+        <Message>
+            <ID>35811145</ID>
+            <Severity>1</Severity>
+            <Dynamic>i24</Dynamic>
+        </Message>
+        <Message>
+            <ID>35811145</ID>
+            <Severity>1</Severity>
+            <Dynamic>i25</Dynamic>
+        </Message>
+    </Task>
+</BaliMessageLog>
