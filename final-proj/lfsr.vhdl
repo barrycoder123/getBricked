@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.all;
 
 entity lfsr is
     generic(
-        seed: std_logic_vector(19 downto 0) := "0000000001"
+        seed: std_logic_vector(19 downto 0) := 20d"1"
     );
     port(
         clk : in std_logic;
@@ -28,7 +28,6 @@ begin
         end if;
     end process;
     count <= temp;
-
     
 end;
 

@@ -2,11 +2,11 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY ram IS
+ENTITY brick_ram IS
 	GENERIC
 	(
 		ADDRESS_WIDTH	: integer := 5;
-		DATA_WIDTH	: integer := 32
+		DATA_WIDTH		: integer := 32
 	);
 	PORT
 	(
@@ -17,12 +17,12 @@ ENTITY ram IS
 		we			    : IN  std_logic;
 		q			    : OUT std_logic_vector(DATA_WIDTH - 1 DOWNTO 0)
 	);
-END ram;
+END brick_ram;
 
-ARCHITECTURE rtl OF ram IS
-	TYPE RAM IS ARRAY(0 TO 2 ** ADDRESS_WIDTH - 1) OF std_logic_vector(DATA_WIDTH - 1 DOWNTO 0);
+ARCHITECTURE rtl OF brick_ram IS
+	TYPE ram_brick IS ARRAY(0 TO 2 ** ADDRESS_WIDTH - 1) OF std_logic_vector(DATA_WIDTH - 1 DOWNTO 0);
 
-	SIGNAL ram_block : RAM;
+	SIGNAL ram_block : ram_brick;
 BEGIN
 	PROCESS (clock)
 	BEGIN
@@ -30,7 +30,7 @@ BEGIN
 			IF (we = '1') THEN
 			    ram_block(to_integer(unsigned(write_address))) <= data;
 			END IF;
-			q <= ram_block(to_integer(unsigned(read_address)));
+				q <= ram_block(to_integer(unsigned(read_address)));
 		END IF;
 	END PROCESS;
 END rtl;
