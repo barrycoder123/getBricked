@@ -1,22 +1,22 @@
 v 4
-file . "vga.vhdl" "03839dcc9b78e22a5c55532deaad3fb95171dd0a" "20210506153501.387":
+file . "vga.vhdl" "e4309b630d8ac4e8756c4287daf6aba047b34dd8" "20210506202249.942":
   entity vga at 1( 0) + 0 on 23;
   architecture synth of vga at 16( 311) + 0 on 24;
-file . "top.vhdl" "0a185feeeb2ea7873319361c20a3c29220527f3b" "20210506153501.386":
+file . "top.vhdl" "ce9c4203af0009fbc3fd2399ec652770cccc443d" "20210506202249.941":
   entity top at 1( 0) + 0 on 21;
-  architecture synth of top at 16( 285) + 0 on 22;
-file . "pll.vhdl" "95976f4cd60142e1fa85775b20a6cf09280fe4e4" "20210506153501.385":
+  architecture synth of top at 17( 310) + 0 on 22;
+file . "pll.vhdl" "95976f4cd60142e1fa85775b20a6cf09280fe4e4" "20210506202249.940":
   entity pll at 1( 0) + 0 on 19;
   architecture synth of pll at 13( 211) + 0 on 20;
-file . "lfsr.vhdl" "06ba97b32230942c987297ae52c01d1f47f4500f" "20210506153501.384":
+file . "lfsr.vhdl" "06ba97b32230942c987297ae52c01d1f47f4500f" "20210506202249.939":
   entity lfsr at 1( 0) + 0 on 17;
   architecture synth of lfsr at 15( 269) + 0 on 18;
-file . "display.vhdl" "dda1cce379fc7137d681e0713560b24f4778c70e" "20210506153501.383":
+file . "display.vhdl" "eadb3d67de52b84b9aa250b687bb57e8e9d40a66" "20210506202249.938":
   entity display at 1( 0) + 0 on 15;
-  architecture synth of display at 17( 322) + 0 on 16;
-file . "brick_ram.vhdl" "9906942db302767585e090bea0b3857e8bdb262c" "20210506153501.382":
+  architecture synth of display at 23( 454) + 0 on 16;
+file . "brick_ram.vhdl" "9906942db302767585e090bea0b3857e8bdb262c" "20210506202249.937":
   entity brick_ram at 1( 0) + 0 on 13;
   architecture rtl of brick_ram at 22( 524) + 0 on 14;
-file . "brick_gen.vhdl" "4997bc2df302ac87cf492aff60da409d2a4a3ee5" "20210506153501.381":
+file . "brick_gen.vhdl" "4997bc2df302ac87cf492aff60da409d2a4a3ee5" "20210506202249.936":
   entity brick_gen at 1( 0) + 0 on 11;
   architecture synth of brick_gen at 12( 170) + 0 on 12;

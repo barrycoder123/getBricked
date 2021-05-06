@@ -9,7 +9,8 @@ entity top is
     Vsync: out std_logic;
     ground: out std_logic;
     out_0: out std_logic;
-    rgb_out: out std_logic
+    rgb_out: out std_logic;
+    test: out std_logic
   );
 end top;
 
@@ -36,13 +37,18 @@ architecture synth of top is
 
     component display is
         port(
+            pixel_clk: in std_logic;
             rgb: out std_logic;
             row: in unsigned(9 downto 0);
             column: in unsigned(9 downto 0);
             valid: in std_logic;
         
             column_in: in unsigned(4 downto 0);
-            data_in: in std_logic_vector(31 downto 0)
+            data_in: in std_logic_vector(31 downto 0);
+
+            -- -- cannon
+            cannon_row: in unsigned( 9 downto 0);
+            cannon_col: in unsigned( 9 downto 0)
         );
     end component;
 
@@ -64,7 +70,7 @@ architecture synth of top is
     -- end component;
 
     TYPE ram_brick IS ARRAY(0 TO 2 ** 5 - 1) OF std_logic_vector(32 - 1 DOWNTO 0);
-	SIGNAL ram_block : ram_brick := (0 => 32d"1024", 1 => 32d"1028", others => (others => '0'));
+	SIGNAL ram_block : ram_brick := (0 => (others => '1'), others => (others => '0'));
     
 
     signal rowCount: unsigned( 9 downto 0);
@@ -77,8 +83,10 @@ architecture synth of top is
     signal brick_out: std_logic_vector(31 downto 0);
 
     -- cannonball/cannon 
-    signal cannon_row: unsigned( 9 downto 0 );
-    signal cannon_col: unsigned( 9 downto 0 );
+    signal cannon_row: unsigned( 9 downto 0 ) := "0111000100";
+    signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
+    signal frame_clk: std_logic;
+    signal frame_count: unsigned(5 downto 0) := "000000";
     
   
 begin
@@ -91,7 +99,7 @@ begin
     port map(
         clk_in => CLK_12M,
         clk_out => out_0,
-        clk_locked => open
+        clk_locked => test
     );
 
     VGA1: vga
@@ -106,12 +114,17 @@ begin
 
     DISPLAY1: display
     port map(
+        pixel_clk => out_0,
         rgb => rgb_out,
         row => rowCount,
         column => colCount,
         column_in => column_out,
         valid => valid,
-        data_in => brick_out
+        data_in => brick_out,
+
+        -- -- cannon
+        cannon_row => cannon_row,
+        cannon_col => cannon_col
     );
 
     row_clk <= '1' when colCount > 10d"640" else '0';
@@ -122,7 +135,18 @@ begin
         end if;
     end process;
 
-    -- cannonball
+    -- -- cannonball
+    frame_clk <= '1' when rowCount > 10d"480" else '0';
+    process(frame_clk)
+    begin
+        if (rising_edge(frame_clk)) then
+            frame_count <= frame_count + 1;
+            if (frame_count = 16) then
+                cannon_row <= cannon_row - 8;
+                frame_count <= "000000";
+            end if;
+        end if;
+    end process;
 
 
     -- brick_ram1: brick_ram

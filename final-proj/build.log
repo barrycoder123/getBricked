@@ -29,11 +29,14 @@ pll.vhdl:110:5:warning: instance "dut1" of component "sb_pll40_core" is not boun
     dut1 : SB_PLL40_CORE port map (
     ^
 pll.vhdl:13:14:warning: (in default configuration of pll(synth))
-top.vhdl:67:15:warning: signal "ram_block" is never assigned
-        SIGNAL ram_block : ram_brick := (0 => 32d"1024", 1 => 32d"1028", others => (others => '0'));
+top.vhdl:73:15:warning: signal "ram_block" is never assigned
+        SIGNAL ram_block : ram_brick := (0 => (others => '1'), others => (others => '0'));
               ^
-top.vhdl:67:15:note: found ROM "ram_block", width: 32 bits, depth: 32
-        SIGNAL ram_block : ram_brick := (0 => 32d"1024", 1 => 32d"1028", others => (others => '0'));
+top.vhdl:87:12:warning: signal "cannon_col" is never assigned
+    signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
+           ^
+top.vhdl:73:15:note: found ROM "ram_block", width: 32 bits, depth: 32
+        SIGNAL ram_block : ram_brick := (0 => (others => '1'), others => (others => '0'));
               ^
 Importing module top.
 Importing module pll.
@@ -126,22 +129,22 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$340 in module SB_DFFNES.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$333 in module SB_DFFNESS.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$329 in module SB_DFFNER.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$322 in module SB_DFFNESR.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$319 in module SB_DFFNS.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$316 in module SB_DFFNSS.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$313 in module SB_DFFNR.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$310 in module SB_DFFNSR.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$302 in module SB_DFFES.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$295 in module SB_DFFESS.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$291 in module SB_DFFER.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$284 in module SB_DFFESR.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$281 in module SB_DFFS.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$278 in module SB_DFFSS.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$275 in module SB_DFFR.
-Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$272 in module SB_DFFSR.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$362 in module SB_DFFNES.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$355 in module SB_DFFNESS.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$351 in module SB_DFFNER.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$344 in module SB_DFFNESR.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$341 in module SB_DFFNS.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$338 in module SB_DFFNSS.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$335 in module SB_DFFNR.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$332 in module SB_DFFNSR.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$324 in module SB_DFFES.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$317 in module SB_DFFESS.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$313 in module SB_DFFER.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$306 in module SB_DFFESR.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$303 in module SB_DFFS.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$300 in module SB_DFFSS.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$297 in module SB_DFFR.
+Marked 1 switch rules as full_case in process $proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$294 in module SB_DFFSR.
 Removed a total of 0 dead cases.
 
 2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
@@ -149,218 +152,218 @@ Removed 8 redundant assignments.
 Promoted 22 assignments to connections.
 
 2.3.4. Executing PROC_INIT pass (extract init attributes).
-Found init rule in `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$343'.
+Found init rule in `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$365'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$339'.
+Found init rule in `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$361'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$332'.
+Found init rule in `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$354'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$328'.
+Found init rule in `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$350'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$321'.
+Found init rule in `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$343'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$318'.
+Found init rule in `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$340'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$315'.
+Found init rule in `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$337'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$312'.
+Found init rule in `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$334'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$309'.
+Found init rule in `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$331'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$307'.
+Found init rule in `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$329'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$305'.
+Found init rule in `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$327'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$301'.
+Found init rule in `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$323'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$294'.
+Found init rule in `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$316'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$290'.
+Found init rule in `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$312'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$283'.
+Found init rule in `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$305'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$280'.
+Found init rule in `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$302'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$277'.
+Found init rule in `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$299'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$274'.
+Found init rule in `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$296'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$271'.
+Found init rule in `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$293'.
   Set init value: \Q = 1'0
-Found init rule in `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$269'.
+Found init rule in `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$291'.
   Set init value: \Q = 1'0
 
 2.3.5. Executing PROC_ARST pass (detect async resets in processes).
-Found async reset \S in `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$340'.
-Found async reset \R in `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$329'.
-Found async reset \S in `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$319'.
-Found async reset \R in `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$313'.
-Found async reset \S in `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$302'.
-Found async reset \R in `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$291'.
-Found async reset \S in `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$281'.
-Found async reset \R in `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$275'.
+Found async reset \S in `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$362'.
+Found async reset \R in `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$351'.
+Found async reset \S in `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$341'.
+Found async reset \R in `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$335'.
+Found async reset \S in `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$324'.
+Found async reset \R in `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$313'.
+Found async reset \S in `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$303'.
+Found async reset \R in `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$297'.
 
 2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$343'.
-Creating decoders for process `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$340'.
+Creating decoders for process `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$365'.
+Creating decoders for process `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$362'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$339'.
-Creating decoders for process `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$333'.
+Creating decoders for process `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$361'.
+Creating decoders for process `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$355'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$332'.
-Creating decoders for process `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$329'.
+Creating decoders for process `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$354'.
+Creating decoders for process `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$351'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$328'.
-Creating decoders for process `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$322'.
+Creating decoders for process `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$350'.
+Creating decoders for process `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$344'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$321'.
-Creating decoders for process `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$319'.
+Creating decoders for process `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$343'.
+Creating decoders for process `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$341'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$318'.
-Creating decoders for process `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$316'.
+Creating decoders for process `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$340'.
+Creating decoders for process `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$338'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$315'.
-Creating decoders for process `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$313'.
+Creating decoders for process `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$337'.
+Creating decoders for process `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$335'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$312'.
-Creating decoders for process `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$310'.
+Creating decoders for process `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$334'.
+Creating decoders for process `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$332'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$309'.
-Creating decoders for process `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$308'.
+Creating decoders for process `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$331'.
+Creating decoders for process `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$330'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$307'.
-Creating decoders for process `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:846$306'.
-Creating decoders for process `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$305'.
-Creating decoders for process `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$302'.
+Creating decoders for process `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$329'.
+Creating decoders for process `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:846$328'.
+Creating decoders for process `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$327'.
+Creating decoders for process `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$324'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$301'.
-Creating decoders for process `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$295'.
+Creating decoders for process `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$323'.
+Creating decoders for process `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$317'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$294'.
-Creating decoders for process `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$291'.
+Creating decoders for process `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$316'.
+Creating decoders for process `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$313'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$290'.
-Creating decoders for process `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$284'.
+Creating decoders for process `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$312'.
+Creating decoders for process `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$306'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$283'.
-Creating decoders for process `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$281'.
+Creating decoders for process `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$305'.
+Creating decoders for process `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$303'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$280'.
-Creating decoders for process `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$278'.
+Creating decoders for process `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$302'.
+Creating decoders for process `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$300'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$277'.
-Creating decoders for process `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$275'.
+Creating decoders for process `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$299'.
+Creating decoders for process `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$297'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$274'.
-Creating decoders for process `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$272'.
+Creating decoders for process `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$296'.
+Creating decoders for process `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$294'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$271'.
-Creating decoders for process `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$270'.
+Creating decoders for process `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$293'.
+Creating decoders for process `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$292'.
      1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$269'.
-Creating decoders for process `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:269$268'.
+Creating decoders for process `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$291'.
+Creating decoders for process `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:269$290'.
 
 2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
 
 2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\SB_DFFNES.\Q' using process `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$340'.
-  created $adff cell `$procdff$524' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNESS.\Q' using process `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$333'.
-  created $dff cell `$procdff$525' with negative edge clock.
-Creating register for signal `\SB_DFFNER.\Q' using process `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$329'.
-  created $adff cell `$procdff$526' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNESR.\Q' using process `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$322'.
-  created $dff cell `$procdff$527' with negative edge clock.
-Creating register for signal `\SB_DFFNS.\Q' using process `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$319'.
-  created $adff cell `$procdff$528' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNSS.\Q' using process `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$316'.
-  created $dff cell `$procdff$529' with negative edge clock.
-Creating register for signal `\SB_DFFNR.\Q' using process `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$313'.
-  created $adff cell `$procdff$530' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNSR.\Q' using process `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$310'.
-  created $dff cell `$procdff$531' with negative edge clock.
-Creating register for signal `\SB_DFFNE.\Q' using process `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$308'.
-  created $dff cell `$procdff$532' with negative edge clock.
-Creating register for signal `\SB_DFFN.\Q' using process `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:846$306'.
-  created $dff cell `$procdff$533' with negative edge clock.
-Creating register for signal `\SB_DFFES.\Q' using process `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$302'.
-  created $adff cell `$procdff$534' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFESS.\Q' using process `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$295'.
-  created $dff cell `$procdff$535' with positive edge clock.
-Creating register for signal `\SB_DFFER.\Q' using process `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$291'.
-  created $adff cell `$procdff$536' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFESR.\Q' using process `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$284'.
-  created $dff cell `$procdff$537' with positive edge clock.
-Creating register for signal `\SB_DFFS.\Q' using process `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$281'.
-  created $adff cell `$procdff$538' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFSS.\Q' using process `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$278'.
-  created $dff cell `$procdff$539' with positive edge clock.
-Creating register for signal `\SB_DFFR.\Q' using process `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$275'.
-  created $adff cell `$procdff$540' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFSR.\Q' using process `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$272'.
-  created $dff cell `$procdff$541' with positive edge clock.
-Creating register for signal `\SB_DFFE.\Q' using process `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$270'.
-  created $dff cell `$procdff$542' with positive edge clock.
-Creating register for signal `\SB_DFF.\Q' using process `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:269$268'.
-  created $dff cell `$procdff$543' with positive edge clock.
+Creating register for signal `\SB_DFFNES.\Q' using process `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$362'.
+  created $adff cell `$procdff$546' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNESS.\Q' using process `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$355'.
+  created $dff cell `$procdff$547' with negative edge clock.
+Creating register for signal `\SB_DFFNER.\Q' using process `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$351'.
+  created $adff cell `$procdff$548' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNESR.\Q' using process `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$344'.
+  created $dff cell `$procdff$549' with negative edge clock.
+Creating register for signal `\SB_DFFNS.\Q' using process `\SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$341'.
+  created $adff cell `$procdff$550' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNSS.\Q' using process `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$338'.
+  created $dff cell `$procdff$551' with negative edge clock.
+Creating register for signal `\SB_DFFNR.\Q' using process `\SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$335'.
+  created $adff cell `$procdff$552' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNSR.\Q' using process `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$332'.
+  created $dff cell `$procdff$553' with negative edge clock.
+Creating register for signal `\SB_DFFNE.\Q' using process `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$330'.
+  created $dff cell `$procdff$554' with negative edge clock.
+Creating register for signal `\SB_DFFN.\Q' using process `\SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:846$328'.
+  created $dff cell `$procdff$555' with negative edge clock.
+Creating register for signal `\SB_DFFES.\Q' using process `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$324'.
+  created $adff cell `$procdff$556' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFESS.\Q' using process `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$317'.
+  created $dff cell `$procdff$557' with positive edge clock.
+Creating register for signal `\SB_DFFER.\Q' using process `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$313'.
+  created $adff cell `$procdff$558' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFESR.\Q' using process `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$306'.
+  created $dff cell `$procdff$559' with positive edge clock.
+Creating register for signal `\SB_DFFS.\Q' using process `\SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$303'.
+  created $adff cell `$procdff$560' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFSS.\Q' using process `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$300'.
+  created $dff cell `$procdff$561' with positive edge clock.
+Creating register for signal `\SB_DFFR.\Q' using process `\SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$297'.
+  created $adff cell `$procdff$562' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFSR.\Q' using process `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$294'.
+  created $dff cell `$procdff$563' with positive edge clock.
+Creating register for signal `\SB_DFFE.\Q' using process `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$292'.
+  created $dff cell `$procdff$564' with positive edge clock.
+Creating register for signal `\SB_DFF.\Q' using process `\SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:269$290'.
+  created $dff cell `$procdff$565' with positive edge clock.
 
 2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$343'.
-Found and cleaned up 1 empty switch in `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$340'.
-Removing empty process `SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$340'.
-Removing empty process `SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$339'.
-Found and cleaned up 2 empty switches in `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$333'.
-Removing empty process `SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$333'.
-Removing empty process `SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$332'.
-Found and cleaned up 1 empty switch in `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$329'.
-Removing empty process `SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$329'.
-Removing empty process `SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$328'.
-Found and cleaned up 2 empty switches in `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$322'.
-Removing empty process `SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$322'.
-Removing empty process `SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$321'.
-Removing empty process `SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$319'.
-Removing empty process `SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$318'.
-Found and cleaned up 1 empty switch in `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$316'.
-Removing empty process `SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$316'.
-Removing empty process `SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$315'.
-Removing empty process `SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$313'.
-Removing empty process `SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$312'.
-Found and cleaned up 1 empty switch in `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$310'.
-Removing empty process `SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$310'.
-Removing empty process `SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$309'.
-Found and cleaned up 1 empty switch in `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$308'.
-Removing empty process `SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$308'.
-Removing empty process `SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$307'.
-Removing empty process `SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:846$306'.
-Removing empty process `SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$305'.
-Found and cleaned up 1 empty switch in `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$302'.
-Removing empty process `SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$302'.
-Removing empty process `SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$301'.
-Found and cleaned up 2 empty switches in `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$295'.
-Removing empty process `SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$295'.
-Removing empty process `SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$294'.
-Found and cleaned up 1 empty switch in `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$291'.
-Removing empty process `SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$291'.
-Removing empty process `SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$290'.
-Found and cleaned up 2 empty switches in `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$284'.
-Removing empty process `SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$284'.
-Removing empty process `SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$283'.
-Removing empty process `SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$281'.
-Removing empty process `SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$280'.
-Found and cleaned up 1 empty switch in `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$278'.
-Removing empty process `SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$278'.
-Removing empty process `SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$277'.
-Removing empty process `SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$275'.
-Removing empty process `SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$274'.
-Found and cleaned up 1 empty switch in `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$272'.
-Removing empty process `SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$272'.
-Removing empty process `SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$271'.
-Found and cleaned up 1 empty switch in `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$270'.
-Removing empty process `SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$270'.
-Removing empty process `SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$269'.
-Removing empty process `SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:269$268'.
+Removing empty process `SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$365'.
+Found and cleaned up 1 empty switch in `\SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$362'.
+Removing empty process `SB_DFFNES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1346$362'.
+Removing empty process `SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$361'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$355'.
+Removing empty process `SB_DFFNESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1290$355'.
+Removing empty process `SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$354'.
+Found and cleaned up 1 empty switch in `\SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$351'.
+Removing empty process `SB_DFFNER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1215$351'.
+Removing empty process `SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$350'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$344'.
+Removing empty process `SB_DFFNESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1159$344'.
+Removing empty process `SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$343'.
+Removing empty process `SB_DFFNS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1090$341'.
+Removing empty process `SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$340'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$338'.
+Removing empty process `SB_DFFNSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:1042$338'.
+Removing empty process `SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$337'.
+Removing empty process `SB_DFFNR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:973$335'.
+Removing empty process `SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$334'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$332'.
+Removing empty process `SB_DFFNSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:925$332'.
+Removing empty process `SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$331'.
+Found and cleaned up 1 empty switch in `\SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$330'.
+Removing empty process `SB_DFFNE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:882$330'.
+Removing empty process `SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$329'.
+Removing empty process `SB_DFFN.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:846$328'.
+Removing empty process `SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$327'.
+Found and cleaned up 1 empty switch in `\SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$324'.
+Removing empty process `SB_DFFES.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:769$324'.
+Removing empty process `SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$323'.
+Found and cleaned up 2 empty switches in `\SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$317'.
+Removing empty process `SB_DFFESS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:713$317'.
+Removing empty process `SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$316'.
+Found and cleaned up 1 empty switch in `\SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$313'.
+Removing empty process `SB_DFFER.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:638$313'.
+Removing empty process `SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$312'.
+Found and cleaned up 2 empty switches in `\SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$306'.
+Removing empty process `SB_DFFESR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:582$306'.
+Removing empty process `SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$305'.
+Removing empty process `SB_DFFS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:513$303'.
+Removing empty process `SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$302'.
+Found and cleaned up 1 empty switch in `\SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$300'.
+Removing empty process `SB_DFFSS.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:465$300'.
+Removing empty process `SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$299'.
+Removing empty process `SB_DFFR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:396$297'.
+Removing empty process `SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$296'.
+Found and cleaned up 1 empty switch in `\SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$294'.
+Removing empty process `SB_DFFSR.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:348$294'.
+Removing empty process `SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$293'.
+Found and cleaned up 1 empty switch in `\SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$292'.
+Removing empty process `SB_DFFE.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:305$292'.
+Removing empty process `SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:0$291'.
+Removing empty process `SB_DFF.$proc$/home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_sim.v:269$290'.
 Cleaned up 18 empty switches.
 
 2.4. Executing FLATTEN pass (flatten design).
@@ -375,6 +378,7 @@ Deleting now unused module pll.
 
 2.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
+<suppressed ~1 debug messages>
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
@@ -400,7 +404,7 @@ Running muxtree optimizer on module \top..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~8 debug messages>
+<suppressed ~11 debug messages>
 
 2.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
@@ -454,7 +458,7 @@ Running muxtree optimizer on module \top..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~8 debug messages>
+<suppressed ~11 debug messages>
 
 2.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
@@ -465,14 +469,16 @@ Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.12.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on vga1.83 ($dff) from module top (D = $flatten\vga1.$auto$ghdl.cc:762:import_module$17, Q = \vga1:17, rval = 10'0000000000).
-Adding EN signal on vga1.82 ($dff) from module top (D = $flatten\vga1.$auto$ghdl.cc:762:import_module$20, Q = { \vga1:15 [9:5] \display1.row [4:0] }).
-Adding SRST signal on $auto$opt_dff.cc:764:run$545 ($dffe) from module top (D = $flatten\vga1.$auto$ghdl.cc:762:import_module$19, Q = { \vga1:15 [9:5] \display1.row [4:0] }, rval = 10'0000000000).
+Adding SRST signal on vga1.131 ($dff) from module top (D = $flatten\vga1.$auto$ghdl.cc:762:import_module$26, Q = \display1.column, rval = 10'0000000000).
+Adding EN signal on vga1.130 ($dff) from module top (D = $flatten\vga1.$auto$ghdl.cc:762:import_module$29, Q = \display1.row).
+Adding SRST signal on $auto$opt_dff.cc:764:run$567 ($dffe) from module top (D = $flatten\vga1.$auto$ghdl.cc:762:import_module$28, Q = \display1.row, rval = 10'0000000000).
+Adding SRST signal on \74 ($dff) from module top (D = $auto$ghdl.cc:762:import_module$14, Q = \frame_count, rval = 6'000000).
+Adding EN signal on \73 ($dff) from module top (D = $auto$ghdl.cc:762:import_module$16, Q = \cannon_row).
 
 2.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 3 unused cells and 3 unused wires.
-<suppressed ~4 debug messages>
+Removed 5 unused cells and 5 unused wires.
+<suppressed ~6 debug messages>
 
 2.12.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
@@ -485,7 +491,7 @@ Running muxtree optimizer on module \top..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~6 debug messages>
+<suppressed ~7 debug messages>
 
 2.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
@@ -506,11 +512,18 @@ Optimizing module top.
 2.12.16. Finished OPT passes. (There is nothing left to do.)
 
 2.13. Executing WREDUCE pass (reducing word size of cells).
-Removed top 1 bits (of 10) from port B of cell top.vga1.104 ($lt).
-Removed top 1 bits (of 10) from port B of cell top.vga1.96 ($lt).
-Removed top 1 bits (of 10) from port B of cell top.vga1.94 ($gt).
-Removed top 9 bits (of 10) from port B of cell top.vga1.73 ($add).
-Removed top 9 bits (of 10) from port B of cell top.vga1.68 ($add).
+Removed top 1 bits (of 10) from port B of cell top.\54 ($gt).
+Removed top 5 bits (of 6) from port B of cell top.\61 ($add).
+Removed top 1 bits (of 6) from port B of cell top.\63 ($eq).
+Removed top 6 bits (of 10) from port B of cell top.\65 ($sub).
+Removed top 1 bits (of 10) from port B of cell top.vga1.136 ($lt).
+Removed top 1 bits (of 10) from port B of cell top.vga1.118 ($lt).
+Removed top 1 bits (of 10) from port B of cell top.vga1.116 ($gt).
+Removed top 9 bits (of 10) from port B of cell top.vga1.101 ($add).
+Removed top 9 bits (of 10) from port B of cell top.vga1.96 ($add).
+Removed top 2 bits (of 10) from port A of cell top.display1.157 ($gt).
+Removed top 2 bits (of 10) from port A of cell top.display1.153 ($le).
+Removed top 5 bits (of 10) from port B of cell top.display1.150 ($add).
 
 2.14. Executing PEEPOPT pass (run peephole optimizers).
 
@@ -528,7 +541,7 @@ Successfully finished Verilog frontend.
 
 2.17.2. Continuing TECHMAP pass.
 No more expansions possible.
-<suppressed ~244 debug messages>
+<suppressed ~374 debug messages>
 
 2.18. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
@@ -538,40 +551,59 @@ Finding unused cells or wires in module \top..
 
 2.20. Executing ALUMACC pass (create $alu and $macc cells).
 Extracting $alu and $macc cells in module top:
-  creating $macc model for \41 ($sub).
-  creating $macc model for vga1.68 ($add).
-  creating $macc model for vga1.73 ($add).
-  creating $alu model for $macc vga1.73.
-  creating $alu model for $macc vga1.68.
-  creating $alu model for $macc \41.
-  creating $alu model for \33 ($gt): new $alu
-  creating $alu model for vga1.102 ($lt): new $alu
-  creating $alu model for vga1.104 ($lt): new $alu
-  creating $alu model for vga1.65 ($lt): new $alu
-  creating $alu model for vga1.70 ($lt): new $alu
-  creating $alu model for vga1.86 ($gt): new $alu
-  creating $alu model for vga1.88 ($lt): new $alu
-  creating $alu model for vga1.94 ($gt): new $alu
-  creating $alu model for vga1.96 ($lt): new $alu
-  creating $alu cell for vga1.96: $auto$alumacc.cc:485:replace_alu$557
-  creating $alu cell for vga1.94: $auto$alumacc.cc:485:replace_alu$568
-  creating $alu cell for vga1.88: $auto$alumacc.cc:485:replace_alu$573
-  creating $alu cell for vga1.86: $auto$alumacc.cc:485:replace_alu$578
-  creating $alu cell for vga1.70: $auto$alumacc.cc:485:replace_alu$583
-  creating $alu cell for vga1.65: $auto$alumacc.cc:485:replace_alu$594
-  creating $alu cell for vga1.104: $auto$alumacc.cc:485:replace_alu$605
-  creating $alu cell for vga1.102: $auto$alumacc.cc:485:replace_alu$616
-  creating $alu cell for \33: $auto$alumacc.cc:485:replace_alu$627
-  creating $alu cell for \41: $auto$alumacc.cc:485:replace_alu$638
-  creating $alu cell for vga1.68: $auto$alumacc.cc:485:replace_alu$641
-  creating $alu cell for vga1.73: $auto$alumacc.cc:485:replace_alu$644
-  created 12 $alu and 0 $macc cells.
+  creating $macc model for \46 ($sub).
+  creating $macc model for \61 ($add).
+  creating $macc model for \65 ($sub).
+  creating $macc model for display1.150 ($add).
+  creating $macc model for vga1.101 ($add).
+  creating $macc model for vga1.96 ($add).
+  creating $alu model for $macc vga1.96.
+  creating $alu model for $macc vga1.101.
+  creating $alu model for $macc display1.150.
+  creating $alu model for $macc \65.
+  creating $alu model for $macc \61.
+  creating $alu model for $macc \46.
+  creating $alu model for \38 ($gt): new $alu
+  creating $alu model for \54 ($gt): new $alu
+  creating $alu model for display1.148 ($le): new $alu
+  creating $alu model for display1.151 ($gt): new $alu
+  creating $alu model for display1.153 ($le): new $alu
+  creating $alu model for display1.157 ($gt): new $alu
+  creating $alu model for vga1.108 ($gt): new $alu
+  creating $alu model for vga1.110 ($lt): new $alu
+  creating $alu model for vga1.116 ($gt): new $alu
+  creating $alu model for vga1.118 ($lt): new $alu
+  creating $alu model for vga1.134 ($lt): new $alu
+  creating $alu model for vga1.136 ($lt): new $alu
+  creating $alu model for vga1.93 ($lt): new $alu
+  creating $alu model for vga1.98 ($lt): new $alu
+  creating $alu cell for vga1.98: $auto$alumacc.cc:485:replace_alu$586
+  creating $alu cell for vga1.93: $auto$alumacc.cc:485:replace_alu$591
+  creating $alu cell for vga1.136: $auto$alumacc.cc:485:replace_alu$602
+  creating $alu cell for vga1.134: $auto$alumacc.cc:485:replace_alu$613
+  creating $alu cell for vga1.118: $auto$alumacc.cc:485:replace_alu$624
+  creating $alu cell for vga1.116: $auto$alumacc.cc:485:replace_alu$635
+  creating $alu cell for vga1.110: $auto$alumacc.cc:485:replace_alu$640
+  creating $alu cell for vga1.108: $auto$alumacc.cc:485:replace_alu$645
+  creating $alu cell for display1.157: $auto$alumacc.cc:485:replace_alu$650
+  creating $alu cell for display1.153: $auto$alumacc.cc:485:replace_alu$661
+  creating $alu cell for display1.151: $auto$alumacc.cc:485:replace_alu$670
+  creating $alu cell for display1.148: $auto$alumacc.cc:485:replace_alu$675
+  creating $alu cell for \54: $auto$alumacc.cc:485:replace_alu$688
+  creating $alu cell for \38: $auto$alumacc.cc:485:replace_alu$693
+  creating $alu cell for \46: $auto$alumacc.cc:485:replace_alu$704
+  creating $alu cell for \61: $auto$alumacc.cc:485:replace_alu$707
+  creating $alu cell for \65: $auto$alumacc.cc:485:replace_alu$710
+  creating $alu cell for display1.150: $auto$alumacc.cc:485:replace_alu$713
+  creating $alu cell for vga1.101: $auto$alumacc.cc:485:replace_alu$716
+  creating $alu cell for vga1.96: $auto$alumacc.cc:485:replace_alu$719
+  created 20 $alu and 0 $macc cells.
 
 2.21. Executing OPT pass (performing simple optimizations).
 
 2.21.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-<suppressed ~4 debug messages>
+<suppressed ~7 debug messages>
 
 2.21.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
@@ -582,7 +614,9 @@ Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
-Removed 0 multiplexer ports.
+    dead port 1/2 on $mux \55.
+    dead port 2/2 on $mux \55.
+Removed 2 multiplexer ports.
 <suppressed ~6 debug messages>
 
 2.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
@@ -597,8 +631,8 @@ Removed a total of 0 cells.
 
 2.21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 3 unused cells and 12 unused wires.
-<suppressed ~4 debug messages>
+Removed 4 unused cells and 19 unused wires.
+<suppressed ~6 debug messages>
 
 2.21.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
@@ -652,7 +686,7 @@ Finding unused cells or wires in module \top..
 Finding unused cells or wires in module \top..
 
 2.24. Executing MEMORY_BRAM pass (mapping $mem cells to block memories).
-Processing top.\48:
+Processing top.\76:
   Properties: ports=1 bits=1024 rports=1 wports=0 dbits=32 abits=5 words=32
   Checking rule #1 for bram type $__ICE40_RAM4K_M0 (variant 1):
     Bram geometry: abits=8 dbits=16 wports=0 rports=0
@@ -737,8 +771,8 @@ Processing top.\48:
     Mapping to bram type $__ICE40_RAM4K_M0 (variant 1):
       Read port #0 is in clock domain \row_clk.
         Mapped to bram port A1.1.
-      Creating $__ICE40_RAM4K_M0 cell at grid position <0 0 0>: \48.0.0.0
-      Creating $__ICE40_RAM4K_M0 cell at grid position <1 0 0>: \48.1.0.0
+      Creating $__ICE40_RAM4K_M0 cell at grid position <0 0 0>: \76.0.0.0
+      Creating $__ICE40_RAM4K_M0 cell at grid position <1 0 0>: \76.1.0.0
 
 2.25. Executing TECHMAP pass (map to technology primitives).
 
@@ -750,12 +784,10 @@ Generating RTLIL representation for module `\$__ICE40_RAM4K_M123'.
 Successfully finished Verilog frontend.
 
 2.25.2. Continuing TECHMAP pass.
-Using template $paramod$818164db668ef5ed9faf66fc8b2aafeebdc654e0\$__ICE40_RAM4K_M0 for cells of type $__ICE40_RAM4K_M0.
-Using template $paramod$b5167f20dffcbb33181b4e9018b9c3e61dab2493\$__ICE40_RAM4K_M0 for cells of type $__ICE40_RAM4K_M0.
-Using template $paramod$f9d58ad99e8317327ab0697465c6b07d55d85415\$__ICE40_RAM4K for cells of type $__ICE40_RAM4K.
-Using template $paramod$915053528f44fd522ec271b771ea815a9c31e09b\$__ICE40_RAM4K for cells of type $__ICE40_RAM4K.
+Using template $paramod$dcfa9f8fb996f1f9da527a8b6e217af83e36967a\$__ICE40_RAM4K_M0 for cells of type $__ICE40_RAM4K_M0.
+Using template $paramod$848dadbb7f193f4466bac86fbda8693f74ef39c4\$__ICE40_RAM4K for cells of type $__ICE40_RAM4K.
 No more expansions possible.
-<suppressed ~133 debug messages>
+<suppressed ~71 debug messages>
 
 2.26. Executing ICE40_BRAMINIT pass.
 
@@ -763,19 +795,19 @@ No more expansions possible.
 
 2.27.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-<suppressed ~25 debug messages>
+<suppressed ~28 debug messages>
 
 2.27.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
-<suppressed ~63 debug messages>
-Removed a total of 21 cells.
+<suppressed ~69 debug messages>
+Removed a total of 23 cells.
 
 2.27.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 2.27.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 5 unused cells and 93 unused wires.
-<suppressed ~6 debug messages>
+Removed 8 unused cells and 98 unused wires.
+<suppressed ~9 debug messages>
 
 2.27.5. Finished fast OPT passes.
 
@@ -807,14 +839,77 @@ Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.29.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$opt_dff.cc:764:run$570 ($dffe) from module top (D = \cannon_row [2:0], Q = \cannon_row [2:0]).
+Handling D = Q on $auto$opt_dff.cc:764:run$829 ($dffe) from module top (removing D path).
+Setting constant 0-bit at position 0 on $auto$opt_dff.cc:764:run$829 ($dffe) from module top.
+Setting constant 0-bit at position 1 on $auto$opt_dff.cc:764:run$829 ($dffe) from module top.
+Setting constant 1-bit at position 2 on $auto$opt_dff.cc:764:run$829 ($dffe) from module top.
 
 2.29.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
 
 2.29.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
+<suppressed ~2 debug messages>
 
-2.29.9. Finished OPT passes. (There is nothing left to do.)
+2.29.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.29.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+2.29.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+2.29.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+2.29.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+2.29.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.29.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.29.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+2.29.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+2.29.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.29.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.29.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.29.23. Finished OPT passes. (There is nothing left to do.)
 
 2.30. Executing ICE40_WRAPCARRY pass (wrap carries).
 
@@ -853,75 +948,90 @@ Generating RTLIL representation for module `\_80_ice40_alu'.
 Successfully finished Verilog frontend.
 
 2.31.3. Continuing TECHMAP pass.
-Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $mux.
-Using template $paramod$754650b284649a026620fc6856e5b6886cbfe794\_80_ice40_alu for cells of type $alu.
-Using extmapper simplemap for cells of type $reduce_and.
-Using template $paramod$49641a5ace7a8dbedd31c417f5a1b54fcecf6c7d\_80_ice40_alu for cells of type $alu.
-Using extmapper simplemap for cells of type $and.
+Using template $paramod$32efbfac1c4dc57230cf86180788fdfd12e3b511\_80_ice40_alu for cells of type $alu.
 Using template $paramod$78e969f2586efcf3a5b0b0440bcca0db83d5cca2\_80_ice40_alu for cells of type $alu.
+Using template $paramod$10ed987432f06055e5279101f9ec60a49861b43c\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$49641a5ace7a8dbedd31c417f5a1b54fcecf6c7d\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $sdffce.
+Using extmapper simplemap for cells of type $dff.
 Using template $paramod$78464f9f65d57061f7490f3fe5dd257e4a61e2b7\_80_ice40_alu for cells of type $alu.
 Using template $paramod$00298f3f8094950cb9a5ff2fda48d0d8bde8806c\_80_ice40_alu for cells of type $alu.
-Using template $paramod$484d51534650924b7ed4c69e46eed3a56904771f\_80_ice40_alu for cells of type $alu.
-Using extmapper simplemap for cells of type $sdffce.
+Using template $paramod$78648aff6d035ceca1e51be5292d8e9748cdc2be\_80_ice40_alu for cells of type $alu.
+Using template $paramod$754650b284649a026620fc6856e5b6886cbfe794\_80_ice40_alu for cells of type $alu.
 Using template $paramod$b18e16801adf491a64caa0542270798e5d4ac6b6\_80_ice40_alu for cells of type $alu.
 Using template $paramod$83dd457849c736323edf2edb15923eb27f99c683\_80_ice40_alu for cells of type $alu.
-Using extmapper simplemap for cells of type $sdff.
 Using extmapper simplemap for cells of type $xor.
 Using extmapper simplemap for cells of type $pos.
 No more expansions possible.
-<suppressed ~361 debug messages>
+<suppressed ~488 debug messages>
 
 2.32. Executing OPT pass (performing simple optimizations).
 
 2.32.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-<suppressed ~185 debug messages>
+<suppressed ~337 debug messages>
 
 2.32.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
-<suppressed ~210 debug messages>
-Removed a total of 70 cells.
+<suppressed ~354 debug messages>
+Removed a total of 118 cells.
 
 2.32.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 2.32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 204 unused wires.
-<suppressed ~1 debug messages>
+Removed 12 unused cells and 351 unused wires.
+<suppressed ~13 debug messages>
 
 2.32.5. Finished fast OPT passes.
 
 2.33. Executing ICE40_OPT pass (performing simple optimizations).
 
 2.33.1. Running ICE40 specific optimizations.
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$557.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$557.BB [0]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$568.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$557.BB [1]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$573.slice[0].carry: CO=\vga1:17 [4]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$578.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$578.BB [0]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$583.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$557.BB [0]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$594.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$578.BB [1]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$605.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$557.BB [5]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$616.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$578.BB [3]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$627.slice[0].carry: CO=\vga1:17 [7]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$641.slice[0].carry: CO=\vga1:17 [0]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$644.slice[0].carry: CO=\display1.row [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$586.slice[0].carry: CO=\display1.row [2]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$591.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$591.BB [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$602.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$586.X [3]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$613.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$591.BB [2]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$624.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$624.BB [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$635.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$624.BB [1]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$640.slice[0].carry: CO=\display1.column [4]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$645.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$645.BB [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$650.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$650.BB [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$661.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$650.BB [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$670.slice[0].carry: CO=\display1.row [2]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$675.slice[0].carry: CO=\display1.row [2]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$688.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$624.BB [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$693.slice[0].carry: CO=\display1.column [7]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$707.slice[0].carry: CO=\frame_count [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$710.slice[0].carry: CO=\cannon_row [3]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$713.slice[0].carry: CO=\cannon_row [4]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$716.slice[0].carry: CO=\display1.row [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) top.$auto$alumacc.cc:485:replace_alu$719.slice[0].carry: CO=\display1.column [0]
 
 2.33.2. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
 2.33.3. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
-<suppressed ~3 debug messages>
-Removed a total of 1 cells.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
 
 2.33.4. Executing OPT_DFF pass (perform DFF optimizations).
 
 2.33.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 8 unused cells and 0 unused wires.
-<suppressed ~8 debug messages>
+Removed 10 unused cells and 0 unused wires.
+<suppressed ~10 debug messages>
 
 2.33.6. Rerunning OPT passes. (Removed registers in this run.)
 
@@ -971,16 +1081,23 @@ Successfully finished Verilog frontend.
 
 2.35.2. Continuing TECHMAP pass.
 Using template \$_SDFFCE_PP0P_ for cells of type $_SDFFCE_PP0P_.
+Using template \$_DFF_P_ for cells of type $_DFF_P_.
 Using template \$_SDFF_PP0_ for cells of type $_SDFF_PP0_.
+Using template \$_DFFE_NP_ for cells of type $_DFFE_NP_.
+Using template \$_SDFF_NP0_ for cells of type $_SDFF_NP0_.
 No more expansions possible.
-<suppressed ~42 debug messages>
+<suppressed ~58 debug messages>
 
 2.36. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
+<suppressed ~3 debug messages>
 
 2.37. Executing SIMPLEMAP pass (map simple cells to gate primitives).
-Mapping top.$auto$alumacc.cc:485:replace_alu$641.slice[0].carry ($lut).
-Mapping top.$auto$alumacc.cc:485:replace_alu$644.slice[0].carry ($lut).
+Mapping top.$auto$alumacc.cc:485:replace_alu$707.slice[0].carry ($lut).
+Mapping top.$auto$alumacc.cc:485:replace_alu$710.slice[0].carry ($lut).
+Mapping top.$auto$alumacc.cc:485:replace_alu$713.slice[0].carry ($lut).
+Mapping top.$auto$alumacc.cc:485:replace_alu$716.slice[0].carry ($lut).
+Mapping top.$auto$alumacc.cc:485:replace_alu$719.slice[0].carry ($lut).
 
 2.38. Executing ICE40_OPT pass (performing simple optimizations).
 
@@ -988,18 +1105,18 @@ Mapping top.$auto$alumacc.cc:485:replace_alu$644.slice[0].carry ($lut).
 
 2.38.2. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-<suppressed ~28 debug messages>
+<suppressed ~70 debug messages>
 
 2.38.3. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
-<suppressed ~6 debug messages>
-Removed a total of 2 cells.
+<suppressed ~51 debug messages>
+Removed a total of 17 cells.
 
 2.38.4. Executing OPT_DFF pass (perform DFF optimizations).
 
 2.38.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 118 unused wires.
+Removed 0 unused cells and 222 unused wires.
 <suppressed ~1 debug messages>
 
 2.38.6. Rerunning OPT passes. (Removed registers in this run.)
@@ -1035,7 +1152,7 @@ No more expansions possible.
 2.40. Executing ABC pass (technology mapping using ABC).
 
 2.40.1. Extracting gate netlist of module `\top' to `<abc-temp-dir>/input.blif'..
-Extracted 124 gates and 185 wires to a netlist network with 61 inputs and 23 outputs.
+Extracted 180 gates and 265 wires to a netlist network with 85 inputs and 42 outputs.
 
 2.40.1.1. Executing ABC.
 Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
@@ -1055,20 +1172,20 @@ ABC: + if
 ABC: + mfs2 
 ABC: + lutpack -S 1 
 ABC: + dress 
-ABC: Total number of equiv classes                =      39.
-ABC: Participating nodes from both networks       =      79.
-ABC: Participating nodes from the first network   =      38. (  58.46 % of nodes)
-ABC: Participating nodes from the second network  =      41. (  63.08 % of nodes)
-ABC: Node pairs (any polarity)                    =      38. (  58.46 % of names can be moved)
-ABC: Node pairs (same polarity)                   =      30. (  46.15 % of names can be moved)
+ABC: Total number of equiv classes                =      59.
+ABC: Participating nodes from both networks       =     120.
+ABC: Participating nodes from the first network   =      58. (  59.79 % of nodes)
+ABC: Participating nodes from the second network  =      62. (  63.92 % of nodes)
+ABC: Node pairs (any polarity)                    =      58. (  59.79 % of names can be moved)
+ABC: Node pairs (same polarity)                   =      51. (  52.58 % of names can be moved)
 ABC: Total runtime =     0.00 sec
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 2.40.1.2. Re-integrating ABC results.
-ABC RESULTS:              $lut cells:       64
-ABC RESULTS:        internal signals:      101
-ABC RESULTS:           input signals:       61
-ABC RESULTS:          output signals:       23
+ABC RESULTS:              $lut cells:       96
+ABC RESULTS:        internal signals:      138
+ABC RESULTS:           input signals:       85
+ABC RESULTS:          output signals:       42
 Removing temp directory.
 
 2.41. Executing ICE40_WRAPCARRY pass (wrap carries).
@@ -1102,33 +1219,33 @@ Successfully finished Verilog frontend.
 2.42.2. Continuing TECHMAP pass.
 No more expansions possible.
 <suppressed ~22 debug messages>
-Removed 50 unused cells and 172 unused wires.
+Removed 92 unused cells and 249 unused wires.
 
 2.43. Executing OPT_LUT pass (optimize LUTs).
 Discovering LUTs.
-Number of LUTs:       82
-  1-LUT               17
-  2-LUT               24
-  3-LUT                8
-  4-LUT               33
+Number of LUTs:      130
+  1-LUT               36
+  2-LUT               41
+  3-LUT               11
+  4-LUT               42
 
 Eliminating LUTs.
-Number of LUTs:       82
-  1-LUT               17
-  2-LUT               24
-  3-LUT                8
-  4-LUT               33
+Number of LUTs:      130
+  1-LUT               36
+  2-LUT               41
+  3-LUT               11
+  4-LUT               42
 
 Combining LUTs.
-Number of LUTs:       82
-  1-LUT               17
-  2-LUT               24
-  3-LUT                8
-  4-LUT               33
+Number of LUTs:      122
+  1-LUT               28
+  2-LUT               41
+  3-LUT               11
+  4-LUT               42
 
 Eliminated 0 LUTs.
-Combined 0 LUTs.
-<suppressed ~499 debug messages>
+Combined 8 LUTs.
+<suppressed ~922 debug messages>
 
 2.44. Executing TECHMAP pass (map to technology primitives).
 
@@ -1138,41 +1255,50 @@ Generating RTLIL representation for module `\$lut'.
 Successfully finished Verilog frontend.
 
 2.44.2. Continuing TECHMAP pass.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
-Using template $paramod$de3d8c0ac9a85f776878d56395b6e0bf04ae72e7\$lut for cells of type $lut.
-Using template $paramod$fd904e9e35cfd343a9df248824bd3f1408724879\$lut for cells of type $lut.
-Using template $paramod$bdb7f9ed72fd4f5c7ad81c376f2d8a5c72a0098d\$lut for cells of type $lut.
-Using template $paramod$adac5163f2ca606e303e4fcb6e4ac1a8cfe9825d\$lut for cells of type $lut.
-Using template $paramod$30c7bb594369ca20ff4ff844ba6ed3179f45572d\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00110101 for cells of type $lut.
-Using template $paramod$8b24407096beec47292ddeb1567a058197a320b9\$lut for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9\$lut for cells of type $lut.
+Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8\$lut for cells of type $lut.
+Using template $paramod$272652f6c6fbe9a75eff76e45cc7e2788835518b\$lut for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$2d07c1a6c53c7b878509360922c4fa5ebedc3011\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
 Using template $paramod$e49f6e3576ef1a6d2f58c54414dbb786af8cc869\$lut for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
-Using template $paramod$6e238df02989b317f10820a22773676e71120644\$lut for cells of type $lut.
-Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
-Using template $paramod$933f4f3e373a784da64d137def3625bdd36d1695\$lut for cells of type $lut.
-Using template $paramod$272652f6c6fbe9a75eff76e45cc7e2788835518b\$lut for cells of type $lut.
-Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1011 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
-Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
 Using template $paramod$c5f3c57a6d466a2f42208bafb8985b96ce884440\$lut for cells of type $lut.
-Using template $paramod$6b0849254d6c87461fb93e37cc18f089f61eb912\$lut for cells of type $lut.
-Using template $paramod$b637cf4714c2e93484bb499728e176a6ab69c910\$lut for cells of type $lut.
 Using template $paramod$973818279bc95792902f3c09371fd2407d04a2a5\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod$12879138d1e376f344e47ea40be66b776233be75\$lut for cells of type $lut.
+Using template $paramod$ea0faad69a26c91786a25961ea149d0e0961eb1f\$lut for cells of type $lut.
+Using template $paramod$b38f14cbf649de888742c8d9c245315a16ac4233\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0110 for cells of type $lut.
+Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
+Using template $paramod$e5e9da8fed769f971686eed8c5eea50e61f73aaa\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00110101 for cells of type $lut.
+Using template $paramod$ca1d48527df516f209cb40a6149324209c84bc69\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01100000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000111 for cells of type $lut.
+Using template $paramod$8b24407096beec47292ddeb1567a058197a320b9\$lut for cells of type $lut.
 Using template $paramod$a670b08a47dd8a34f954c50cd06e9996d77e8467\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
+Using template $paramod$38f9bf4dd2329347b8471f0a98443dd323386889\$lut for cells of type $lut.
+Using template $paramod$6e238df02989b317f10820a22773676e71120644\$lut for cells of type $lut.
+Using template $paramod$cd6c4b4da6d8737b72fd2dc8f5d83d8967445809\$lut for cells of type $lut.
+Using template $paramod$d4fae2c0d9ad2966369cd4e39b81c71bcd1327c9\$lut for cells of type $lut.
 Using template $paramod$e5759512db67494ff77fbdfc66dff4006376568f\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11101111 for cells of type $lut.
+Using template $paramod$fd904e9e35cfd343a9df248824bd3f1408724879\$lut for cells of type $lut.
+Using template $paramod$4282def8dbd6df3d1248ad282c629bee684502c2\$lut for cells of type $lut.
+Using template $paramod$ff10621ff350133ce54c2c9c3516ef034e8cfe58\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000000 for cells of type $lut.
+Using template $paramod$53ce561f80f32d4298a3beadc88b6c5c78293221\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01110000 for cells of type $lut.
 No more expansions possible.
-<suppressed ~449 debug messages>
-Removed 0 unused cells and 184 unused wires.
+<suppressed ~606 debug messages>
+Removed 0 unused cells and 272 unused wires.
 
 2.45. Executing AUTONAME pass.
-Renamed 1968 objects in module top (26 iterations).
-<suppressed ~215 debug messages>
+Renamed 4927 objects in module top (38 iterations).
+<suppressed ~354 debug messages>
 
 2.46. Executing HIERARCHY pass (managing design hierarchy).
 
@@ -1187,18 +1313,21 @@ Removed 0 unused modules.
 
 === top ===
 
-   Number of wires:                 76
-   Number of wire bits:            414
-   Number of public wires:          76
-   Number of public wire bits:     414
+   Number of wires:                114
+   Number of wire bits:            635
+   Number of public wires:         114
+   Number of public wire bits:     635
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                169
-     SB_CARRY                       64
+   Number of cells:                277
+     SB_CARRY                      116
+     SB_DFF                          3
      SB_DFFESR                      10
+     SB_DFFNE                        7
+     SB_DFFNSR                       6
      SB_DFFSR                       10
-     SB_LUT4                        82
+     SB_LUT4                       122
      SB_PLL40_CORE                   1
      SB_RAM40_4K                     2
 
@@ -1208,25 +1337,26 @@ Found and reported 0 problems.
 
 2.49. Executing JSON backend.
 
-End of script. Logfile hash: eea1bc2cb6, CPU: user 0.54s system 0.00s, MEM: 59.16 MB peak
+End of script. Logfile hash: 589b48e937, CPU: user 0.76s system 0.03s, MEM: 59.18 MB peak
 Yosys 0.9+4052 (open-tool-forge build) (git sha1 86a6ac76, gcc 9.3.0-17ubuntu1~20.04 -Os)
-Time spent: 20% 10x read_verilog (0 sec), 17% 1x abc (0 sec), ...
+Time spent: 14% 1x abc (0 sec), 14% 10x read_verilog (0 sec), ...
 Info: constrained 'CLK_12M' to bel 'X19/Y0/io1'
 Info: constrained 'rgb_out' to bel 'X13/Y0/io1'
 Info: constrained 'Hsync' to bel 'X6/Y0/io0'
 Info: constrained 'Vsync' to bel 'X5/Y0/io0'
 Info: constrained 'ground' to bel 'X8/Y0/io0'
 Info: constrained 'out_0' to bel 'X8/Y31/io1'
+Info: constrained 'test' to bel 'X17/Y31/io0'
 
 Info: Packing constants..
 Info: Packing IOs..
 Info: Packing LUT-FFs..
-Info:       63 LCs used as LUT4 only
-Info:       19 LCs used as LUT4 and DFF
+Info:       89 LCs used as LUT4 only
+Info:       33 LCs used as LUT4 and DFF
 Info: Packing non-LUT FFs..
-Info:        1 LCs used as DFF only
+Info:        3 LCs used as DFF only
 Info: Packing carries..
-Info:       50 LCs used as CARRY only
+Info:       91 LCs used as CARRY only
 Info: Packing RAMs..
 Info: Placing PLLs..
 Info:   constrained PLL 'pll1.dut1' to X12/Y31/pll_3
@@ -1236,20 +1366,21 @@ Info:   PLL 'pll1.dut1' has LOCK output, need to pass all outputs via LUT
 Info:   LUT strategy for LOCK: move all users to new LUT
 Info:   constrained 'pll1.dut1_PLL$nextpnr_LOCK_lut_through' to X1/Y30/lc0
 Info: Promoting globals..
+Info: promoting \76.0.0.0_RADDR_SB_CARRY_I1_CO[9] (fanout 13)
 Info: promoting row_clk (fanout 2)
 Info: promoting $PACKER_GND_NET (fanout 2)
 Info: Constraining chains...
-Info:       14 LCs used to legalise carry chains.
-Info: Checksum: 0x463763c2
+Info:       26 LCs used to legalise carry chains.
+Info: Checksum: 0x368f357f
 
 Info: Annotating ports with timing budgets for target frequency 12.00 MHz
-Info: Checksum: 0xdfc3c9da
+Info: Checksum: 0x73ea7fb7
 
 Info: Device utilisation:
-Info: 	         ICESTORM_LC:   150/ 5280     2%
+Info: 	         ICESTORM_LC:   245/ 5280     4%
 Info: 	        ICESTORM_RAM:     2/   30     6%
-Info: 	               SB_IO:     6/   96     6%
-Info: 	               SB_GB:     3/    8    37%
+Info: 	               SB_IO:     7/   96     7%
+Info: 	               SB_GB:     4/    8    50%
 Info: 	        ICESTORM_PLL:     1/    1   100%
 Info: 	         SB_WARMBOOT:     0/    1     0%
 Info: 	        ICESTORM_DSP:     0/    8     0%
@@ -1262,252 +1393,339 @@ Info: 	         SB_LEDDA_IP:     0/    1     0%
 Info: 	         SB_RGBA_DRV:     0/    1     0%
 Info: 	      ICESTORM_SPRAM:     0/    4     0%
 
-Info: Placed 9 cells based on constraints.
-Info: Creating initial analytic placement for 78 cells, random placement wirelen = 3104.
-Info:     at initial placer iter 0, wirelen = 167
-Info:     at initial placer iter 1, wirelen = 180
-Info:     at initial placer iter 2, wirelen = 168
-Info:     at initial placer iter 3, wirelen = 154
+Info: Placed 10 cells based on constraints.
+Info: Creating initial analytic placement for 114 cells, random placement wirelen = 4379.
+Info:     at initial placer iter 0, wirelen = 197
+Info:     at initial placer iter 1, wirelen = 178
+Info:     at initial placer iter 2, wirelen = 178
+Info:     at initial placer iter 3, wirelen = 178
 Info: Running main analytical placer.
-Info:     at iteration #1, type ICESTORM_LC: wirelen solved = 162, spread = 575, legal = 586; time = 0.01s
-Info:     at iteration #1, type ICESTORM_RAM: wirelen solved = 515, spread = 543, legal = 613; time = 0.00s
-Info:     at iteration #1, type SB_GB: wirelen solved = 608, spread = 611, legal = 615; time = 0.00s
-Info:     at iteration #1, type ALL: wirelen solved = 150, spread = 585, legal = 657; time = 0.01s
-Info:     at iteration #2, type ICESTORM_LC: wirelen solved = 200, spread = 472, legal = 493; time = 0.01s
-Info:     at iteration #2, type ICESTORM_RAM: wirelen solved = 518, spread = 518, legal = 493; time = 0.00s
-Info:     at iteration #2, type SB_GB: wirelen solved = 490, spread = 490, legal = 493; time = 0.00s
-Info:     at iteration #2, type ALL: wirelen solved = 159, spread = 585, legal = 640; time = 0.00s
-Info:     at iteration #3, type ICESTORM_LC: wirelen solved = 210, spread = 495, legal = 529; time = 0.00s
-Info:     at iteration #3, type ICESTORM_RAM: wirelen solved = 513, spread = 513, legal = 501; time = 0.00s
-Info:     at iteration #3, type SB_GB: wirelen solved = 499, spread = 499, legal = 501; time = 0.00s
-Info:     at iteration #3, type ALL: wirelen solved = 171, spread = 511, legal = 581; time = 0.02s
-Info:     at iteration #4, type ICESTORM_LC: wirelen solved = 223, spread = 495, legal = 526; time = 0.01s
-Info:     at iteration #4, type ICESTORM_RAM: wirelen solved = 494, spread = 494, legal = 525; time = 0.00s
-Info:     at iteration #4, type SB_GB: wirelen solved = 525, spread = 525, legal = 525; time = 0.00s
-Info:     at iteration #4, type ALL: wirelen solved = 183, spread = 495, legal = 542; time = 0.01s
-Info:     at iteration #5, type ICESTORM_LC: wirelen solved = 211, spread = 515, legal = 542; time = 0.00s
-Info:     at iteration #5, type ICESTORM_RAM: wirelen solved = 510, spread = 510, legal = 513; time = 0.00s
-Info:     at iteration #5, type SB_GB: wirelen solved = 511, spread = 511, legal = 513; time = 0.00s
-Info:     at iteration #5, type ALL: wirelen solved = 199, spread = 488, legal = 543; time = 0.00s
-Info:     at iteration #6, type ICESTORM_LC: wirelen solved = 208, spread = 495, legal = 528; time = 0.00s
-Info:     at iteration #6, type ICESTORM_RAM: wirelen solved = 512, spread = 512, legal = 528; time = 0.01s
-Info:     at iteration #6, type SB_GB: wirelen solved = 523, spread = 523, legal = 528; time = 0.01s
-Info:     at iteration #6, type ALL: wirelen solved = 207, spread = 457, legal = 509; time = 0.01s
-Info:     at iteration #7, type ICESTORM_LC: wirelen solved = 210, spread = 452, legal = 496; time = 0.01s
-Info:     at iteration #7, type ICESTORM_RAM: wirelen solved = 443, spread = 458, legal = 502; time = 0.00s
-Info:     at iteration #7, type SB_GB: wirelen solved = 498, spread = 498, legal = 502; time = 0.00s
-Info:     at iteration #7, type ALL: wirelen solved = 223, spread = 460, legal = 513; time = 0.00s
-Info:     at iteration #8, type ICESTORM_LC: wirelen solved = 217, spread = 491, legal = 510; time = 0.00s
-Info:     at iteration #8, type ICESTORM_RAM: wirelen solved = 483, spread = 483, legal = 486; time = 0.00s
-Info:     at iteration #8, type SB_GB: wirelen solved = 482, spread = 482, legal = 486; time = 0.00s
-Info:     at iteration #8, type ALL: wirelen solved = 213, spread = 444, legal = 503; time = 0.00s
-Info:     at iteration #9, type ICESTORM_LC: wirelen solved = 219, spread = 450, legal = 487; time = 0.00s
-Info:     at iteration #9, type ICESTORM_RAM: wirelen solved = 487, spread = 487, legal = 487; time = 0.00s
-Info:     at iteration #9, type SB_GB: wirelen solved = 483, spread = 483, legal = 494; time = 0.00s
-Info:     at iteration #9, type ALL: wirelen solved = 230, spread = 455, legal = 491; time = 0.01s
-Info:     at iteration #10, type ICESTORM_LC: wirelen solved = 234, spread = 542, legal = 567; time = 0.01s
-Info:     at iteration #10, type ICESTORM_RAM: wirelen solved = 533, spread = 549, legal = 567; time = 0.00s
-Info:     at iteration #10, type SB_GB: wirelen solved = 562, spread = 562, legal = 567; time = 0.00s
-Info:     at iteration #10, type ALL: wirelen solved = 222, spread = 485, legal = 531; time = 0.00s
-Info:     at iteration #11, type ICESTORM_LC: wirelen solved = 246, spread = 511, legal = 533; time = 0.00s
-Info:     at iteration #11, type ICESTORM_RAM: wirelen solved = 518, spread = 518, legal = 533; time = 0.00s
-Info:     at iteration #11, type SB_GB: wirelen solved = 528, spread = 528, legal = 533; time = 0.00s
-Info:     at iteration #11, type ALL: wirelen solved = 254, spread = 458, legal = 499; time = 0.00s
-Info:     at iteration #12, type ICESTORM_LC: wirelen solved = 244, spread = 548, legal = 573; time = 0.00s
-Info:     at iteration #12, type ICESTORM_RAM: wirelen solved = 554, spread = 554, legal = 573; time = 0.00s
-Info:     at iteration #12, type SB_GB: wirelen solved = 570, spread = 570, legal = 573; time = 0.01s
-Info:     at iteration #12, type ALL: wirelen solved = 243, spread = 450, legal = 513; time = 0.01s
-Info:     at iteration #13, type ICESTORM_LC: wirelen solved = 288, spread = 459, legal = 519; time = 0.01s
-Info:     at iteration #13, type ICESTORM_RAM: wirelen solved = 510, spread = 514, legal = 519; time = 0.00s
-Info:     at iteration #13, type SB_GB: wirelen solved = 514, spread = 514, legal = 526; time = 0.00s
-Info:     at iteration #13, type ALL: wirelen solved = 232, spread = 445, legal = 561; time = 0.00s
-Info:     at iteration #14, type ICESTORM_LC: wirelen solved = 375, spread = 481, legal = 528; time = 0.00s
-Info:     at iteration #14, type ICESTORM_RAM: wirelen solved = 461, spread = 469, legal = 496; time = 0.00s
-Info:     at iteration #14, type SB_GB: wirelen solved = 490, spread = 490, legal = 503; time = 0.00s
-Info:     at iteration #14, type ALL: wirelen solved = 238, spread = 487, legal = 614; time = 0.00s
-Info: HeAP Placer Time: 0.25s
-Info:   of which solving equations: 0.20s
-Info:   of which spreading cells: 0.02s
+Info:     at iteration #1, type ICESTORM_LC: wirelen solved = 197, spread = 819, legal = 833; time = 0.00s
+Info:     at iteration #1, type ICESTORM_RAM: wirelen solved = 722, spread = 738, legal = 843; time = 0.00s
+Info:     at iteration #1, type SB_GB: wirelen solved = 828, spread = 842, legal = 850; time = 0.00s
+Info:     at iteration #1, type ALL: wirelen solved = 177, spread = 871, legal = 915; time = 0.00s
+Info:     at iteration #2, type ICESTORM_LC: wirelen solved = 220, spread = 827, legal = 876; time = 0.00s
+Info:     at iteration #2, type ICESTORM_RAM: wirelen solved = 739, spread = 739, legal = 936; time = 0.00s
+Info:     at iteration #2, type SB_GB: wirelen solved = 925, spread = 933, legal = 936; time = 0.00s
+Info:     at iteration #2, type ALL: wirelen solved = 179, spread = 830, legal = 936; time = 0.01s
+Info:     at iteration #3, type ICESTORM_LC: wirelen solved = 233, spread = 772, legal = 823; time = 0.00s
+Info:     at iteration #3, type ICESTORM_RAM: wirelen solved = 708, spread = 708, legal = 828; time = 0.00s
+Info:     at iteration #3, type SB_GB: wirelen solved = 816, spread = 823, legal = 828; time = 0.00s
+Info:     at iteration #3, type ALL: wirelen solved = 184, spread = 829, legal = 869; time = 0.00s
+Info:     at iteration #4, type ICESTORM_LC: wirelen solved = 282, spread = 727, legal = 773; time = 0.00s
+Info:     at iteration #4, type ICESTORM_RAM: wirelen solved = 700, spread = 708, legal = 772; time = 0.00s
+Info:     at iteration #4, type SB_GB: wirelen solved = 760, spread = 767, legal = 772; time = 0.00s
+Info:     at iteration #4, type ALL: wirelen solved = 205, spread = 750, legal = 804; time = 0.00s
+Info:     at iteration #5, type ICESTORM_LC: wirelen solved = 264, spread = 763, legal = 818; time = 0.00s
+Info:     at iteration #5, type ICESTORM_RAM: wirelen solved = 752, spread = 768, legal = 818; time = 0.00s
+Info:     at iteration #5, type SB_GB: wirelen solved = 809, spread = 816, legal = 818; time = 0.00s
+Info:     at iteration #5, type ALL: wirelen solved = 185, spread = 744, legal = 783; time = 0.00s
+Info:     at iteration #6, type ICESTORM_LC: wirelen solved = 267, spread = 753, legal = 799; time = 0.00s
+Info:     at iteration #6, type ICESTORM_RAM: wirelen solved = 753, spread = 753, legal = 767; time = 0.00s
+Info:     at iteration #6, type SB_GB: wirelen solved = 753, spread = 762, legal = 767; time = 0.00s
+Info:     at iteration #6, type ALL: wirelen solved = 213, spread = 760, legal = 803; time = 0.00s
+Info:     at iteration #7, type ICESTORM_LC: wirelen solved = 256, spread = 753, legal = 782; time = 0.00s
+Info:     at iteration #7, type ICESTORM_RAM: wirelen solved = 689, spread = 697, legal = 800; time = 0.00s
+Info:     at iteration #7, type SB_GB: wirelen solved = 786, spread = 794, legal = 804; time = 0.00s
+Info:     at iteration #7, type ALL: wirelen solved = 214, spread = 668, legal = 742; time = 0.00s
+Info:     at iteration #8, type ICESTORM_LC: wirelen solved = 256, spread = 780, legal = 828; time = 0.00s
+Info:     at iteration #8, type ICESTORM_RAM: wirelen solved = 721, spread = 724, legal = 869; time = 0.00s
+Info:     at iteration #8, type SB_GB: wirelen solved = 855, spread = 864, legal = 871; time = 0.00s
+Info:     at iteration #8, type ALL: wirelen solved = 228, spread = 715, legal = 760; time = 0.00s
+Info:     at iteration #9, type ICESTORM_LC: wirelen solved = 267, spread = 708, legal = 760; time = 0.00s
+Info:     at iteration #9, type ICESTORM_RAM: wirelen solved = 696, spread = 696, legal = 730; time = 0.00s
+Info:     at iteration #9, type SB_GB: wirelen solved = 718, spread = 728, legal = 730; time = 0.00s
+Info:     at iteration #9, type ALL: wirelen solved = 242, spread = 698, legal = 758; time = 0.00s
+Info:     at iteration #10, type ICESTORM_LC: wirelen solved = 302, spread = 668, legal = 721; time = 0.00s
+Info:     at iteration #10, type ICESTORM_RAM: wirelen solved = 663, spread = 663, legal = 693; time = 0.00s
+Info:     at iteration #10, type SB_GB: wirelen solved = 681, spread = 692, legal = 693; time = 0.00s
+Info:     at iteration #10, type ALL: wirelen solved = 232, spread = 607, legal = 702; time = 0.00s
+Info:     at iteration #11, type ICESTORM_LC: wirelen solved = 310, spread = 642, legal = 712; time = 0.00s
+Info:     at iteration #11, type ICESTORM_RAM: wirelen solved = 653, spread = 669, legal = 772; time = 0.00s
+Info:     at iteration #11, type SB_GB: wirelen solved = 759, spread = 771, legal = 772; time = 0.00s
+Info:     at iteration #11, type ALL: wirelen solved = 249, spread = 584, legal = 804; time = 0.01s
+Info:     at iteration #12, type ICESTORM_LC: wirelen solved = 358, spread = 624, legal = 673; time = 0.02s
+Info:     at iteration #12, type ICESTORM_RAM: wirelen solved = 655, spread = 655, legal = 673; time = 0.00s
+Info:     at iteration #12, type SB_GB: wirelen solved = 665, spread = 673, legal = 673; time = 0.00s
+Info:     at iteration #12, type ALL: wirelen solved = 244, spread = 595, legal = 737; time = 0.01s
+Info:     at iteration #13, type ICESTORM_LC: wirelen solved = 320, spread = 624, legal = 734; time = 0.01s
+Info:     at iteration #13, type ICESTORM_RAM: wirelen solved = 687, spread = 703, legal = 803; time = 0.00s
+Info:     at iteration #13, type SB_GB: wirelen solved = 792, spread = 803, legal = 803; time = 0.00s
+Info:     at iteration #13, type ALL: wirelen solved = 251, spread = 608, legal = 734; time = 0.00s
+Info:     at iteration #14, type ICESTORM_LC: wirelen solved = 317, spread = 610, legal = 700; time = 0.00s
+Info:     at iteration #14, type ICESTORM_RAM: wirelen solved = 653, spread = 665, legal = 700; time = 0.00s
+Info:     at iteration #14, type SB_GB: wirelen solved = 688, spread = 699, legal = 700; time = 0.00s
+Info:     at iteration #14, type ALL: wirelen solved = 301, spread = 696, legal = 807; time = 0.01s
+Info:     at iteration #15, type ICESTORM_LC: wirelen solved = 316, spread = 622, legal = 720; time = 0.02s
+Info:     at iteration #15, type ICESTORM_RAM: wirelen solved = 685, spread = 685, legal = 758; time = 0.00s
+Info:     at iteration #15, type SB_GB: wirelen solved = 748, spread = 758, legal = 758; time = 0.00s
+Info:     at iteration #15, type ALL: wirelen solved = 273, spread = 644, legal = 860; time = 0.01s
+Info: HeAP Placer Time: 0.26s
+Info:   of which solving equations: 0.21s
+Info:   of which spreading cells: 0.01s
 Info:   of which strict legalisation: 0.01s
 
 Info: Running simulated annealing placer for refinement.
-Info:   at iteration #1: temp = 0.000000, timing cost = 284, wirelen = 491
-Info:   at iteration #5: temp = 0.000000, timing cost = 239, wirelen = 409
-Info:   at iteration #10: temp = 0.000000, timing cost = 246, wirelen = 397
-Info:   at iteration #11: temp = 0.000000, timing cost = 245, wirelen = 397 
-Info: SA placement time 0.03s
+Info:   at iteration #1: temp = 0.000000, timing cost = 846, wirelen = 702
+Info:   at iteration #5: temp = 0.000000, timing cost = 775, wirelen = 596
+Info:   at iteration #10: temp = 0.000000, timing cost = 794, wirelen = 561
+Info:   at iteration #15: temp = 0.000000, timing cost = 783, wirelen = 539
+Info:   at iteration #15: temp = 0.000000, timing cost = 782, wirelen = 539 
+Info: SA placement time 0.08s
 
-Info: Max frequency for clock 'out_0$SB_IO_OUT': 68.47 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock                            'out_0$SB_IO_OUT': 55.96 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock '\76.0.0.0_RADDR_SB_CARRY_I1_CO[9]_$glb_clk': 111.97 MHz (PASS at 12.00 MHz)
 Info: Clock 'row_clk_$glb_clk' has no interior paths
 
-Info: Max delay posedge out_0$SB_IO_OUT  -> <async>                 : 21.93 ns
-Info: Max delay posedge out_0$SB_IO_OUT  -> posedge row_clk_$glb_clk: 7.17 ns
-Info: Max delay posedge row_clk_$glb_clk -> <async>                 : 21.56 ns
+Info: Max delay negedge \76.0.0.0_RADDR_SB_CARRY_I1_CO[9]_$glb_clk -> posedge out_0$SB_IO_OUT : 23.18 ns
+Info: Max delay posedge out_0$SB_IO_OUT                            -> <async>                 : 5.21 ns
+Info: Max delay posedge out_0$SB_IO_OUT                            -> posedge row_clk_$glb_clk: 8.06 ns
+Info: Max delay posedge row_clk_$glb_clk                           -> posedge out_0$SB_IO_OUT : 16.70 ns
 
 Info: Slack histogram:
 Info:  legend: * represents 1 endpoint(s)
 Info:          + represents [1,1) endpoint(s)
-Info: [ 61398,  62297) |** 
-Info: [ 62297,  63196) | 
-Info: [ 63196,  64095) | 
-Info: [ 64095,  64994) | 
-Info: [ 64994,  65893) | 
-Info: [ 65893,  66792) |* 
-Info: [ 66792,  67691) | 
-Info: [ 67691,  68590) | 
-Info: [ 68590,  69489) |******************** 
-Info: [ 69489,  70388) | 
-Info: [ 70388,  71287) |********** 
-Info: [ 71287,  72186) |* 
-Info: [ 72186,  73085) | 
-Info: [ 73085,  73984) | 
-Info: [ 73984,  74883) | 
-Info: [ 74883,  75782) |**** 
-Info: [ 75782,  76681) |************* 
-Info: [ 76681,  77580) |******** 
-Info: [ 77580,  78479) |** 
-Info: [ 78479,  79378) |********************* 
-Info: Checksum: 0x808315e1
+Info: [ 18485,  21529) |* 
+Info: [ 21529,  24573) | 
+Info: [ 24573,  27617) |* 
+Info: [ 27617,  30661) | 
+Info: [ 30661,  33705) | 
+Info: [ 33705,  36749) | 
+Info: [ 36749,  39793) | 
+Info: [ 39793,  42837) | 
+Info: [ 42837,  45881) | 
+Info: [ 45881,  48925) | 
+Info: [ 48925,  51969) | 
+Info: [ 51969,  55013) | 
+Info: [ 55013,  58057) | 
+Info: [ 58057,  61101) | 
+Info: [ 61101,  64145) | 
+Info: [ 64145,  67189) |**** 
+Info: [ 67189,  70233) |*** 
+Info: [ 70233,  73277) |********************** 
+Info: [ 73277,  76321) |**************************************** 
+Info: [ 76321,  79365) |************************************************************ 
+Info: Checksum: 0x228de452
 
 Info: Routing..
 Info: Setting up routing queue.
-Info: Routing 454 arcs.
+Info: Routing 696 arcs.
 Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
 Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
-Info:        470 |       14        397 |   14   397 |         0|       0.06       0.06|
+Info:        776 |       73        594 |   73   594 |         0|       0.14       0.14|
 Info: Routing complete.
-Info: Router1 time 0.06s
-Info: Checksum: 0xf133c383
+Info: Router1 time 0.14s
+Info: Checksum: 0x4974ac62
 
 Info: Critical path report for clock 'out_0$SB_IO_OUT' (posedge -> posedge):
 Info: curr total
-Info:  1.4  1.4  Source vga1:17_SB_DFFSR_Q_9_D_SB_LUT4_O_LC.O
-Info:  1.8  3.2    Net vga1:17[0] budget 12.669000 ns (2,2) -> (3,3)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I0_SB_LUT4_O_1_I2_SB_LUT4_O_LC.I0
+Info:  1.4  1.4  Source display1.row_SB_DFFESR_Q_D_SB_LUT4_O_7_LC.O
+Info:  1.8  3.2    Net Vsync_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_I3_O_SB_LUT4_I1_I3[0] budget 0.000000 ns (8,2) -> (7,3)
+Info:                Sink $nextpnr_ICESTORM_LC_24.I1
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
-Info:  1.3  4.4  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I0_SB_LUT4_O_1_I2_SB_LUT4_O_LC.O
-Info:  1.8  6.2    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I0_SB_LUT4_O_1_I2[0] budget 12.669000 ns (3,3) -> (3,3)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I0_SB_LUT4_O_1_LC.I2
+Info:  0.7  3.8  Source $nextpnr_ICESTORM_LC_24.COUT
+Info:  0.0  3.8    Net $nextpnr_ICESTORM_LC_24$O budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_5$CARRY.CIN
+Info:  0.3  4.1  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_5$CARRY.COUT
+Info:  0.0  4.1    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[1] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_4$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  4.4  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_4$CARRY.COUT
+Info:  0.0  4.4    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[2] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_3$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  4.7  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_3$CARRY.COUT
+Info:  0.0  4.7    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[3] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_2$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  4.9  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_2$CARRY.COUT
+Info:  0.0  4.9    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[4] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_1$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  5.2  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_1$CARRY.COUT
+Info:  0.0  5.2    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[5] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  5.5  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO$CARRY.COUT
+Info:  0.0  5.5    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[6] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  5.8  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO$CARRY.COUT
+Info:  1.2  7.0    Net $nextpnr_ICESTORM_LC_25$I3 budget 1.220000 ns (7,3) -> (7,4)
+Info:                Sink $nextpnr_ICESTORM_LC_25.I3
+Info:  0.9  7.9  Source $nextpnr_ICESTORM_LC_25.O
+Info:  3.0 10.8    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[7] budget 10.874000 ns (7,4) -> (3,5)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_LC.I2
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:37.23-37.25
+Info:  1.2 12.0  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_LC.O
+Info:  1.8 13.8    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2[3] budget 10.873000 ns (3,5) -> (3,5)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_LC.I3
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.2  7.4  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I0_SB_LUT4_O_1_LC.O
-Info:  3.0 10.4    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I0[0] budget 19.517000 ns (3,3) -> (5,2)
-Info:                Sink Hsync_SB_LUT4_O_I3_SB_CARRY_CO_CI_SB_CARRY_CO_I1_SB_CARRY_I1_1_CO_SB_CARRY_CI_CO_SB_LUT4_I3_LC.I0
+Info:  0.9 14.7  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_LC.O
+Info:  2.4 17.1    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0[1] budget 10.873000 ns (3,5) -> (4,2)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_LC.I1
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.3 11.6  Source Hsync_SB_LUT4_O_I3_SB_CARRY_CO_CI_SB_CARRY_CO_I1_SB_CARRY_I1_1_CO_SB_CARRY_CI_CO_SB_LUT4_I3_LC.O
-Info:  3.4 15.0    Net Hsync_SB_LUT4_O_I3_SB_CARRY_CO_CI_SB_CARRY_CO_I1_SB_CARRY_I1_1_CO_SB_CARRY_CI_CO_SB_LUT4_I3_O budget 19.517000 ns (5,2) -> (3,2)
-Info:                Sink vga1:17_SB_DFFSR_Q_D_SB_LUT4_O_2_LC.SR
-Info:  0.1 15.1  Setup vga1:17_SB_DFFSR_Q_D_SB_LUT4_O_2_LC.SR
-Info: 5.3 ns logic, 9.8 ns routing
+Info:  1.2 18.2  Setup rgb_out_SB_DFF_Q_D_SB_LUT4_O_LC.I1
+Info: 8.1 ns logic, 10.1 ns routing
+
+Info: Critical path report for clock '\76.0.0.0_RADDR_SB_CARRY_I1_CO[9]_$glb_clk' (negedge -> negedge):
+Info: curr total
+Info:  1.4  1.4  Source frame_count_SB_DFFNSR_Q_D_SB_LUT4_O_4_LC.O
+Info:  1.8  3.2    Net frame_count[1] budget 26.562000 ns (10,6) -> (10,6)
+Info:                Sink cannon_row_SB_DFFNE_Q_E_SB_LUT4_O_I3_SB_LUT4_O_LC.I0
+Info:  1.3  4.4  Source cannon_row_SB_DFFNE_Q_E_SB_LUT4_O_I3_SB_LUT4_O_LC.O
+Info:  1.8  6.2    Net cannon_row_SB_DFFNE_Q_E_SB_LUT4_O_I3[2] budget 26.562000 ns (10,6) -> (9,6)
+Info:                Sink cannon_row_SB_DFFNE_Q_E_SB_LUT4_O_LC.I3
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.9  7.1  Source cannon_row_SB_DFFNE_Q_E_SB_LUT4_O_LC.O
+Info:  3.4 10.4    Net cannon_row_SB_DFFNE_Q_E budget 26.561001 ns (9,6) -> (9,6)
+Info:                Sink frame_count_SB_DFFNSR_Q_D_SB_LUT4_O_5_LC.SR
+Info:  0.1 10.5  Setup frame_count_SB_DFFNSR_Q_D_SB_LUT4_O_5_LC.SR
+Info: 3.6 ns logic, 6.9 ns routing
+
+Info: Critical path report for cross-domain path 'negedge \76.0.0.0_RADDR_SB_CARRY_I1_CO[9]_$glb_clk' -> 'posedge out_0$SB_IO_OUT':
+Info: curr total
+Info:  1.4  1.4  Source \76.0.0.0_RADDR_SB_CARRY_I1_CO_SB_DFFNE_C_2_D_SB_LUT4_O_LC.O
+Info:  1.8  3.2    Net cannon_row_SB_LUT4_O_I3[4] budget 0.000000 ns (8,6) -> (8,6)
+Info:                Sink cannon_row_SB_LUT4_O_2_LC.I3
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:49.21-49.23
+Info:  0.9  4.0  Source cannon_row_SB_LUT4_O_2_LC.O
+Info:  1.8  5.8    Net cannon_row[6] budget 0.000000 ns (8,6) -> (7,5)
+Info:                Sink cannon_row_SB_DFFNE_Q_3_D_SB_LUT4_O_3_LC.I2
+Info:  0.6  6.4  Source cannon_row_SB_DFFNE_Q_3_D_SB_LUT4_O_3_LC.COUT
+Info:  0.7  7.1    Net cannon_row_SB_DFFNE_Q_3_D_SB_LUT4_O_I3[3] budget 0.660000 ns (7,5) -> (7,5)
+Info:                Sink cannon_row_SB_DFFNE_Q_3_D_SB_LUT4_O_2_LC.I3
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.9  7.9  Source cannon_row_SB_DFFNE_Q_3_D_SB_LUT4_O_2_LC.O
+Info:  2.4 10.3    Net cannon_row_SB_DFFNE_Q_3_D[5] budget 0.000000 ns (7,5) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_1$CARRY.I2
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:49.21-49.23
+Info:  0.6 10.9  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO_1$CARRY.COUT
+Info:  0.0 10.9    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[5] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3 11.2  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO_CI_SB_CARRY_CO$CARRY.COUT
+Info:  0.0 11.2    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[6] budget 0.000000 ns (7,3) -> (7,3)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO$CARRY.CIN
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3 11.5  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2_SB_CARRY_CO$CARRY.COUT
+Info:  1.2 12.7    Net $nextpnr_ICESTORM_LC_25$I3 budget 1.220000 ns (7,3) -> (7,4)
+Info:                Sink $nextpnr_ICESTORM_LC_25.I3
+Info:  0.9 13.6  Source $nextpnr_ICESTORM_LC_25.O
+Info:  3.0 16.5    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_I2[7] budget 10.874000 ns (7,4) -> (3,5)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_LC.I2
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:37.23-37.25
+Info:  1.2 17.8  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2_SB_LUT4_O_LC.O
+Info:  1.8 19.5    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_I2[3] budget 10.873000 ns (3,5) -> (3,5)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_LC.I3
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.9 20.4  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_2_LC.O
+Info:  2.4 22.8    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0[1] budget 10.873000 ns (3,5) -> (4,2)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_LC.I1
+Info:                Defined in:
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  1.2 24.0  Setup rgb_out_SB_DFF_Q_D_SB_LUT4_O_LC.I1
+Info: 9.0 ns logic, 14.9 ns routing
 
 Info: Critical path report for cross-domain path 'posedge out_0$SB_IO_OUT' -> '<async>':
 Info: curr total
-Info:  1.4  1.4  Source vga1:17_SB_DFFSR_Q_D_SB_LUT4_O_4_LC.O
-Info:  3.5  4.9    Net Hsync_SB_LUT4_O_I3_SB_CARRY_CO_CI_SB_CARRY_CO_I1[1] budget 12.669000 ns (3,2) -> (9,3)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0_SB_LUT4_O_LC.I3
-Info:                Defined in:
-Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:33.23-33.24
-Info:  0.9  5.8  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0_SB_LUT4_O_LC.O
-Info:  1.8  7.5    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0[0] budget 12.645000 ns (9,3) -> (9,3)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_LC.I0
-Info:                Defined in:
-Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.3  8.8  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_LC.O
-Info:  3.0 11.8    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O[0] budget 12.645000 ns (9,3) -> (7,2)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_I0_SB_LUT4_O_1_LC.I0
-Info:                Defined in:
-Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.3 13.0  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_I0_SB_LUT4_O_1_LC.O
-Info:  1.8 14.8    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_I0[1] budget 12.644000 ns (7,2) -> (8,2)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_LC.I1
-Info:                Defined in:
-Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.2 16.0  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_LC.O
-Info:  1.8 17.8    Net rgb_out_SB_LUT4_O_I0[2] budget 12.644000 ns (8,2) -> (8,2)
-Info:                Sink rgb_out_SB_LUT4_O_LC.I2
-Info:                Defined in:
-Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.2 19.0  Source rgb_out_SB_LUT4_O_LC.O
-Info:  3.6 22.6    Net rgb_out$SB_IO_OUT budget 12.644000 ns (8,2) -> (13,0)
+Info:  1.4  1.4  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_LC.O
+Info:  4.1  5.5    Net rgb_out$SB_IO_OUT budget 81.943001 ns (4,2) -> (13,0)
 Info:                Sink rgb_out$sb_io.D_OUT_0
-Info: 7.3 ns logic, 15.3 ns routing
+Info: 1.4 ns logic, 4.1 ns routing
 
 Info: Critical path report for cross-domain path 'posedge out_0$SB_IO_OUT' -> 'posedge row_clk_$glb_clk':
 Info: curr total
-Info:  1.4  1.4  Source vga1:15_SB_DFFESR_Q_D_SB_LUT4_O_1_LC.O
-Info:  1.8  3.2    Net Vsync_SB_LUT4_O_I1_SB_LUT4_O_I2[2] budget 0.000000 ns (7,5) -> (7,5)
-Info:                Sink vga1:15_SB_LUT4_I3_LC.I3
+Info:  1.4  1.4  Source display1.row_SB_DFFESR_Q_D_SB_LUT4_O_4_LC.O
+Info:  3.0  4.3    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_1_I0_SB_LUT4_O_1_I3_SB_LUT4_O_I3[0] budget 0.000000 ns (8,2) -> (5,3)
+Info:                Sink \76.0.0.0_RADDR_1_SB_LUT4_O_3_LC.I3
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  0.9  4.0  Source vga1:15_SB_LUT4_I3_LC.O
-Info:  3.1  7.1    Net vga1:15_SB_LUT4_I3_O[9] budget 40.484001 ns (7,5) -> (6,3)
-Info:                Sink \48.0.0.0_RAM.RADDR_4
+Info:  0.9  5.2  Source \76.0.0.0_RADDR_1_SB_LUT4_O_3_LC.O
+Info:  3.0  8.2    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_1_I3[0] budget 40.484001 ns (5,3) -> (6,1)
+Info:                Sink \76.0.0.0_RAM.RADDR_0
 Info:                Defined in:
-Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:49.21-49.23
-Info:  0.1  7.2  Setup \48.0.0.0_RAM.RADDR_4
-Info: 2.4 ns logic, 4.8 ns routing
+Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  8.3  Setup \76.0.0.0_RAM.RADDR_0
+Info: 2.4 ns logic, 5.9 ns routing
 
-Info: Critical path report for cross-domain path 'posedge row_clk_$glb_clk' -> '<async>':
+Info: Critical path report for cross-domain path 'posedge row_clk_$glb_clk' -> 'posedge out_0$SB_IO_OUT':
 Info: curr total
-Info:  1.2  1.2  Source \48.0.0.0_RAM.RDATA_12
-Info:  2.3  3.5    Net brick_out[12] budget 12.645000 ns (6,3) -> (9,3)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0_SB_LUT4_O_LC.I1
-Info:  1.2  4.7  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0_SB_LUT4_O_LC.O
-Info:  1.8  6.5    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0[0] budget 12.645000 ns (9,3) -> (9,3)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_LC.I0
+Info:  1.2  1.2  Source \76.1.0.0_RAM.RDATA_8
+Info:  2.3  3.5    Net brick_out[24] budget 15.266000 ns (6,3) -> (4,3)
+Info:                Sink row_clk_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0_SB_LUT4_O_1_LC.I0
+Info:  1.3  4.8  Source row_clk_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0_SB_LUT4_O_1_LC.O
+Info:  1.8  6.5    Net row_clk_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_I3_O_SB_LUT4_O_1_I0[0] budget 15.239000 ns (4,3) -> (4,2)
+Info:                Sink row_clk_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_I3_O_SB_LUT4_O_1_LC.I0
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.3  7.8  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O_SB_LUT4_O_1_LC.O
-Info:  3.0 10.7    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_2_I0_SB_LUT4_O_1_I2_SB_LUT4_I3_O[0] budget 12.645000 ns (9,3) -> (7,2)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_I0_SB_LUT4_O_1_LC.I0
+Info:  1.3  7.8  Source row_clk_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_I3_O_SB_LUT4_O_1_LC.O
+Info:  1.8  9.6    Net row_clk_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_I3_O[1] budget 15.239000 ns (4,2) -> (4,2)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_I0_SB_LUT4_O_1_LC.I1
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.3 12.0  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_I0_SB_LUT4_O_1_LC.O
-Info:  1.8 13.8    Net rgb_out_SB_LUT4_O_I0_SB_LUT4_O_I0[1] budget 12.644000 ns (7,2) -> (8,2)
-Info:                Sink rgb_out_SB_LUT4_O_I0_SB_LUT4_O_LC.I1
+Info:  1.2 10.8  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_I0_SB_LUT4_O_1_LC.O
+Info:  1.8 12.6    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_I0[3] budget 15.239000 ns (4,2) -> (4,1)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_LC.I3
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.2 15.0  Source rgb_out_SB_LUT4_O_I0_SB_LUT4_O_LC.O
-Info:  1.8 16.7    Net rgb_out_SB_LUT4_O_I0[2] budget 12.644000 ns (8,2) -> (8,2)
-Info:                Sink rgb_out_SB_LUT4_O_LC.I2
+Info:  0.9 13.4  Source rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0_SB_LUT4_O_LC.O
+Info:  1.8 15.2    Net rgb_out_SB_DFF_Q_D_SB_LUT4_O_I0[2] budget 15.238000 ns (4,1) -> (4,2)
+Info:                Sink rgb_out_SB_DFF_Q_D_SB_LUT4_O_LC.I2
 Info:                Defined in:
 Info:                  /home/willy/fpga-toolchain/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
-Info:  1.2 18.0  Source rgb_out_SB_LUT4_O_LC.O
-Info:  3.6 21.6    Net rgb_out$SB_IO_OUT budget 12.644000 ns (8,2) -> (13,0)
-Info:                Sink rgb_out$sb_io.D_OUT_0
-Info: 7.4 ns logic, 14.1 ns routing
+Info:  1.2 16.4  Setup rgb_out_SB_DFF_Q_D_SB_LUT4_O_LC.I2
+Info: 7.0 ns logic, 9.3 ns routing
 
-Info: Max frequency for clock 'out_0$SB_IO_OUT': 66.23 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock                            'out_0$SB_IO_OUT': 54.81 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock '\76.0.0.0_RADDR_SB_CARRY_I1_CO[9]_$glb_clk': 94.94 MHz (PASS at 12.00 MHz)
 Info: Clock 'row_clk_$glb_clk' has no interior paths
 
-Info: Max delay posedge out_0$SB_IO_OUT  -> <async>                 : 22.60 ns
-Info: Max delay posedge out_0$SB_IO_OUT  -> posedge row_clk_$glb_clk: 7.18 ns
-Info: Max delay posedge row_clk_$glb_clk -> <async>                 : 21.55 ns
+Info: Max delay negedge \76.0.0.0_RADDR_SB_CARRY_I1_CO[9]_$glb_clk -> posedge out_0$SB_IO_OUT : 23.98 ns
+Info: Max delay posedge out_0$SB_IO_OUT                            -> <async>                 : 5.53 ns
+Info: Max delay posedge out_0$SB_IO_OUT                            -> posedge row_clk_$glb_clk: 8.27 ns
+Info: Max delay posedge row_clk_$glb_clk                           -> posedge out_0$SB_IO_OUT : 16.35 ns
 
 Info: Slack histogram:
 Info:  legend: * represents 1 endpoint(s)
 Info:          + represents [1,1) endpoint(s)
-Info: [ 60735,  61667) |* 
-Info: [ 61667,  62599) |* 
-Info: [ 62599,  63531) | 
-Info: [ 63531,  64463) | 
-Info: [ 64463,  65395) | 
-Info: [ 65395,  66327) |* 
-Info: [ 66327,  67259) | 
-Info: [ 67259,  68191) | 
-Info: [ 68191,  69123) |******************** 
-Info: [ 69123,  70055) |********** 
-Info: [ 70055,  70987) |* 
-Info: [ 70987,  71919) | 
-Info: [ 71919,  72851) | 
-Info: [ 72851,  73783) | 
-Info: [ 73783,  74715) | 
-Info: [ 74715,  75647) |**** 
-Info: [ 75647,  76579) |******** 
-Info: [ 76579,  77511) |************* 
-Info: [ 77511,  78443) |** 
-Info: [ 78443,  79375) |********************* 
+Info: [ 17687,  20771) |+
+Info: [ 20771,  23855) | 
+Info: [ 23855,  26939) | 
+Info: [ 26939,  30023) |+
+Info: [ 30023,  33107) | 
+Info: [ 33107,  36191) | 
+Info: [ 36191,  39275) | 
+Info: [ 39275,  42359) | 
+Info: [ 42359,  45443) | 
+Info: [ 45443,  48527) | 
+Info: [ 48527,  51611) | 
+Info: [ 51611,  54695) | 
+Info: [ 54695,  57779) | 
+Info: [ 57779,  60863) | 
+Info: [ 60863,  63947) | 
+Info: [ 63947,  67031) |**+
+Info: [ 67031,  70115) |*************+
+Info: [ 70115,  73199) |***********************+
+Info: [ 73199,  76283) |*********************+
+Info: [ 76283,  79367) |************************************************************ 
 
 Info: Program finished normally.

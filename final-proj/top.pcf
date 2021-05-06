@@ -16,5 +16,7 @@ set_io Vsync 46
 set_io ground 2
 set_io out_0 38
 
+set_io test 28
+
 
 # set_io -pullup 1
