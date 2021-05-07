@@ -57,7 +57,6 @@ architecture synth of game_logic is
 		);
 	end component;
 	
-	
 	signal b_nxt_row : std_logic_vector(N_COLS - 1 downto 0);
 	signal b_count : unsigned(ROW_BITS - 1 downto 0);
 	signal b_wr_en : std_logic := '0';
