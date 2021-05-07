@@ -18,5 +18,8 @@ set_io out_0 38
 
 set_io test 28
 
+#NES
+set_io controller_data 43
+
 
 # set_io -pullup 1

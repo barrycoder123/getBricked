@@ -13,9 +13,12 @@ entity display is
     column_in: in unsigned(4 downto 0);
     data_in: in std_logic_vector(31 downto 0);
 
-    -- -- cannon
+    -- -- cannonball
     cannon_row: in unsigned( 9 downto 0);
-    cannon_col: in unsigned( 9 downto 0)
+    cannon_col: in unsigned( 9 downto 0);
+
+    --cannon
+    cannonPos: in unsigned(9 downto 0)
   );
 end display;
 
@@ -29,6 +32,9 @@ begin
   begin
     if(rising_edge(pixel_clk)) then
       if(valid = '1' and (( (data_in(to_integer(column_in)) = '1')) or ( cannon_row <= row and (cannon_row + 16) > row and cannon_col <= column and (cannon_col + 16) > column) )) then
+        rgb <= '1';
+      end if;
+      if (valid = '1' and (cannonPos <= column and (cannonPos + 32) > column and 10d"520" <= row and 10d"488" > row)) then
         rgb <= '1';
       else
         rgb <='0';

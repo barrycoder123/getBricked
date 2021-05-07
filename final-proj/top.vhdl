@@ -5,6 +5,7 @@ use IEEE.numeric_std.all;
 entity top is
   port(
     CLK_12M: in std_logic; --12M input clock 
+    controller_data: in std_logic;
     Hsync: out std_logic;
     Vsync: out std_logic;
     ground: out std_logic;
@@ -46,28 +47,23 @@ architecture synth of top is
             column_in: in unsigned(4 downto 0);
             data_in: in std_logic_vector(31 downto 0);
 
-            -- -- cannon
+            -- -- cannonball
             cannon_row: in unsigned( 9 downto 0);
-            cannon_col: in unsigned( 9 downto 0)
+            cannon_col: in unsigned( 9 downto 0);
+
+            --canon
+            cannonPos: in unsigned( 9 downto 0)
         );
     end component;
 
-    -- component brick_ram is
-    --     GENERIC
-    --     (
-    --         ADDRESS_WIDTH	: integer := 5;
-    --         DATA_WIDTH	    : integer := 32
-    --     );
-    --     PORT
-    --     (
-    --         clock			: IN  std_logic;
-    --         data			: IN  std_logic_vector(DATA_WIDTH - 1 DOWNTO 0);
-    --         write_address	: IN  std_logic_vector(ADDRESS_WIDTH - 1 DOWNTO 0);
-    --         read_address	: IN  std_logic_vector(ADDRESS_WIDTH - 1 DOWNTO 0);
-    --         we			    : IN  std_logic;
-    --         q			    : OUT std_logic_vector(DATA_WIDTH - 1 DOWNTO 0)
-    --     );
-    -- end component;
+    component cannon is
+        port(
+            frame_clk: in std_logic;
+            data : in std_logic;
+            fire : out std_logic;
+            position : out unsigned(9 downto 0) := (others => '0')
+        );
+    end component;
 
     TYPE ram_brick IS ARRAY(0 TO 2 ** 5 - 1) OF std_logic_vector(32 - 1 DOWNTO 0);
 	SIGNAL ram_block : ram_brick := (0 => (others => '1'), others => (others => '0'));
@@ -84,9 +80,14 @@ architecture synth of top is
 
     -- cannonball/cannon 
     signal cannon_row: unsigned( 9 downto 0 ) := "0111000100";
-    signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
+    --signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
     signal frame_clk: std_logic;
     signal frame_count: unsigned(5 downto 0) := "000000";
+
+    --NES
+    signal fire_sig : std_logic;
+    signal pos_sig : unsigned(9 downto 0);
+
     
   
 begin
@@ -122,9 +123,20 @@ begin
         valid => valid,
         data_in => brick_out,
 
-        -- -- cannon
+        -- -- cannon ball
         cannon_row => cannon_row,
-        cannon_col => cannon_col
+        cannon_col => pos_sig,
+
+        --cannon
+        cannonPos => pos_sig
+    );
+
+    CANNON1: cannon
+    port map(
+        frame_clk => frame_clk,
+        data => controller_data,
+        fire => fire_sig,
+        position => pos_sig
     );
 
     row_clk <= '1' when colCount > 10d"640" else '0';
@@ -147,6 +159,18 @@ begin
             end if;
         end if;
     end process;
+
+    -- -- cannon
+    -- process(frame_clk)
+    -- begin
+    --     if (rising_edge(frame_clk)) then
+    --         frame_count <= frame_count + 1;
+    --         if (frame_count = 16) then
+                
+    --             frame_count <= "000000";
+    --         end if;
+    --     end if;
+    -- end process;
 
 
     -- brick_ram1: brick_ram
