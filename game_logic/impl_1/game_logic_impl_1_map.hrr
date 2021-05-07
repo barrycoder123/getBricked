@@ -1,32 +1,7 @@
 ---------------------------------------------------
-Report for cell cannon
-   Instance path: cannon
+Report for cell game_logic
+   Instance path: game_logic
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                 IOLGC	       1.00        100.0
-                                  LUT4	         40        100.0
-                                 IOREG	          1        100.0
-                                 IOBUF	          7        100.0
-                                PFUREG	         24        100.0
-SUB MODULES
-                                  cell	      count    LUT4 Usage(%)
-                                   nes	          1        50.0
----------------------------------------------------
-Report for cell nes
-   Instance path: cannon/cannon_controller
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                 IOLGC	       1.00        100.0
-                                  LUT4	         20        50.0
-                                 IOREG	          1        100.0
-                                PFUREG	         24        100.0
-SUB MODULES
-                                  cell	      count    LUT4 Usage(%)
-                           nes_counter	          1        45.0
----------------------------------------------------
-Report for cell nes_counter
-   Instance path: cannon/cannon_controller/counter_C
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         18        45.0
-                                PFUREG	         17        70.8
+                                  LUT4	          1        100.0
+                                 IOBUF	          1        100.0

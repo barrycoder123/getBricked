@@ -1,0 +1,77 @@
+// Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2.2.0.97.3
+// Netlist written on Fri May  7 11:53:47 2021
+// Source file index table: 
+// Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
+// file 0 "/home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd"
+// file 1 "/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd"
+// file 2 "/home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd"
+// file 3 "/home/es4user/getBricked/game_logic/source/impl_1/nes.vhd"
+// file 4 "/home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd"
+// file 5 "/home/es4user/getBricked/game_logic/source/impl_1/ram.vhd"
+// file 6 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v"
+// file 7 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd"
+// file 8 "/home/es4user/tools/radiant/2.2/ip/common/adder/rtl/lscc_adder.v"
+// file 9 "/home/es4user/tools/radiant/2.2/ip/common/adder_subtractor/rtl/lscc_add_sub.v"
+// file 10 "/home/es4user/tools/radiant/2.2/ip/common/complex_mult/rtl/lscc_complex_mult.v"
+// file 11 "/home/es4user/tools/radiant/2.2/ip/common/counter/rtl/lscc_cntr.v"
+// file 12 "/home/es4user/tools/radiant/2.2/ip/common/fifo/rtl/lscc_fifo.v"
+// file 13 "/home/es4user/tools/radiant/2.2/ip/common/fifo_dc/rtl/lscc_fifo_dc.v"
+// file 14 "/home/es4user/tools/radiant/2.2/ip/common/mult_accumulate/rtl/lscc_mult_accumulate.v"
+// file 15 "/home/es4user/tools/radiant/2.2/ip/common/mult_add_sub/rtl/lscc_mult_add_sub.v"
+// file 16 "/home/es4user/tools/radiant/2.2/ip/common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v"
+// file 17 "/home/es4user/tools/radiant/2.2/ip/common/multiplier/rtl/lscc_multiplier.v"
+// file 18 "/home/es4user/tools/radiant/2.2/ip/common/ram_dp/rtl/lscc_ram_dp.v"
+// file 19 "/home/es4user/tools/radiant/2.2/ip/common/ram_dq/rtl/lscc_ram_dq.v"
+// file 20 "/home/es4user/tools/radiant/2.2/ip/common/rom/rtl/lscc_rom.v"
+// file 21 "/home/es4user/tools/radiant/2.2/ip/common/subtractor/rtl/lscc_subtractor.v"
+// file 22 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_add.v"
+// file 23 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_addsub.v"
+// file 24 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_complex_mult.v"
+// file 25 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_counter.v"
+// file 26 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_dsp.v"
+// file 27 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo.v"
+// file 28 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo_dc.v"
+// file 29 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mac.v"
+// file 30 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mult.v"
+// file 31 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsub.v"
+// file 32 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsubsum.v"
+// file 33 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp.v"
+// file 34 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp_be.v"
+// file 35 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq.v"
+// file 36 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq_be.v"
+// file 37 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_rom.v"
+// file 38 "/home/es4user/tools/radiant/2.2/ip/pmi/pmi_sub.v"
+// file 39 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/CCU2_B.v"
+// file 40 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/FD1P3BZ.v"
+// file 41 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/FD1P3DZ.v"
+// file 42 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/FD1P3IZ.v"
+// file 43 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/FD1P3JZ.v"
+// file 44 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/HSOSC.v"
+// file 45 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/HSOSC1P8V.v"
+// file 46 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/IB.v"
+// file 47 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/IFD1P3AZ.v"
+// file 48 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/LSOSC.v"
+// file 49 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/LSOSC1P8V.v"
+// file 50 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/OB.v"
+// file 51 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/OBZ_B.v"
+// file 52 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/OFD1P3AZ.v"
+// file 53 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/PDP4K.v"
+// file 54 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/RGB.v"
+// file 55 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/RGB1P8V.v"
+// file 56 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/SP256K.v"
+// file 57 "/home/es4user/tools/radiant/2.2/cae_library/simulation/verilog/iCE40UP/legacy.v"
+
+//
+// Verilog Description of module game_logic
+//
+
+module game_logic (input data, input g_clk, input b_clk, output game_over);   /* synthesis lineinfo="@1(9[8],9[18])"*/
+    
+    
+    wire VCC_net, GND_net;
+    
+    VLO i311 (.Z(GND_net));
+    VHI i2 (.Z(VCC_net));
+    OB game_over_pad (.I(VCC_net), .O(game_over));   /* synthesis lineinfo="@1(21[3],21[12])"*/
+    
+endmodule

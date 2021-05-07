@@ -41,6 +41,18 @@ if (a)
 
 <DIV id="content" onclick="hideTocList()"><PRE>
 <A name="Syn"></A><B><U><big>Synthesis Report</big></U></B>
+synthesis:  version Radiant Software (64-bit) 2.2.0.97.3
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
+Fri May  7 11:53:45 2021
+
+
+Command Line:  synthesis -f game_logic_impl_1_lattice.synproj -gui -msgset /home/es4user/getBricked/game_logic/promote.xml 
+
 Synthesis options:
 The -a option is iCE40UP.
 The -t option is SG48.
@@ -192,7 +204,6 @@ INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd(5): 
 INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd(16): analyzing architecture sim. VHDL-1010
 INFO - synthesis: The default VHDL library search path is now "/home/es4user/getBricked/game_logic/impl_1". VHDL-1504
 Top module language type = VHDL.
-WARNING - synthesis: Net pwr has following drivers :
 unit game_logic is not yet analyzed. VHDL-1485
 Top module name (VHDL, mixed language): game_logic
                                                          
@@ -219,17 +230,51 @@ Top module name (VHDL, mixed language): game_logic
                                                          
 
 
-WARNING - synthesis: Initial value found on net gnd will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net pwr will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net position[4] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net position[3] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net position[2] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net position[1] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net position[0] will be ignored due to unrecognized driver type
-Software Tool error
+WARNING - synthesis: Initial value found on net pos_tmp[4] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net pos_tmp[3] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net pos_tmp[2] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net pos_tmp[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net pos_tmp[0] will be ignored due to unrecognized driver type
 
-Please contact Lattice Semiconductor Corporation
 
+
+######## Found 1 RTL RAMs in the design.
+######## Mapping RTL RAM \b_mem/mem to 2 EBR blocks in PSEUDO_DUAL_PORT Mode
+
+WARNING - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(113): Register game_over is stuck at One. VDB-5014
+WARNING - synthesis: I/O Port data 's net has no driver and is unused.
+WARNING - synthesis: I/O Port g_clk 's net has no driver and is unused.
+WARNING - synthesis: I/O Port b_clk 's net has no driver and is unused.
+
+
+<A name="lse_area"></A><B><U><big>Area Report</big></U></B>
+
+################### Begin Area Report (game_logic)######################
+Number of register bits => 0 of 5280 (0 % )
+OB => 1
+################### End Area Report ##################
+Number of odd-length carry chains : 0
+Number of even-length carry chains : 0
+
+
+<A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 0
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : game_over, loads : 0
+################### End Clock Report ##################
+
+Peak Memory Usage: 299 MB
+
+--------------------------------------------------------------
+Total CPU Time: 1 secs 
+Total REAL Time: 0 secs 
+--------------------------------------------------------------
 
 
 
@@ -284,6 +329,14 @@ Please contact Lattice Semiconductor Corporation
 <BR>
 <BR>
 </PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#Syn>Top</A></LI>
+<LI><A href=#lse_area>Area Report</A></LI>
+<LI><A href=#lse_clock>Clock Report</A></LI>
+</UL>
+</DIV>
 
 <button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
 <script type="text/javascript">

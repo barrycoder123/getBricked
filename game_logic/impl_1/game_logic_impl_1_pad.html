@@ -48,20 +48,14 @@ Performance Grade:      High-Performance_1.2V
 PACKAGE:          SG48
 Package Status:                     Preliminary    Version 1.5
 
-Thu May  6 20:38:12 2021
+Fri May  7 11:53:50 2021
 
 Pinout by Port Name:
-+-------------+----------+--------------+-------+--------------------+
-| Port Name   | Pin/Bank | Buffer Type  | Site  | Properties         |
-+-------------+----------+--------------+-------+--------------------+
-| data        | 10/1     | LVCMOS33_IN  | PL17A | PULL:100K          |
-| fire        | 9/1      | LVCMOS33_OUT | PL16A | DRIVE:8mA PULL:NA  |
-| position[0] | 20/1     | LVCMOS33_OUT | PL20B | DRIVE:8mA PULL:NA  |
-| position[1] | 21/1     | LVCMOS33_OUT | PL19B | DRIVE:8mA PULL:NA  |
-| position[2] | 13/1     | LVCMOS33_OUT | PL20A | DRIVE:8mA PULL:NA  |
-| position[3] | 11/1     | LVCMOS33_OUT | PL18A | DRIVE:8mA PULL:NA  |
-| position[4] | 12/1     | LVCMOS33_OUT | PL19A | DRIVE:8mA PULL:NA  |
-+-------------+----------+--------------+-------+--------------------+
++-----------+----------+--------------+-------+--------------------+
+| Port Name | Pin/Bank | Buffer Type  | Site  | Properties         |
++-----------+----------+--------------+-------+--------------------+
+| game_over | 15/1     | LVCMOS33_OUT | PL25A | DRIVE:8mA PULL:NA  |
++-----------+----------+--------------+-------+--------------------+
 
 Vccio by Bank:
 +------+-------+
@@ -78,19 +72,19 @@ Vccio by Bank:
 | 3/2      |     unused, PULL:UP |            |              | PL10B |                  |
 | 4/2      |     unused, PULL:UP |            |              | PL10A |                  |
 | 6/1      |     unused, PULL:UP |            |              | PL14B |                  |
-| 9/1      | fire                |            | LVCMOS33_OUT | PL16A |                  |
-| 10/1     | data                |            | LVCMOS33_IN  | PL17A |                  |
-| 11/1     | position[3]         |            | LVCMOS33_OUT | PL18A |                  |
-| 12/1     | position[4]         |            | LVCMOS33_OUT | PL19A |                  |
-| 13/1     | position[2]         |            | LVCMOS33_OUT | PL20A |                  |
+| 9/1      |     unused, PULL:UP |            |              | PL16A |                  |
+| 10/1     |     unused, PULL:UP |            |              | PL17A |                  |
+| 11/1     |     unused, PULL:UP |            |              | PL18A |                  |
+| 12/1     |     unused, PULL:UP |            |              | PL19A |                  |
+| 13/1     |     unused, PULL:UP |            |              | PL20A |                  |
 | 14/1     |     unused, PULL:UP |            |              | PL24A | SPI_SO           |
-| 15/1     |     unused, PULL:UP |            |              | PL25A | SPISCK           |
+| 15/1     | game_over           |            | LVCMOS33_OUT | PL25A | SPISCK           |
 | 16/1     |     unused, PULL:UP |            |              | PL25B | SPI_SS           |
 | 17/1     |     unused, PULL:UP |            |              | PL24B | SPI_SI           |
 | 18/1     |     unused, PULL:UP |            |              | PL23B |                  |
 | 19/1     |     unused, PULL:UP |            |              | PL22B |                  |
-| 20/1     | position[0]         |            | LVCMOS33_OUT | PL20B | PCLKT1_0         |
-| 21/1     | position[1]         |            | LVCMOS33_OUT | PL19B |                  |
+| 20/1     |     unused, PULL:UP |            |              | PL20B | PCLKT1_0         |
+| 21/1     |     unused, PULL:UP |            |              | PL19B |                  |
 | 23/0     |     unused, PULL:UP |            |              | PR20A |                  |
 | 25/0     |     unused, PULL:UP |            |              | PR20B |                  |
 | 26/0     |     unused, PULL:UP |            |              | PR19A |                  |
@@ -135,20 +129,14 @@ Vccio by Bank:
 
 Locate Constraints for each Pin: 
 
-ldc_set_location -site {10} [ get_ports {data} ]
-ldc_set_location -site {9} [ get_ports {fire} ]
-ldc_set_location -site {20} [ get_ports {position[0]} ]
-ldc_set_location -site {21} [ get_ports {position[1]} ]
-ldc_set_location -site {13} [ get_ports {position[2]} ]
-ldc_set_location -site {11} [ get_ports {position[3]} ]
-ldc_set_location -site {12} [ get_ports {position[4]} ]
+ldc_set_location -site {15} [ get_ports {game_over} ]
 
 
 
 
 
 Copyright 2015 Lattice Semiconductor Corporation, All Rights Reserved
-Thu May  6 20:38:12 2021
+Fri May  7 11:53:50 2021
 
 
 
