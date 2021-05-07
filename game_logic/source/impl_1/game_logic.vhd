@@ -17,7 +17,6 @@ entity game_logic is
     port(
 		data : in std_logic;
 		g_clk : in std_logic; -- how fast game is updated
-		b_clk : in std_logic; -- how fast we generate new bricks
 		game_over : out std_logic
     );
 end game_logic;
@@ -61,21 +60,22 @@ architecture synth of game_logic is
 	
 	signal b_nxt_row : std_logic_vector(N_COLS - 1 downto 0);
 	signal b_count : unsigned(ROW_BITS - 1 downto 0);
-		
 	signal b_wr_en : std_logic := '0';
 	signal b_addr : std_logic_vector(ROW_BITS - 1 downto 0);
 	signal b_wr : std_logic_vector(N_COLS - 1 downto 0);
 	signal b_rd : std_logic_vector(N_COLS - 1 downto 0);
+	signal b_clk : std_logic := '0';
 	
 	signal c_pos : unsigned(COL_BITS - 1 downto 0);
 	signal c_fire : std_logic;
-	signal c_nxt_fire : std_logic := '0';
 	
 	signal g_count : unsigned(7 downto 0);
 begin
 	b_mem : ram port map(clk => g_clk, wr_en => b_wr_en, addr => b_addr, data_wr => b_wr, data_rd => b_rd);
 	b_generator : lfsr port map(clk => b_clk, reset => '0', count => b_nxt_row);
 	c_controller : cannon port map(data => data, fire => c_fire, position => c_pos);
+	
+	b_clk <= '1' when g_count = to_unsigned(255, 8) else '0';
 	
 	process (g_clk) begin
 		if rising_edge(g_clk) then
@@ -106,6 +106,7 @@ begin
 					b_wr_en <= '1';
 					b_wr <= b_nxt_row; -- write next row of blocks to memory
 					b_wr_en <= '0';
+					game_over <= '0';
 				end if;
 				
 				g_count <= to_unsigned(0, 8);

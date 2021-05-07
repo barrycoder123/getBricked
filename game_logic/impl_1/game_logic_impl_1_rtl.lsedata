@@ -1,10 +1,10 @@
 <top name = "game_logic"  library = "work"  arch = "RTL"  entry = "VHDL">
 
 <clocks>
-    <clockitem name = "c_controller/cannon_controller/clk_d"  type = "net" />
-    <clockitem name = "c_controller/cannon_controller/NESclk"  type = "net" />
     <clockitem name = "g_clk"  type = "port" />
-    <clockitem name = "b_clk"  type = "port" />
+    <clockitem name = "b_clk"  type = "net" />
+    <clockitem name = "c_controller/cannon_controller/NESclk"  type = "net" />
+    <clockitem name = "c_controller/cannon_controller/clk_d"  type = "net" />
 </clocks>
 
 <!--

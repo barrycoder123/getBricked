@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2.2.0.97.3
 
-Fri May  7 11:53:50 2021
+Fri May  7 12:09:02 2021
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -28,6 +28,7 @@ Performance Hardware Data Status:   Advanced       Version 1.0
         1.1  SDC Constraints
         1.2  Combinational Loop
     2  CLOCK SUMMARY
+        2.1  Clock c_controller/cannon_controller/clk_d
     3  TIMING ANALYSIS SUMMARY
         3.1  Overall (Setup and Hold)
             3.1.1  Constraint Coverage
@@ -52,6 +53,7 @@ Performance Hardware Data Status:   Advanced       Version 1.0
 
 1.1  SDC Constraints
 =====================
+create_clock -name {c_controller/cannon_controller/clk_d} -period 20.8333 [get_pins {c_controller.cannon_controller.HSOSC_C/CLKHF }] 
 
 Operating conditions:
 --------------------
@@ -59,11 +61,69 @@ Operating conditions:
 
 1.2  Combinational Loop
 ========================
-None
+Combinational Loops
+-------------------
+++++ Loop1
+c_controller/i738_4_lut/C	->	c_controller/i738_4_lut/Z
+
+++++ Loop2
+c_controller/i2_4_lut/D	->	c_controller/i2_4_lut/Z
+
+++++ Loop3
+c_controller/i738_4_lut/D	->	c_controller/i738_4_lut/Z
+
+++++ Loop4
+c_controller/pos_tmp_4__I_44_4_lut/D	->	c_controller/pos_tmp_4__I_44_4_lut/Z
+
+++++ Loop5
+c_controller/i2_3_lut_adj_47/C	->	c_controller/i2_3_lut_adj_47/Z
+
+++++ Loop6
+c_controller/i2_4_lut/C	->	c_controller/i2_4_lut/Z
+
+++++ Loop7
+c_controller/i738_4_lut/B	->	c_controller/i738_4_lut/Z
+
+++++ Loop8
+c_controller/i2_4_lut/A	->	c_controller/i2_4_lut/Z
+
+++++ Loop9
+c_controller/i2_3_lut_adj_48/C	->	c_controller/i2_3_lut_adj_48/Z
+
+++++ Loop10
+c_controller/pos_tmp_4__I_44_4_lut/B	->	c_controller/pos_tmp_4__I_44_4_lut/Z
+
+++++ Loop11
+c_controller/i3_3_lut_adj_45/A	->	c_controller/i3_3_lut_adj_45/Z
+
+++++ Loop12
+c_controller/i2_4_lut_adj_46/D	->	c_controller/i2_4_lut_adj_46/Z
+
+++++ Loop13
+c_controller/i3_3_lut_adj_45/B	->	c_controller/i3_3_lut_adj_45/Z
+
+++++ Loop14
+c_controller.i2_3_lut/D	->	c_controller.i2_3_lut/Z
 
 ==============================================
 2  CLOCK SUMMARY
 ==============================================
+
+2.1 Clock "c_controller/cannon_controller/clk_d"
+=======================
+create_clock -name {c_controller/cannon_controller/clk_d} -period 20.8333 [get_pins {c_controller.cannon_controller.HSOSC_C/CLKHF }] 
+
+Single Clock Domain
+---------------------------------------------------------------------------------------------------------
+Clock c_controller/cannon_controller/clk_d|                    |       Period       |     Frequency      
+---------------------------------------------------------------------------------------------------------
+ From c_controller/cannon_controller/clk_d|             Target |          20.833 ns |         48.000 MHz 
+                                          | Actual (all paths) |          20.830 ns |         48.008 MHz 
+c_controller.cannon_controller.HSOSC_C/CLKHF (MPW)                                                                
+                                          |   (50% duty cycle) |          20.830 ns |         48.008 MHz 
+---------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
 
 ==============================================
 3  TIMING ANALYSIS SUMMARY
@@ -74,7 +134,7 @@ None
 
 3.1.1  Constraint Coverage
 ---------------------------
-Constraint Coverage: 0%
+Constraint Coverage: 12.1951%
 
 3.1.2  Timing Errors
 ---------------------
@@ -87,20 +147,66 @@ Total Negative Slack: 0.000 ns (setup), 0.000 ns (hold)
 3.2  Setup Summary Report
 ==========================
 
---------------------------------------------------
-There is no end point satisfying reporting criteria
-
-Total Negative Slack: 0
-
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+c_controller/cannon_controller/counter_C/i_189__i17/D              
+                                         |   10.452 ns 
+c_controller/cannon_controller/counter_C/i_189__i16/D              
+                                         |   10.729 ns 
+c_controller/cannon_controller/counter_C/i_189__i15/D              
+                                         |   11.564 ns 
+c_controller/cannon_controller/counter_C/i_189__i14/D              
+                                         |   11.842 ns 
+c_controller/cannon_controller/counter_C/i_189__i13/D              
+                                         |   12.120 ns 
+c_controller/cannon_controller/counter_C/i_189__i12/D              
+                                         |   12.398 ns 
+c_controller/cannon_controller/counter_C/i_189__i11/D              
+                                         |   12.676 ns 
+c_controller/cannon_controller/counter_C/i_189__i10/D              
+                                         |   12.954 ns 
+c_controller/cannon_controller/counter_C/i_189__i9/D              
+                                         |   13.232 ns 
+c_controller/cannon_controller/counter_C/i_189__i8/D              
+                                         |   13.509 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
 
 3.3  Hold Summary Report
 =========================
 
---------------------------------------------------
-There is no end point satisfying reporting criteria
-
-Total Negative Slack: 0
-
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+c_controller/cannon_controller/counter_C/i_189__i4/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i5/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i6/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i7/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i8/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i9/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i10/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i11/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i12/D              
+                                         |    1.887 ns 
+c_controller/cannon_controller/counter_C/i_189__i13/D              
+                                         |    1.887 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
 
 3.4  Unconstrained Report
 ===========================
@@ -132,22 +238,36 @@ create_generated_clock,
 ...
 
 -------------------------------------------------------------------
-     Listing 3 Start or End Points      |           Type           
+     Listing 1 Start or End Points      |           Type           
 -------------------------------------------------------------------
-data                                    |                     input
-g_clk                                   |                     input
-b_clk                                   |                     input
+game_over                               |                    output
 -------------------------------------------------------------------
                                         |                          
-Number of I/O ports without constraint  |                         3
+Number of I/O ports without constraint  |                         1
                                         |                          
 -------------------------------------------------------------------
 
 Registers without clock definition
 Define the clock for these registers.
---------------------------------------------------
-There is no instance satisfying reporting criteria
-
+-------------------------------------------------------------------
+         Listing 10 Instance(s)         |           Type           
+-------------------------------------------------------------------
+g_count_188__i7                         |                  No Clock
+g_count_188__i6                         |                  No Clock
+g_count_188__i4                         |                  No Clock
+g_count_188__i2                         |                  No Clock
+g_count_188__i0                         |                  No Clock
+c_controller/cannon_controller/temp__i7 |                  No Clock
+c_controller/cannon_controller/temp__i5 |                  No Clock
+c_controller/cannon_controller/temp__i3 |                  No Clock
+c_controller/cannon_controller/temp__i2 |                  No Clock
+b_wr_i12                                |                  No Clock
+-------------------------------------------------------------------
+                                        |                          
+Number of registers without clock defin |                          
+ition                                   |                       338
+                                        |                          
+-------------------------------------------------------------------
 
 ==============================================
 4  DETAILED REPORT
@@ -166,6 +286,936 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i17/D  (SLICE_R5C31A)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 18
+Delay Ratio      : 37.3% (route), 62.7% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 10.452 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.000        12.051  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO0
+                                          SLICE_R5C30B    CIN0_TO_COUT0_DELAY  0.278        12.329  2       
+c_controller/cannon_controller/counter_C/n2590
+                                                          NET DELAY            0.000        12.329  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO1
+                                          SLICE_R5C30B    CIN1_TO_COUT1_DELAY  0.278        12.607  2       
+c_controller/cannon_controller/counter_C/n1863
+                                                          NET DELAY            0.000        12.607  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO0
+                                          SLICE_R5C30C    CIN0_TO_COUT0_DELAY  0.278        12.885  2       
+c_controller/cannon_controller/counter_C/n2593
+                                                          NET DELAY            0.000        12.885  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO1
+                                          SLICE_R5C30C    CIN1_TO_COUT1_DELAY  0.278        13.163  2       
+c_controller/cannon_controller/counter_C/n1865
+                                                          NET DELAY            0.000        13.163  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_15/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_15/CO0
+                                          SLICE_R5C30D    CIN0_TO_COUT0_DELAY  0.278        13.441  2       
+c_controller/cannon_controller/counter_C/n2596
+                                                          NET DELAY            0.000        13.441  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_15/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_15/CO1
+                                          SLICE_R5C30D    CIN1_TO_COUT1_DELAY  0.278        13.719  2       
+c_controller/cannon_controller/counter_C/n1867
+                                                          NET DELAY            0.556        14.275  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_17/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_17/CO0
+                                          SLICE_R5C31A    CIN0_TO_COUT0_DELAY  0.278        14.553  2       
+c_controller/cannon_controller/counter_C/n2599
+                                                          NET DELAY            0.662        15.215  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_17/D1->c_controller/cannon_controller/counter_C/i_189_add_4_17/S1
+                                          SLICE_R5C31A    D1_TO_F1_DELAY       0.477        15.692  1       
+c_controller/cannon_controller/counter_C/n73[16] ( DI1 )
+                                                          NET DELAY            0.000        15.692  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -15.691  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     10.452  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i16/D  (SLICE_R5C31A)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 17
+Delay Ratio      : 38.4% (route), 61.6% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 10.729 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.000        12.051  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO0
+                                          SLICE_R5C30B    CIN0_TO_COUT0_DELAY  0.278        12.329  2       
+c_controller/cannon_controller/counter_C/n2590
+                                                          NET DELAY            0.000        12.329  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO1
+                                          SLICE_R5C30B    CIN1_TO_COUT1_DELAY  0.278        12.607  2       
+c_controller/cannon_controller/counter_C/n1863
+                                                          NET DELAY            0.000        12.607  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO0
+                                          SLICE_R5C30C    CIN0_TO_COUT0_DELAY  0.278        12.885  2       
+c_controller/cannon_controller/counter_C/n2593
+                                                          NET DELAY            0.000        12.885  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO1
+                                          SLICE_R5C30C    CIN1_TO_COUT1_DELAY  0.278        13.163  2       
+c_controller/cannon_controller/counter_C/n1865
+                                                          NET DELAY            0.000        13.163  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_15/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_15/CO0
+                                          SLICE_R5C30D    CIN0_TO_COUT0_DELAY  0.278        13.441  2       
+c_controller/cannon_controller/counter_C/n2596
+                                                          NET DELAY            0.000        13.441  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_15/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_15/CO1
+                                          SLICE_R5C30D    CIN1_TO_COUT1_DELAY  0.278        13.719  2       
+c_controller/cannon_controller/counter_C/n1867
+                                                          NET DELAY            1.219        14.938  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_17/D0->c_controller/cannon_controller/counter_C/i_189_add_4_17/S0
+                                          SLICE_R5C31A    D0_TO_F0_DELAY       0.477        15.415  1       
+c_controller/cannon_controller/counter_C/n73[15] ( DI0 )
+                                                          NET DELAY            0.000        15.415  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -15.414  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     10.729  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i15/D  (SLICE_R5C30D)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 16
+Delay Ratio      : 35.8% (route), 64.2% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 11.564 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.000        12.051  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO0
+                                          SLICE_R5C30B    CIN0_TO_COUT0_DELAY  0.278        12.329  2       
+c_controller/cannon_controller/counter_C/n2590
+                                                          NET DELAY            0.000        12.329  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO1
+                                          SLICE_R5C30B    CIN1_TO_COUT1_DELAY  0.278        12.607  2       
+c_controller/cannon_controller/counter_C/n1863
+                                                          NET DELAY            0.000        12.607  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO0
+                                          SLICE_R5C30C    CIN0_TO_COUT0_DELAY  0.278        12.885  2       
+c_controller/cannon_controller/counter_C/n2593
+                                                          NET DELAY            0.000        12.885  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO1
+                                          SLICE_R5C30C    CIN1_TO_COUT1_DELAY  0.278        13.163  2       
+c_controller/cannon_controller/counter_C/n1865
+                                                          NET DELAY            0.000        13.163  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_15/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_15/CO0
+                                          SLICE_R5C30D    CIN0_TO_COUT0_DELAY  0.278        13.441  2       
+c_controller/cannon_controller/counter_C/n2596
+                                                          NET DELAY            0.662        14.103  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_15/D1->c_controller/cannon_controller/counter_C/i_189_add_4_15/S1
+                                          SLICE_R5C30D    D1_TO_F1_DELAY       0.477        14.580  1       
+c_controller/cannon_controller/counter_C/n73[14] ( DI1 )
+                                                          NET DELAY            0.000        14.580  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -14.579  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     11.564  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i14/D  (SLICE_R5C30D)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 15
+Delay Ratio      : 36.9% (route), 63.1% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 11.842 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.000        12.051  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO0
+                                          SLICE_R5C30B    CIN0_TO_COUT0_DELAY  0.278        12.329  2       
+c_controller/cannon_controller/counter_C/n2590
+                                                          NET DELAY            0.000        12.329  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO1
+                                          SLICE_R5C30B    CIN1_TO_COUT1_DELAY  0.278        12.607  2       
+c_controller/cannon_controller/counter_C/n1863
+                                                          NET DELAY            0.000        12.607  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO0
+                                          SLICE_R5C30C    CIN0_TO_COUT0_DELAY  0.278        12.885  2       
+c_controller/cannon_controller/counter_C/n2593
+                                                          NET DELAY            0.000        12.885  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO1
+                                          SLICE_R5C30C    CIN1_TO_COUT1_DELAY  0.278        13.163  2       
+c_controller/cannon_controller/counter_C/n1865
+                                                          NET DELAY            0.662        13.825  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_15/D0->c_controller/cannon_controller/counter_C/i_189_add_4_15/S0
+                                          SLICE_R5C30D    D0_TO_F0_DELAY       0.477        14.302  1       
+c_controller/cannon_controller/counter_C/n73[13] ( DI0 )
+                                                          NET DELAY            0.000        14.302  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -14.301  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     11.842  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i13/D  (SLICE_R5C30C)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 14
+Delay Ratio      : 38.1% (route), 61.9% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 12.120 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.000        12.051  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO0
+                                          SLICE_R5C30B    CIN0_TO_COUT0_DELAY  0.278        12.329  2       
+c_controller/cannon_controller/counter_C/n2590
+                                                          NET DELAY            0.000        12.329  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO1
+                                          SLICE_R5C30B    CIN1_TO_COUT1_DELAY  0.278        12.607  2       
+c_controller/cannon_controller/counter_C/n1863
+                                                          NET DELAY            0.000        12.607  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_13/CO0
+                                          SLICE_R5C30C    CIN0_TO_COUT0_DELAY  0.278        12.885  2       
+c_controller/cannon_controller/counter_C/n2593
+                                                          NET DELAY            0.662        13.547  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/D1->c_controller/cannon_controller/counter_C/i_189_add_4_13/S1
+                                          SLICE_R5C30C    D1_TO_F1_DELAY       0.477        14.024  1       
+c_controller/cannon_controller/counter_C/n73[12] ( DI1 )
+                                                          NET DELAY            0.000        14.024  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -14.023  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     12.120  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i12/D  (SLICE_R5C30C)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 13
+Delay Ratio      : 39.4% (route), 60.6% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 12.398 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.000        12.051  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO0
+                                          SLICE_R5C30B    CIN0_TO_COUT0_DELAY  0.278        12.329  2       
+c_controller/cannon_controller/counter_C/n2590
+                                                          NET DELAY            0.000        12.329  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO1
+                                          SLICE_R5C30B    CIN1_TO_COUT1_DELAY  0.278        12.607  2       
+c_controller/cannon_controller/counter_C/n1863
+                                                          NET DELAY            0.662        13.269  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/D0->c_controller/cannon_controller/counter_C/i_189_add_4_13/S0
+                                          SLICE_R5C30C    D0_TO_F0_DELAY       0.477        13.746  1       
+c_controller/cannon_controller/counter_C/n73[11] ( DI0 )
+                                                          NET DELAY            0.000        13.746  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -13.745  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     12.398  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i11/D  (SLICE_R5C30B)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 12
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 12.676 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.000        12.051  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_11/CO0
+                                          SLICE_R5C30B    CIN0_TO_COUT0_DELAY  0.278        12.329  2       
+c_controller/cannon_controller/counter_C/n2590
+                                                          NET DELAY            0.662        12.991  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/D1->c_controller/cannon_controller/counter_C/i_189_add_4_11/S1
+                                          SLICE_R5C30B    D1_TO_F1_DELAY       0.477        13.468  1       
+c_controller/cannon_controller/counter_C/n73[10] ( DI1 )
+                                                          NET DELAY            0.000        13.468  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -13.467  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     12.676  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i10/D  (SLICE_R5C30B)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 11
+Delay Ratio      : 42.2% (route), 57.8% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 12.954 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.000        11.773  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO1
+                                          SLICE_R5C30A    CIN1_TO_COUT1_DELAY  0.278        12.051  2       
+c_controller/cannon_controller/counter_C/n1861
+                                                          NET DELAY            0.662        12.713  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/D0->c_controller/cannon_controller/counter_C/i_189_add_4_11/S0
+                                          SLICE_R5C30B    D0_TO_F0_DELAY       0.477        13.190  1       
+c_controller/cannon_controller/counter_C/n73[9] ( DI0 )
+                                                          NET DELAY            0.000        13.190  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -13.189  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     12.954  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i9/D  (SLICE_R5C30A)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 10
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 13.232 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            0.556        11.495  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_9/CO0
+                                          SLICE_R5C30A    CIN0_TO_COUT0_DELAY  0.278        11.773  2       
+c_controller/cannon_controller/counter_C/n2587
+                                                          NET DELAY            0.662        12.435  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/D1->c_controller/cannon_controller/counter_C/i_189_add_4_9/S1
+                                          SLICE_R5C30A    D1_TO_F1_DELAY       0.477        12.912  1       
+c_controller/cannon_controller/counter_C/n73[8] ( DI1 )
+                                                          NET DELAY            0.000        12.912  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -12.911  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     13.232  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i1/Q  (SLICE_R5C29A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i8/D  (SLICE_R5C30A)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 9
+Delay Ratio      : 45.5% (route), 54.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 13.509 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d
+                                                             NET DELAY      5.510         5.510  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i1/CK->c_controller/cannon_controller/counter_C/i_189__i1/Q
+                                          SLICE_R5C29A    CLK_TO_Q1_DELAY      1.391         6.901  1       
+c_controller/cannon_controller/counter_C/n17
+                                                          NET DELAY            2.026         8.927  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_1/C1->c_controller/cannon_controller/counter_C/i_189_add_4_1/CO1
+                                          SLICE_R5C29A    C1_TO_COUT1_DELAY    0.344         9.271  2       
+c_controller/cannon_controller/counter_C/n1853
+                                                          NET DELAY            0.000         9.271  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO0
+                                          SLICE_R5C29B    CIN0_TO_COUT0_DELAY  0.278         9.549  2       
+c_controller/cannon_controller/counter_C/n2578
+                                                          NET DELAY            0.000         9.549  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_3/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_3/CO1
+                                          SLICE_R5C29B    CIN1_TO_COUT1_DELAY  0.278         9.827  2       
+c_controller/cannon_controller/counter_C/n1855
+                                                          NET DELAY            0.000         9.827  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO0
+                                          SLICE_R5C29C    CIN0_TO_COUT0_DELAY  0.278        10.105  2       
+c_controller/cannon_controller/counter_C/n2581
+                                                          NET DELAY            0.000        10.105  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_5/CO1
+                                          SLICE_R5C29C    CIN1_TO_COUT1_DELAY  0.278        10.383  2       
+c_controller/cannon_controller/counter_C/n1857
+                                                          NET DELAY            0.000        10.383  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI0->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO0
+                                          SLICE_R5C29D    CIN0_TO_COUT0_DELAY  0.278        10.661  2       
+c_controller/cannon_controller/counter_C/n2584
+                                                          NET DELAY            0.000        10.661  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/CI1->c_controller/cannon_controller/counter_C/i_189_add_4_7/CO1
+                                          SLICE_R5C29D    CIN1_TO_COUT1_DELAY  0.278        10.939  2       
+c_controller/cannon_controller/counter_C/n1859
+                                                          NET DELAY            1.219        12.158  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/D0->c_controller/cannon_controller/counter_C/i_189_add_4_9/S0
+                                          SLICE_R5C30A    D0_TO_F0_DELAY       0.477        12.635  1       
+c_controller/cannon_controller/counter_C/n73[7] ( DI0 )
+                                                          NET DELAY            0.000        12.635  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      5.510        26.343  1       
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -12.634  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                     13.509  
+
+
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     End of Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
@@ -186,6 +1236,476 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i4/Q  (SLICE_R5C29C)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i4/D  (SLICE_R5C29C)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i4/CK->c_controller/cannon_controller/counter_C/i_189__i4/Q
+                                          SLICE_R5C29C    CLK_TO_Q0_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n14
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/C0->c_controller/cannon_controller/counter_C/i_189_add_4_5/S0
+                                          SLICE_R5C29C    C0_TO_F0_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[3] ( DI0 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i5/Q  (SLICE_R5C29C)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i5/D  (SLICE_R5C29C)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i5/CK->c_controller/cannon_controller/counter_C/i_189__i5/Q
+                                          SLICE_R5C29C    CLK_TO_Q1_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n13
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_5/C1->c_controller/cannon_controller/counter_C/i_189_add_4_5/S1
+                                          SLICE_R5C29C    C1_TO_F1_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[4] ( DI1 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i6/Q  (SLICE_R5C29D)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i6/D  (SLICE_R5C29D)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i6/CK->c_controller/cannon_controller/counter_C/i_189__i6/Q
+                                          SLICE_R5C29D    CLK_TO_Q0_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n12
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/C0->c_controller/cannon_controller/counter_C/i_189_add_4_7/S0
+                                          SLICE_R5C29D    C0_TO_F0_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[5] ( DI0 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i7/Q  (SLICE_R5C29D)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i7/D  (SLICE_R5C29D)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i7/CK->c_controller/cannon_controller/counter_C/i_189__i7/Q
+                                          SLICE_R5C29D    CLK_TO_Q1_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n11
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_7/C1->c_controller/cannon_controller/counter_C/i_189_add_4_7/S1
+                                          SLICE_R5C29D    C1_TO_F1_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[6] ( DI1 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i8/Q  (SLICE_R5C30A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i8/D  (SLICE_R5C30A)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i8/CK->c_controller/cannon_controller/counter_C/i_189__i8/Q
+                                          SLICE_R5C30A    CLK_TO_Q0_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n10
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/C0->c_controller/cannon_controller/counter_C/i_189_add_4_9/S0
+                                          SLICE_R5C30A    C0_TO_F0_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[7] ( DI0 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i9/Q  (SLICE_R5C30A)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i9/D  (SLICE_R5C30A)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i9/CK->c_controller/cannon_controller/counter_C/i_189__i9/Q
+                                          SLICE_R5C30A    CLK_TO_Q1_DELAY  0.768         3.809  6       
+c_controller/cannon_controller/counter_C/NESclk
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_9/C1->c_controller/cannon_controller/counter_C/i_189_add_4_9/S1
+                                          SLICE_R5C30A    C1_TO_F1_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[8] ( DI1 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i10/Q  (SLICE_R5C30B)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i10/D  (SLICE_R5C30B)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i10/CK->c_controller/cannon_controller/counter_C/i_189__i10/Q
+                                          SLICE_R5C30B    CLK_TO_Q0_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n8
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/C0->c_controller/cannon_controller/counter_C/i_189_add_4_11/S0
+                                          SLICE_R5C30B    C0_TO_F0_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[9] ( DI0 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i11/Q  (SLICE_R5C30B)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i11/D  (SLICE_R5C30B)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i11/CK->c_controller/cannon_controller/counter_C/i_189__i11/Q
+                                          SLICE_R5C30B    CLK_TO_Q1_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n7
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_11/C1->c_controller/cannon_controller/counter_C/i_189_add_4_11/S1
+                                          SLICE_R5C30B    C1_TO_F1_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[10] ( DI1 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i12/Q  (SLICE_R5C30C)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i12/D  (SLICE_R5C30C)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i12/CK->c_controller/cannon_controller/counter_C/i_189__i12/Q
+                                          SLICE_R5C30C    CLK_TO_Q0_DELAY  0.768         3.809  1       
+c_controller/cannon_controller/counter_C/n6
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/C0->c_controller/cannon_controller/counter_C/i_189_add_4_13/S0
+                                          SLICE_R5C30C    C0_TO_F0_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[11] ( DI0 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : c_controller/cannon_controller/counter_C/i_189__i13/Q  (SLICE_R5C30C)
+Path End         : c_controller/cannon_controller/counter_C/i_189__i13/D  (SLICE_R5C30C)
+Source Clock     : c_controller/cannon_controller/clk_d (R)
+Destination Clock: c_controller/cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 46.1% (route), 53.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.887 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+
+
+
+c_controller/cannon_controller/counter_C/i_189__i13/CK->c_controller/cannon_controller/counter_C/i_189__i13/Q
+                                          SLICE_R5C30C    CLK_TO_Q1_DELAY  0.768         3.809  2       
+c_controller/cannon_controller/counter_C/NEScount[3]
+                                                          NET DELAY        0.870         4.679  1       
+c_controller/cannon_controller/counter_C/i_189_add_4_13/C1->c_controller/cannon_controller/counter_C/i_189_add_4_13/S1
+                                          SLICE_R5C30C    C1_TO_F1_DELAY   0.249         4.928  1       
+c_controller/cannon_controller/counter_C/n73[12] ( DI1 )
+                                                          NET DELAY        0.000         4.928  1       
+
+
+                                                             CONSTRAINT     0.000         0.000  1       
+c_controller.cannon_controller.HSOSC_C/CLKHF
+                                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  9       
+c_controller/cannon_controller/counter_C/clk_d ( CLK )
+                                                             NET DELAY      3.041         3.041  1       
+                                                             Uncertainty    0.000         3.041  
+                                                             Hold time      0.000         3.041  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            -3.041  
+Arrival Time                                                                              4.928  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      1.887  
+
+
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     End of Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 

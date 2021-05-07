@@ -43,13 +43,13 @@ Bitstream generation complete!
 
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 266 MB
+Peak Memory Usage: 276 MB
 
 
 ibisgen "game_logic_impl_1.udb" "/home/es4user/tools/radiant/2.2/cae_library/ibis/iCE40UP.ibs"
 IBIS Models Generator: Lattice Radiant Software (64-bit) 2.2.0.97.3
 
-Fri May  7 11:53:51 2021
+Fri May  7 12:09:03 2021
 
 Loading game_logic_impl_1.udb ...
 Loading device for application GENERIC from file 'itpa08.nph' in environment: /home/es4user/tools/radiant/2.2/ispfpga.
@@ -100,4 +100,4 @@ Writing SDF timing to file game_logic_impl_1_vo.sdf
 Backanno finished with 0 posted error messages.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 182 MB
+Peak Memory Usage: 225 MB

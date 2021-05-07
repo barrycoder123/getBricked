@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
-Fri May  7 11:53:45 2021
+Fri May  7 12:08:53 2021
 
 
 Command Line:  synthesis -f game_logic_impl_1_lattice.synproj -gui -msgset /home/es4user/getBricked/game_logic/promote.xml 
@@ -176,7 +176,7 @@ Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/game_logic
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd
 
 INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(9): analyzing entity game_logic. VHDL-1012
-INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(25): analyzing architecture synth. VHDL-1010
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(24): analyzing architecture synth. VHDL-1010
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd. VHDL-1481
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd
 
@@ -230,6 +230,7 @@ Top module name (VHDL, mixed language): game_logic
                                                          
 
 
+WARNING - synthesis: Initial value found on net b_clk will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net pos_tmp[4] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net pos_tmp[3] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net pos_tmp[2] will be ignored due to unrecognized driver type
@@ -241,39 +242,181 @@ WARNING - synthesis: Initial value found on net pos_tmp[0] will be ignored due t
 ######## Found 1 RTL RAMs in the design.
 ######## Mapping RTL RAM \b_mem/mem to 2 EBR blocks in PSEUDO_DUAL_PORT Mode
 
-WARNING - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(113): Register game_over is stuck at One. VDB-5014
-WARNING - synthesis: I/O Port data 's net has no driver and is unused.
-WARNING - synthesis: I/O Port g_clk 's net has no driver and is unused.
-WARNING - synthesis: I/O Port b_clk 's net has no driver and is unused.
+Combinational loop found : 1
+
+	Net c_pos[4] 
+
+	Instance i237 
+
+	Net n1001 
+
+	Instance i236 
+
+Combinational loop found : 2
+
+	Net c_pos[0] 
+
+	Instance i209 
+
+	Net n973 
+
+	Instance i208 
+
+Combinational loop found : 3
+
+	Net c_pos[1] 
+
+	Instance i216 
+
+	Net n980 
+
+	Instance i215 
+
+Combinational loop found : 4
+
+	Net \c_controller/pos_tmp_4__N_138 
+
+	Instance \c_controller/pos_tmp_4__I_43 
+
+	Net \c_controller/pos_tmp_4__N_141 
+
+	Instance \c_controller/pos_tmp_4__I_0_3_i9 
+
+	Net \c_controller/pos_tmp_4__I_0_3/n6 
+
+	Instance \c_controller/pos_tmp_4__I_0_3_i6 
+
+	Net \c_controller/pos_tmp_4__I_0_3/n1 
+
+	Instance i295 
+
+	Net n881 
+
+	Instance mux_173_i1 
+
+	Net n973 
+
+	Instance i208 
+
+	Net n875 
+
+	Instance inv_172_i1 
+
+	Net \c_controller/pos_tmp_4__N_147 
+
+	Instance \c_controller/pos_tmp_4__I_44 
+
+	Net \c_controller/pos_tmp_4__N_150 
+
+	Instance \c_controller/pos_tmp_4__I_0_i9 
+
+	Net \c_controller/pos_tmp_4__I_0/n6 
+
+	Instance \c_controller/pos_tmp_4__I_0_i6 
+
+	Net n880 
+
+	Instance i408 
+
+	Net n980 
+
+	Instance i215 
+
+Combinational loop found : 5
+
+	Net n881 
+
+	Instance mux_173_i1 
+
+	Net n973 
+
+	Instance i208 
+
+	Net n875 
+
+	Instance inv_172_i1 
+
+	Net \c_controller/pos_tmp_4__N_147 
+
+	Instance \c_controller/pos_tmp_4__I_44 
+
+	Net \c_controller/pos_tmp_4__N_150 
+
+	Instance \c_controller/pos_tmp_4__I_0_i9 
+
+	Net \c_controller/pos_tmp_4__I_0/n6 
+
+	Instance \c_controller/pos_tmp_4__I_0_i6 
+
+	Net n978 
+
+	Instance i213 
+
+	Net \add_175/n2 
+
+	Instance i214 
+
+Combinational loop found : 6
+
+	Net c_pos[2] 
+
+	Instance i223 
+
+Combinational loop found : 7
+
+	Net c_pos[3] 
+
+	Instance i230 
+
+WARNING - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(114): Register b_wr_en is stuck at Zero. VDB-5013
+INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (game_logic)######################
-Number of register bits => 0 of 5280 (0 % )
+Number of register bits => 84 of 5280 (1 % )
+EBR_B => 2
+CCU2 => 14
+FD1P3XZ => 84
+HSOSC_CORE => 1
+IB => 2
+IOL_B => 2
+LUT4 => 58
 OB => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 0
-Number of even-length carry chains : 0
+Number of odd-length carry chains : 1
+Number of even-length carry chains : 1
 
 
 <A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
 
 ################### Begin Clock Report ######################
 Clock Nets
-Number of Clocks: 0
+Number of Clocks: 2
+  Net : g_clk_c, loads : 0
+  Net : b_clk, loads : 3
 Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : game_over, loads : 0
+  Net : n1423, loads : 20
+  Net : n1540, loads : 20
+  Net : c_controller/cannon_controller/clk_d, loads : 17
+  Net : c_controller/c_pos[1], loads : 14
+  Net : n824, loads : 12
+  Net : c_controller/c_pos[0], loads : 8
+  Net : c_controller/cannon_controller/temp_7__N_160, loads : 8
+  Net : c_controller/cannon_controller/counter_C/NESclk, loads : 8
+  Net : c_controller/n915, loads : 7
+  Net : b_count[0], loads : 6
 ################### End Clock Report ##################
 
 Peak Memory Usage: 299 MB
 
 --------------------------------------------------------------
 Total CPU Time: 1 secs 
-Total REAL Time: 0 secs 
+Total REAL Time: 2 secs 
 --------------------------------------------------------------
 
 

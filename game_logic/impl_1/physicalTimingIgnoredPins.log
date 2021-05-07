@@ -1,2 +1,23 @@
-SLICE/F0 VCC  SLICE_0
-     *** game_over_pad.bb_inst/PADDO is driven by constant or a pin on an incomplete path
+SLICE/CIN1 input c_controller.cannon_controller.counter_C.SLICE_6 has no outgoing device arc
+SLICE/COUT0 GND  c_controller.cannon_controller.counter_C.SLICE_7
+     *** c_controller.cannon_controller.counter_C.SLICE_7/D1 is driven by constant or a pin on an incomplete path
+     *** c_controller.cannon_controller.counter_C.SLICE_7/CIN1 is driven by constant or a pin on an incomplete path
+SLICE/D1 input SLICE_9 has no outgoing device arc
+SLICE/CIN1 input SLICE_9 has no outgoing device arc
+     ** SLICE_9/COUT0 is driving a pin on an incomplete path
+SLICE/C0 input SLICE_9 is on an incomplete path
+SLICE/CIN0 input SLICE_9 is on an incomplete path
+SLICE/COUT0 GND  SLICE_13
+     *** SLICE_13/D1 is driven by constant or a pin on an incomplete path
+     *** SLICE_13/CIN1 is driven by constant or a pin on an incomplete path
+SLICE/F0 VCC  SLICE_115
+     *** c_controller.cannon_controller.counter_C.SLICE_7/B1 is driven by constant or a pin on an incomplete path
+     *** SLICE_13/B1 is driven by constant or a pin on an incomplete path
+     *** c_controller.cannon_controller.HSOSC_C/CLKHFPU is driven by constant or a pin on an incomplete path
+     *** c_controller.cannon_controller.HSOSC_C/CLKHFEN is driven by constant or a pin on an incomplete path
+     *** b_mem.mem0/RCLKE is driven by constant or a pin on an incomplete path
+     *** b_mem.mem0/RE is driven by constant or a pin on an incomplete path
+     *** b_mem.mem0/WCLKE is driven by constant or a pin on an incomplete path
+     *** b_mem.mem1/RCLKE is driven by constant or a pin on an incomplete path
+     *** b_mem.mem1/RE is driven by constant or a pin on an incomplete path
+     *** b_mem.mem1/WCLKE is driven by constant or a pin on an incomplete path

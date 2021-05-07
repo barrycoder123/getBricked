@@ -1,8 +1,71 @@
 ----------------------------------------------------------------------
 Report for cell game_logic.TECH
-Register bits:  0 of 5280 (0.000%)
-I/O cells:      1
+Register bits:  84 of 5280 (1.591%)
+I/O cells:      3
                                   Cell usage:
                                cell     count   Res Usage(%)
+                              EBR_B         2          100.0
+                               CCU2        14          100.0
+                            FD1P3XZ        84          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB         2          100.0
+                              IOL_B         2          100.0
+                               LUT4        58          100.0
                                  OB         1          100.0
-                              TOTAL         1
+SUB MODULES
+                             cannon         1
+                               lfsr         1
+                                nes         1
+                        nes_counter         1
+                                ram         1
+                              TOTAL       169
+----------------------------------------------------------------------
+Report for cell cannon.v1
+Instance Path : c_controller
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9           64.3
+                            FD1P3XZ        24           28.6
+                         HSOSC_CORE         1          100.0
+                              IOL_B         1           50.0
+                               LUT4        13           22.4
+SUB MODULES
+                                nes         1
+                        nes_counter         1
+                              TOTAL        50
+----------------------------------------------------------------------
+Report for cell nes.v1
+Instance Path : c_controller.cannon_controller
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9           64.3
+                            FD1P3XZ        24           28.6
+                         HSOSC_CORE         1          100.0
+                              IOL_B         1           50.0
+                               LUT4         2            3.4
+SUB MODULES
+                        nes_counter         1
+                              TOTAL        38
+----------------------------------------------------------------------
+Report for cell nes_counter.v1
+Instance Path : c_controller.cannon_controller.counter_C
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9           64.3
+                            FD1P3XZ        17           20.2
+                              TOTAL        26
+----------------------------------------------------------------------
+Report for cell lfsr.v1
+Instance Path : b_generator
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        20           23.8
+                               LUT4         7           12.1
+                              TOTAL        27
+----------------------------------------------------------------------
+Report for cell ram.v1
+Instance Path : b_mem
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         2          100.0
+                              TOTAL         2

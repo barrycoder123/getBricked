@@ -1,103 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliMessageLog>
-    <Task name="Map">
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>data</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>g_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>b_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>data</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>g_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>b_clk</Dynamic>
-        </Message>
-    </Task>
     <Task name="Export">
         <Message>
             <ID>1191031</ID>
             <Severity>1</Severity>
-        </Message>
-    </Task>
-    <Task name="PAR">
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>data</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>g_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>b_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>data</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>g_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>b_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>data</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>g_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>b_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>data</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>g_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>b_clk</Dynamic>
         </Message>
     </Task>
     <Task name="Synthesis">
@@ -388,10 +294,10 @@
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(25): </Dynamic>
+            <Dynamic>/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(24): </Dynamic>
             <Dynamic>synth</Dynamic>
             <Navigation>/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd</Navigation>
-            <Navigation>25</Navigation>
+            <Navigation>24</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -482,6 +388,11 @@
         <Message>
             <ID>35001771</ID>
             <Severity>16</Severity>
+            <Dynamic>b_clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001771</ID>
+            <Severity>16</Severity>
             <Dynamic>pos_tmp[4]</Dynamic>
         </Message>
         <Message>
@@ -505,32 +416,16 @@
             <Dynamic>pos_tmp[0]</Dynamic>
         </Message>
         <Message>
-            <ID>35935014</ID>
+            <ID>35935013</ID>
             <Severity>16</Severity>
-            <Dynamic>/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(113): </Dynamic>
-            <Dynamic>game_over</Dynamic>
+            <Dynamic>/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(114): </Dynamic>
+            <Dynamic>b_wr_en</Dynamic>
             <Navigation>/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd</Navigation>
-            <Navigation>113</Navigation>
+            <Navigation>114</Navigation>
         </Message>
         <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>data</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>g_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>b_clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>35811145</ID>
+            <ID>35002039</ID>
             <Severity>1</Severity>
-            <Dynamic>i311</Dynamic>
         </Message>
     </Task>
 </BaliMessageLog>
