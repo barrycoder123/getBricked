@@ -39,7 +39,9 @@
 -lib "work" -vhd "/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd"
 "/home/es4user/getBricked/game_logic/source/impl_1/ram.vhd"
 "/home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd"
-"/home/es4user/getBricked/game_logic/source/impl_1/counter.vhd"
+"/home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd"
+"/home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd"
+"/home/es4user/getBricked/game_logic/source/impl_1/nes.vhd"
 
 
 -top game_logic

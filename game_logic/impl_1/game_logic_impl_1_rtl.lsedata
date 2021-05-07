@@ -1,12 +1,15 @@
 <top name = "game_logic"  library = "work"  arch = "RTL"  entry = "VHDL">
 
 <clocks>
-    <clockitem name = "clk"  type = "port" />
+    <clockitem name = "c_controller/cannon_controller/clk_d"  type = "net" />
+    <clockitem name = "c_controller/cannon_controller/NESclk"  type = "net" />
+    <clockitem name = "g_clk"  type = "port" />
+    <clockitem name = "b_clk"  type = "port" />
 </clocks>
 
 <!--
     //=============================================================
-    //  Number of Clocks processed: 1
+    //  Number of Clocks processed: 4
     //
     //  If a clock cannot be found in the top level pins section,
     //  that means it is an internal clock.

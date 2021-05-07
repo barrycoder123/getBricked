@@ -5,8 +5,8 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
-Thu May  6 17:42:35 2021
+Thu May  6 20:39:59 2021
 
 
-Command Line:  synthesis -comp -f game_logic_impl_1_lattice.synproj -gui 
+Command Line:  synthesis -f game_logic_impl_1_lattice.synproj -gui -msgset /home/es4user/getBricked/game_logic/promote.xml 
 

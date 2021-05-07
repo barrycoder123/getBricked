@@ -1,7 +1,7 @@
 (DELAYFILE
   (SDFVERSION "3.0")
-  (DESIGN "lfsr")
-  (DATE "Thu May  6 16:57:47 2021")
+  (DESIGN "cannon")
+  (DATE "Thu May  6 20:38:15 2021")
   (VENDOR "Lattice")
   (PROGRAM "backanno")
   (VERSION "Radiant Software (64-bit) 2.2.0.97.3")
@@ -11,90 +11,204 @@
   (TEMPERATURE -40:25:85)
   (TIMESCALE 1ps)
   (CELL
-    (CELLTYPE "SLICE_0")
-    (INSTANCE SLICE_0)
+    (CELLTYPE "cannon_controller_counter_C_SLICE_0")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_0)
     (DELAY
       (ABSOLUTE
-        (IOPATH A1 F1 (453:466:480)(453:466:480))
-        (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
-        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_1")
-    (INSTANCE SLICE_1)
-    (DELAY
-      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
         (IOPATH C1 F1 (453:466:480)(453:466:480))
-        (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
         (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
         (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
       )
     )
     (TIMINGCHECK
       (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
       (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
     )
   )
   (CELL
-    (CELLTYPE "SLICE_3")
-    (INSTANCE SLICE_3)
+    (CELLTYPE "cannon_controller_counter_C_SLICE_1")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_1)
     (DELAY
       (ABSOLUTE
-        (IOPATH A1 F1 (453:466:480)(453:466:480))
-        (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
         (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
         (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
       )
     )
     (TIMINGCHECK
       (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
       (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
     )
   )
   (CELL
-    (CELLTYPE "SLICE_5")
-    (INSTANCE SLICE_5)
+    (CELLTYPE "cannon_controller_counter_C_SLICE_2")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_2)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
+        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
+      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_counter_C_SLICE_3")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_3)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
+        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
+      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_counter_C_SLICE_4")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_4)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
+        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
+      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_counter_C_SLICE_5")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_5)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
+        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
+      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_counter_C_SLICE_6")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_6)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
+        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
+      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_counter_C_SLICE_7")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_7)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 COUT0 (53:199:346)(53:199:346))
+        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN0 COUT0 (279:279:279)(279:279:279))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
+      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_counter_C_SLICE_8")
+    (INSTANCE cannon_controller\.counter_C\.SLICE_8)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 COUT1 (53:199:346)(53:199:346))
+        (IOPATH B1 F1 (453:466:480)(453:466:480))
+        (IOPATH B1 COUT1 (307:333:360)(307:333:360))
+        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH CIN1 COUT1 (279:279:279)(279:279:279))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_SLICE_9")
+    (INSTANCE cannon_controller\.SLICE_9)
     (DELAY
       (ABSOLUTE
         (IOPATH B1 F1 (453:466:480)(453:466:480))
-        (IOPATH C0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
-        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_7")
-    (INSTANCE SLICE_7)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (453:466:480)(453:466:480))
         (IOPATH A0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
         (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
         (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
       )
@@ -102,18 +216,16 @@
     (TIMINGCHECK
       (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
       (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
+      (SETUPHOLD CE (posedge CLK) (200:200:200)(0:0:0))
     )
   )
   (CELL
-    (CELLTYPE "SLICE_9")
-    (INSTANCE SLICE_9)
+    (CELLTYPE "cannon_controller_SLICE_11")
+    (INSTANCE cannon_controller\.SLICE_11)
     (DELAY
       (ABSOLUTE
         (IOPATH C1 F1 (453:466:480)(453:466:480))
-        (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
         (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
         (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
       )
@@ -121,18 +233,16 @@
     (TIMINGCHECK
       (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
       (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
+      (SETUPHOLD CE (posedge CLK) (200:200:200)(0:0:0))
     )
   )
   (CELL
-    (CELLTYPE "SLICE_11")
-    (INSTANCE SLICE_11)
+    (CELLTYPE "cannon_controller_SLICE_13")
+    (INSTANCE cannon_controller\.SLICE_13)
     (DELAY
       (ABSOLUTE
         (IOPATH A1 F1 (453:466:480)(453:466:480))
-        (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
         (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
         (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
       )
@@ -140,26 +250,7 @@
     (TIMINGCHECK
       (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
       (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_13")
-    (INSTANCE SLICE_13)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH A1 F1 (453:466:480)(453:466:480))
-        (IOPATH A0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
-        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
-      )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
+      (SETUPHOLD CE (posedge CLK) (200:200:200)(0:0:0))
     )
   )
   (CELL
@@ -167,21 +258,28 @@
     (INSTANCE SLICE_15)
     (DELAY
       (ABSOLUTE
+        (IOPATH A0 F0 (453:466:480)(453:466:480))
+        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
+      (SETUPHOLD CE (posedge CLK) (200:200:200)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "SLICE_16")
+    (INSTANCE SLICE_16)
+    (DELAY
+      (ABSOLUTE
         (IOPATH D1 F1 (453:466:480)(453:466:480))
         (IOPATH C1 F1 (453:466:480)(453:466:480))
         (IOPATH B1 F1 (453:466:480)(453:466:480))
         (IOPATH A1 F1 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
         (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
-        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
+        (IOPATH A0 F0 (453:466:480)(453:466:480))
       )
-    )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
     )
   )
   (CELL
@@ -189,18 +287,29 @@
     (INSTANCE SLICE_17)
     (DELAY
       (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH B1 F1 (453:466:480)(453:466:480))
         (IOPATH A1 F1 (453:466:480)(453:466:480))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH B0 F0 (453:466:480)(453:466:480))
         (IOPATH A0 F0 (453:466:480)(453:466:480))
-        (IOPATH LSR Q0 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH LSR Q1 (1133:1366:1600)(1133:1366:1600))
-        (IOPATH CLK Q0 (1400:1400:1400)(1400:1400:1400))
-        (IOPATH CLK Q1 (1400:1400:1400)(1400:1400:1400))
       )
     )
-    (TIMINGCHECK
-      (SETUPHOLD DI1 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD DI0 (posedge CLK) (200:200:200)(0:0:0))
-      (SETUPHOLD LSR (posedge CLK) (426:426:426)(0:0:0))
+  )
+  (CELL
+    (CELLTYPE "SLICE_18")
+    (INSTANCE SLICE_18)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH B1 F1 (453:466:480)(453:466:480))
+        (IOPATH A1 F1 (453:466:480)(453:466:480))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH A0 F0 (453:466:480)(453:466:480))
+      )
     )
   )
   (CELL
@@ -208,7 +317,12 @@
     (INSTANCE SLICE_20)
     (DELAY
       (ABSOLUTE
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH A1 F1 (453:466:480)(453:466:480))
+        (IOPATH D0 F0 (453:466:480)(453:466:480))
         (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH B0 F0 (453:466:480)(453:466:480))
         (IOPATH A0 F0 (453:466:480)(453:466:480))
       )
     )
@@ -222,31 +336,6 @@
         (IOPATH C1 F1 (453:466:480)(453:466:480))
         (IOPATH B1 F1 (453:466:480)(453:466:480))
         (IOPATH A1 F1 (453:466:480)(453:466:480))
-        (IOPATH D0 F0 (453:466:480)(453:466:480))
-        (IOPATH C0 F0 (453:466:480)(453:466:480))
-        (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH A0 F0 (453:466:480)(453:466:480))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_22")
-    (INSTANCE SLICE_22)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH D0 F0 (453:466:480)(453:466:480))
-        (IOPATH C0 F0 (453:466:480)(453:466:480))
-        (IOPATH B0 F0 (453:466:480)(453:466:480))
-        (IOPATH A0 F0 (453:466:480)(453:466:480))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "SLICE_23")
-    (INSTANCE SLICE_23)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH D0 F0 (453:466:480)(453:466:480))
         (IOPATH C0 F0 (453:466:480)(453:466:480))
         (IOPATH B0 F0 (453:466:480)(453:466:480))
         (IOPATH A0 F0 (453:466:480)(453:466:480))
@@ -266,313 +355,381 @@
     )
   )
   (CELL
-    (CELLTYPE "count_19_")
-    (INSTANCE count\[19\]_I)
+    (CELLTYPE "cannon_controller_SLICE_26")
+    (INSTANCE cannon_controller\.SLICE_26)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count19 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH D1 F1 (453:466:480)(453:466:480))
+        (IOPATH C1 F1 (453:466:480)(453:466:480))
+        (IOPATH B1 F1 (453:466:480)(453:466:480))
+        (IOPATH A1 F1 (453:466:480)(453:466:480))
+        (IOPATH C0 F0 (453:466:480)(453:466:480))
+        (IOPATH A0 F0 (453:466:480)(453:466:480))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_18_")
-    (INSTANCE count\[18\]_I)
+    (CELLTYPE "SLICE_29")
+    (INSTANCE SLICE_29)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count18 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH B0 F0 (453:466:480)(453:466:480))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_17_")
-    (INSTANCE count\[17\]_I)
+    (CELLTYPE "cannon_controller_temp__i1")
+    (INSTANCE cannon_controller\.temp__i1)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count17 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH INCLK DI0 (889:950:1012)(889:950:1012))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD PADDI (posedge INCLK) (4196:4204:4212)(0:0:0))
+      (SETUPHOLD CE (posedge INCLK) (188:196:204)(0:0:0))
+    )
+  )
+  (CELL
+    (CELLTYPE "cannon_controller_HSOSC_C")
+    (INSTANCE cannon_controller\.HSOSC_C)
+  )
+  (CELL
+    (CELLTYPE "position_4_")
+    (INSTANCE position\[4\]_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO position4 (1914:2001:2088)(1914:2001:2088))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_16_")
-    (INSTANCE count\[16\]_I)
+    (CELLTYPE "fire")
+    (INSTANCE fire_I)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count16 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH PADDO fire (1914:2001:2088)(1914:2001:2088))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_15_")
-    (INSTANCE count\[15\]_I)
+    (CELLTYPE "position_3_")
+    (INSTANCE position\[3\]_I)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count15 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH PADDO position3 (1914:2001:2088)(1914:2001:2088))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_14_")
-    (INSTANCE count\[14\]_I)
+    (CELLTYPE "position_2_")
+    (INSTANCE position\[2\]_I)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count14 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH PADDO position2 (1914:2001:2088)(1914:2001:2088))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_13_")
-    (INSTANCE count\[13\]_I)
+    (CELLTYPE "position_1_")
+    (INSTANCE position\[1\]_I)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count13 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH PADDO position1 (1914:2001:2088)(1914:2001:2088))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_12_")
-    (INSTANCE count\[12\]_I)
+    (CELLTYPE "position_0_")
+    (INSTANCE position\[0\]_I)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count12 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH PADDO position0 (1914:2001:2088)(1914:2001:2088))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_11_")
-    (INSTANCE count\[11\]_I)
+    (CELLTYPE "data")
+    (INSTANCE data_I)
     (DELAY
       (ABSOLUTE
-        (IOPATH PADDO count11 (1914:2001:2088)(1914:2001:2088))
+        (IOPATH data PADDI (460:485:510)(460:485:510))
       )
     )
   )
   (CELL
-    (CELLTYPE "count_10_")
-    (INSTANCE count\[10\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count10 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_9_")
-    (INSTANCE count\[9\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count9 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_8_")
-    (INSTANCE count\[8\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count8 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_7_")
-    (INSTANCE count\[7\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count7 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_6_")
-    (INSTANCE count\[6\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count6 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_5_")
-    (INSTANCE count\[5\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count5 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_4_")
-    (INSTANCE count\[4\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count4 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_3_")
-    (INSTANCE count\[3\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count3 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_2_")
-    (INSTANCE count\[2\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count2 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_1_")
-    (INSTANCE count\[1\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count1 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "count_0_")
-    (INSTANCE count\[0\]_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH PADDO count0 (1914:2001:2088)(1914:2001:2088))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "clk")
-    (INSTANCE clk_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH clk PADDI (460:485:510)(460:485:510))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "reset")
-    (INSTANCE reset_I)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH reset PADDI (460:485:510)(460:485:510))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "lfsr")
+    (CELLTYPE "cannon")
     (INSTANCE )
     (DELAY
       (ABSOLUTE
-        (INTERCONNECT SLICE_0/F1 SLICE_0/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_0/F0 SLICE_0/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_0/Q0 SLICE_0/A1 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_0/Q0 SLICE_20/C0 (2827:2974:3121)(2827:2974:3121))
-        (INTERCONNECT SLICE_0/Q0 count\[3\]_I/PADDO (3494:3654:3814)(3494:3654:3814))
-        (INTERCONNECT SLICE_1/Q0 SLICE_0/B0 (1640:1867:2094)(1640:1867:2094))
-        (INTERCONNECT SLICE_1/Q0 SLICE_25/D0 (1280:1527:1774)(1280:1527:1774))
-        (INTERCONNECT SLICE_1/Q0 count\[4\]_I/PADDO (3054:3267:3481)(3054:3267:3481))
-        (INTERCONNECT reset_I/PADDI SLICE_0/LSR (3001:3181:3361)(3001:3181:3361))
-        (INTERCONNECT reset_I/PADDI SLICE_1/LSR (3001:3181:3361)(3001:3181:3361))
-        (INTERCONNECT reset_I/PADDI SLICE_3/LSR (3001:3181:3361)(3001:3181:3361))
-        (INTERCONNECT reset_I/PADDI SLICE_5/LSR (3001:3181:3361)(3001:3181:3361))
-        (INTERCONNECT reset_I/PADDI SLICE_7/LSR (2454:2647:2841)(2454:2647:2841))
-        (INTERCONNECT reset_I/PADDI SLICE_9/LSR (2454:2647:2841)(2454:2647:2841))
-        (INTERCONNECT reset_I/PADDI SLICE_11/LSR (2454:2647:2841)(2454:2647:2841))
-        (INTERCONNECT reset_I/PADDI SLICE_13/LSR (3001:3181:3361)(3001:3181:3361))
-        (INTERCONNECT reset_I/PADDI SLICE_15/LSR (3001:3181:3361)(3001:3181:3361))
-        (INTERCONNECT reset_I/PADDI SLICE_17/LSR (3001:3181:3361)(3001:3181:3361))
-        (INTERCONNECT clk_I/PADDI SLICE_0/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_1/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_3/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_5/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_7/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_9/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_11/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_13/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_15/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT clk_I/PADDI SLICE_17/CLK (4215:4881:5548)(4215:4881:5548))
-        (INTERCONNECT SLICE_0/Q1 SLICE_17/A1 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_0/Q1 SLICE_23/D0 (2521:2687:2854)(2521:2687:2854))
-        (INTERCONNECT SLICE_0/Q1 count\[2\]_I/PADDO (5041:5061:5081)(5041:5061:5081))
-        (INTERCONNECT SLICE_1/F1 SLICE_1/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_1/F0 SLICE_1/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_3/Q0 SLICE_1/C1 (2827:2974:3121)(2827:2974:3121))
-        (INTERCONNECT SLICE_3/Q0 SLICE_21/B0 (2881:3027:3174)(2881:3027:3174))
-        (INTERCONNECT SLICE_3/Q0 count\[6\]_I/PADDO (5041:5061:5081)(5041:5061:5081))
-        (INTERCONNECT SLICE_1/Q1 SLICE_1/B0 (1640:1867:2094)(1640:1867:2094))
-        (INTERCONNECT SLICE_1/Q1 SLICE_25/C0 (1587:1814:2041)(1587:1814:2041))
-        (INTERCONNECT SLICE_1/Q1 count\[5\]_I/PADDO (7029:7102:7175)(7029:7102:7175))
-        (INTERCONNECT SLICE_3/F1 SLICE_3/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_3/F0 SLICE_3/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_5/Q0 SLICE_3/A1 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_5/Q0 SLICE_22/C0 (2827:2974:3121)(2827:2974:3121))
-        (INTERCONNECT SLICE_5/Q0 count\[8\]_I/PADDO (5935:5941:5948)(5935:5941:5948))
-        (INTERCONNECT SLICE_3/Q1 SLICE_3/B0 (1640:1867:2094)(1640:1867:2094))
-        (INTERCONNECT SLICE_3/Q1 SLICE_21/A1 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_3/Q1 count\[7\]_I/PADDO (2707:2920:3134)(2707:2920:3134))
-        (INTERCONNECT SLICE_5/F1 SLICE_5/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_5/F0 SLICE_5/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_7/Q0 SLICE_5/B1 (2294:2494:2694)(2294:2494:2694))
-        (INTERCONNECT SLICE_7/Q0 SLICE_25/B0 (2841:3027:3214)(2841:3027:3214))
-        (INTERCONNECT SLICE_7/Q0 count\[10\]_I/PADDO (4188:4368:4548)(4188:4368:4548))
-        (INTERCONNECT SLICE_5/Q1 SLICE_5/C0 (1587:1814:2041)(1587:1814:2041))
-        (INTERCONNECT SLICE_5/Q1 SLICE_21/A0 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_5/Q1 count\[9\]_I/PADDO (4495:4528:4561)(4495:4528:4561))
-        (INTERCONNECT SLICE_7/F1 SLICE_7/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_7/F0 SLICE_7/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9/Q0 SLICE_7/A1 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_9/Q0 SLICE_23/C0 (1587:1814:2041)(1587:1814:2041))
-        (INTERCONNECT SLICE_9/Q0 count\[12\]_I/PADDO (3054:3267:3481)(3054:3267:3481))
-        (INTERCONNECT SLICE_7/Q1 SLICE_7/A0 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_7/Q1 SLICE_23/A0 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_7/Q1 count\[11\]_I/PADDO (2707:2920:3134)(2707:2920:3134))
-        (INTERCONNECT SLICE_9/F1 SLICE_9/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_9/F0 SLICE_9/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_11/Q0 SLICE_9/C1 (1587:1814:2041)(1587:1814:2041))
-        (INTERCONNECT SLICE_11/Q0 SLICE_21/D0 (2521:2687:2854)(2521:2687:2854))
-        (INTERCONNECT SLICE_11/Q0 count\[14\]_I/PADDO (4495:4528:4561)(4495:4528:4561))
-        (INTERCONNECT SLICE_9/Q1 SLICE_9/B0 (1640:1867:2094)(1640:1867:2094))
-        (INTERCONNECT SLICE_9/Q1 SLICE_22/D0 (2521:2687:2854)(2521:2687:2854))
-        (INTERCONNECT SLICE_9/Q1 count\[13\]_I/PADDO (6269:6315:6362)(6269:6315:6362))
-        (INTERCONNECT SLICE_11/F1 SLICE_11/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_11/F0 SLICE_11/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_13/Q0 SLICE_11/A1 (2934:3087:3241)(2934:3087:3241))
-        (INTERCONNECT SLICE_13/Q0 SLICE_20/A0 (3788:3814:3841)(3788:3814:3841))
-        (INTERCONNECT SLICE_13/Q0 count\[16\]_I/PADDO (4495:4528:4561)(4495:4528:4561))
-        (INTERCONNECT SLICE_11/Q1 SLICE_11/B0 (1640:1867:2094)(1640:1867:2094))
-        (INTERCONNECT SLICE_11/Q1 SLICE_23/B0 (1640:1867:2094)(1640:1867:2094))
-        (INTERCONNECT SLICE_11/Q1 count\[15\]_I/PADDO (3054:3267:3481)(3054:3267:3481))
-        (INTERCONNECT SLICE_13/F1 SLICE_13/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_13/F0 SLICE_13/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_15/Q0 SLICE_13/A1 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_15/Q0 SLICE_21/C1 (2827:2974:3121)(2827:2974:3121))
-        (INTERCONNECT SLICE_15/Q0 count\[18\]_I/PADDO (4495:4528:4561)(4495:4528:4561))
-        (INTERCONNECT SLICE_13/Q1 SLICE_13/A0 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_13/Q1 SLICE_22/A0 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_13/Q1 count\[17\]_I/PADDO (2707:2920:3134)(2707:2920:3134))
-        (INTERCONNECT SLICE_15/F1 SLICE_15/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/F1 
+          cannon_controller\.counter_C\.SLICE_0/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/F0 
+          cannon_controller\.counter_C\.SLICE_0/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/COUT0 
+          cannon_controller\.counter_C\.SLICE_0/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/COUT0 
+          cannon_controller\.counter_C\.SLICE_0/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/Q1 
+          cannon_controller\.counter_C\.SLICE_0/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/Q1 
+          cannon_controller\.SLICE_26/A0 (1694:1927:2161)(1694:1927:2161))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/COUT1 
+          cannon_controller\.counter_C\.SLICE_0/D0 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/COUT1 
+          cannon_controller\.counter_C\.SLICE_0/CIN0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/Q0 
+          cannon_controller\.counter_C\.SLICE_0/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_0/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_1/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_2/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_3/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_4/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_5/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_6/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_7/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.HSOSC_C/CLKHF 
+          cannon_controller\.counter_C\.SLICE_8/CLK (4215:4881:5548)(4215:4881:5548))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/COUT1 
+          cannon_controller\.counter_C\.SLICE_7/D0 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_0/COUT1 
+          cannon_controller\.counter_C\.SLICE_7/CIN0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/F1 
+          cannon_controller\.counter_C\.SLICE_1/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/F0 
+          cannon_controller\.counter_C\.SLICE_1/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/COUT0 
+          cannon_controller\.counter_C\.SLICE_1/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/COUT0 
+          cannon_controller\.counter_C\.SLICE_1/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/Q1 
+          cannon_controller\.counter_C\.SLICE_1/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/COUT1 
+          cannon_controller\.counter_C\.SLICE_1/D0 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/COUT1 
+          cannon_controller\.counter_C\.SLICE_1/CIN0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_1/Q0 
+          cannon_controller\.counter_C\.SLICE_1/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/F1 
+          cannon_controller\.counter_C\.SLICE_2/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/F0 
+          cannon_controller\.counter_C\.SLICE_2/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/COUT0 
+          cannon_controller\.counter_C\.SLICE_2/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/COUT0 
+          cannon_controller\.counter_C\.SLICE_2/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/Q1 
+          cannon_controller\.counter_C\.SLICE_2/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/Q1 
+          cannon_controller\.SLICE_9/CLK (3254:3361:3468)(3254:3361:3468))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/Q1 
+          cannon_controller\.SLICE_11/CLK (3254:3361:3468)(3254:3361:3468))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/Q1 
+          cannon_controller\.SLICE_13/CLK (3254:3361:3468)(3254:3361:3468))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/Q1 SLICE_15/CLK 
+          (3254:3361:3468)(3254:3361:3468))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/Q1 
+          cannon_controller\.temp__i1/INCLK (3254:3361:3468)(3254:3361:3468))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/COUT1 
+          cannon_controller\.counter_C\.SLICE_2/D0 (960:1093:1227)(960:1093:1227))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/COUT1 
+          cannon_controller\.counter_C\.SLICE_2/CIN0 (453:506:560)(453:506:560))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_2/Q0 
+          cannon_controller\.counter_C\.SLICE_2/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/F1 
+          cannon_controller\.counter_C\.SLICE_3/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/F0 
+          cannon_controller\.counter_C\.SLICE_3/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/COUT0 
+          cannon_controller\.counter_C\.SLICE_3/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/COUT0 
+          cannon_controller\.counter_C\.SLICE_3/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/Q1 
+          cannon_controller\.counter_C\.SLICE_3/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/COUT1 
+          cannon_controller\.counter_C\.SLICE_3/D0 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/COUT1 
+          cannon_controller\.counter_C\.SLICE_3/CIN0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_3/Q0 
+          cannon_controller\.counter_C\.SLICE_3/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/F1 
+          cannon_controller\.counter_C\.SLICE_4/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/F0 
+          cannon_controller\.counter_C\.SLICE_4/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/COUT0 
+          cannon_controller\.counter_C\.SLICE_4/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/COUT0 
+          cannon_controller\.counter_C\.SLICE_4/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/Q1 
+          cannon_controller\.counter_C\.SLICE_4/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/COUT1 
+          cannon_controller\.counter_C\.SLICE_4/D0 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/COUT1 
+          cannon_controller\.counter_C\.SLICE_4/CIN0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_4/Q0 
+          cannon_controller\.counter_C\.SLICE_4/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/F1 
+          cannon_controller\.counter_C\.SLICE_5/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/F0 
+          cannon_controller\.counter_C\.SLICE_5/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/COUT0 
+          cannon_controller\.counter_C\.SLICE_5/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/COUT0 
+          cannon_controller\.counter_C\.SLICE_5/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/Q1 
+          cannon_controller\.counter_C\.SLICE_5/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/Q1 
+          cannon_controller\.SLICE_26/A1 (1694:1927:2161)(1694:1927:2161))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/COUT1 
+          cannon_controller\.counter_C\.SLICE_5/D0 (960:1093:1227)(960:1093:1227))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/COUT1 
+          cannon_controller\.counter_C\.SLICE_5/CIN0 (453:506:560)(453:506:560))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/Q0 
+          cannon_controller\.counter_C\.SLICE_5/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_5/Q0 
+          cannon_controller\.SLICE_26/D1 (1280:1527:1774)(1280:1527:1774))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/F1 
+          cannon_controller\.counter_C\.SLICE_6/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/F0 
+          cannon_controller\.counter_C\.SLICE_6/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/COUT0 
+          cannon_controller\.counter_C\.SLICE_6/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/COUT0 
+          cannon_controller\.counter_C\.SLICE_6/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/Q1 
+          cannon_controller\.counter_C\.SLICE_6/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_8/COUT1 
+          cannon_controller\.counter_C\.SLICE_6/D0 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_8/COUT1 
+          cannon_controller\.counter_C\.SLICE_6/CIN0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_6/Q0 
+          cannon_controller\.counter_C\.SLICE_6/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/F1 
+          cannon_controller\.counter_C\.SLICE_7/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/F0 
+          cannon_controller\.counter_C\.SLICE_7/DI0 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/COUT0 
+          cannon_controller\.counter_C\.SLICE_7/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/COUT0 
+          cannon_controller\.counter_C\.SLICE_7/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/Q1 
+          cannon_controller\.counter_C\.SLICE_7/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/Q1 
+          cannon_controller\.SLICE_26/B1 (1640:1867:2094)(1640:1867:2094))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/Q0 
+          cannon_controller\.counter_C\.SLICE_7/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_7/Q0 
+          cannon_controller\.SLICE_26/C0 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_8/F1 
+          cannon_controller\.counter_C\.SLICE_8/DI1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_8/COUT0 
+          cannon_controller\.counter_C\.SLICE_8/D1 (507:587:667)(507:587:667))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_8/COUT0 
+          cannon_controller\.counter_C\.SLICE_8/CIN1 (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.counter_C\.SLICE_8/Q1 
+          cannon_controller\.counter_C\.SLICE_8/C1 (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT SLICE_28/F0 cannon_controller\.counter_C\.SLICE_8/B1 
+          (4521:4594:4668)(4521:4594:4668))
+        (INTERCONNECT SLICE_28/F0 cannon_controller\.HSOSC_C/CLKHFPU (5815:5835:5855)
+          (5815:5835:5855))
+        (INTERCONNECT SLICE_28/F0 cannon_controller\.HSOSC_C/CLKHFEN (5815:5835:5855)
+          (5815:5835:5855))
+        (INTERCONNECT cannon_controller\.SLICE_9/F1 cannon_controller\.SLICE_9/DI1 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT cannon_controller\.SLICE_9/F0 cannon_controller\.SLICE_9/DI0 (0:0:0)
+          (0:0:0))
+        (INTERCONNECT cannon_controller\.SLICE_11/Q0 cannon_controller\.SLICE_9/B1 
+          (1640:1867:2094)(1640:1867:2094))
+        (INTERCONNECT cannon_controller\.SLICE_9/Q1 cannon_controller\.SLICE_9/A0 
+          (1694:1927:2161)(1694:1927:2161))
+        (INTERCONNECT cannon_controller\.SLICE_26/F1 cannon_controller\.SLICE_9/CE 
+          (2667:2920:3174)(2667:2920:3174))
+        (INTERCONNECT cannon_controller\.SLICE_26/F1 cannon_controller\.SLICE_11/CE 
+          (2667:2920:3174)(2667:2920:3174))
+        (INTERCONNECT cannon_controller\.SLICE_26/F1 cannon_controller\.SLICE_13/CE 
+          (2667:2920:3174)(2667:2920:3174))
+        (INTERCONNECT cannon_controller\.SLICE_26/F1 SLICE_15/CE (2667:2920:3174)
+          (2667:2920:3174))
+        (INTERCONNECT cannon_controller\.SLICE_26/F1 cannon_controller\.temp__i1/CE 
+          (2667:2920:3174)(2667:2920:3174))
+        (INTERCONNECT cannon_controller\.SLICE_9/Q0 SLICE_29/B0 (1640:1867:2094)
+          (1640:1867:2094))
+        (INTERCONNECT cannon_controller\.SLICE_11/F1 cannon_controller\.SLICE_11/DI1 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.SLICE_11/F0 cannon_controller\.SLICE_11/DI0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.SLICE_13/Q0 cannon_controller\.SLICE_11/C1 
+          (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.SLICE_11/Q1 cannon_controller\.SLICE_11/C0 
+          (1587:1814:2041)(1587:1814:2041))
+        (INTERCONNECT cannon_controller\.SLICE_13/F1 cannon_controller\.SLICE_13/DI1 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT cannon_controller\.SLICE_13/F0 cannon_controller\.SLICE_13/DI0 
+          (0:0:0)(0:0:0))
+        (INTERCONNECT SLICE_15/Q0 cannon_controller\.SLICE_13/A1 (1694:1927:2161)
+          (1694:1927:2161))
+        (INTERCONNECT SLICE_15/Q0 SLICE_17/B1 (2294:2494:2694)(2294:2494:2694))
+        (INTERCONNECT cannon_controller\.SLICE_13/Q1 cannon_controller\.SLICE_13/C0 
+          (1587:1814:2041)(1587:1814:2041))
         (INTERCONNECT SLICE_15/F0 SLICE_15/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_21/F1 SLICE_15/D1 (2334:2560:2787)(2334:2560:2787))
-        (INTERCONNECT SLICE_25/F0 SLICE_15/C1 (2641:2847:3054)(2641:2847:3054))
-        (INTERCONNECT SLICE_23/F0 SLICE_15/B1 (2694:2901:3108)(2694:2901:3108))
-        (INTERCONNECT SLICE_22/F0 SLICE_15/A1 (2094:2334:2574)(2094:2334:2574))
-        (INTERCONNECT SLICE_15/Q1 SLICE_15/B0 (1640:1867:2094)(1640:1867:2094))
-        (INTERCONNECT SLICE_15/Q1 SLICE_25/A0 (2347:2554:2761)(2347:2554:2761))
-        (INTERCONNECT SLICE_15/Q1 count\[19\]_I/PADDO (5041:5214:5388)(5041:5214:5388))
-        (INTERCONNECT SLICE_17/F1 SLICE_17/DI1 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_17/F0 SLICE_17/DI0 (0:0:0)(0:0:0))
-        (INTERCONNECT SLICE_17/Q1 SLICE_17/A0 (1694:1927:2161)(1694:1927:2161))
-        (INTERCONNECT SLICE_17/Q1 SLICE_22/B0 (2881:3027:3174)(2881:3027:3174))
-        (INTERCONNECT SLICE_17/Q1 count\[1\]_I/PADDO (5122:5135:5148)(5122:5135:5148))
-        (INTERCONNECT SLICE_17/Q0 SLICE_21/C0 (2241:2441:2641)(2241:2441:2641))
-        (INTERCONNECT SLICE_17/Q0 count\[0\]_I/PADDO (4148:4334:4521)(4148:4334:4521))
-        (INTERCONNECT SLICE_20/F0 SLICE_21/D1 (1680:1933:2187)(1680:1933:2187))
-        (INTERCONNECT SLICE_21/F0 SLICE_21/B1 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT cannon_controller\.temp__i1/DI0 SLICE_15/A0 (2347:2554:2761)
+          (2347:2554:2761))
+        (INTERCONNECT cannon_controller\.temp__i1/DI0 SLICE_18/A1 (2801:3001:3201)
+          (2801:3001:3201))
+        (INTERCONNECT SLICE_16/F1 SLICE_16/D1 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_16/F1 SLICE_17/D0 (2334:2560:2787)(2334:2560:2787))
+        (INTERCONNECT SLICE_16/F1 SLICE_20/A1 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_16/F1 position\[4\]_I/PADDO (3108:3328:3548)(3108:3328:3548))
+        (INTERCONNECT SLICE_16/F0 SLICE_16/C1 (267:287:307)(267:287:307))
+        (INTERCONNECT SLICE_16/F0 SLICE_16/C0 (1987:2220:2454)(1987:2220:2454))
+        (INTERCONNECT SLICE_16/F0 SLICE_17/D1 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_16/F0 SLICE_18/D1 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_16/F0 position\[3\]_I/PADDO (3454:3674:3894)(3454:3674:3894))
+        (INTERCONNECT SLICE_21/F1 SLICE_16/A0 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_21/F1 SLICE_16/B1 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_17/F1 SLICE_16/A1 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_17/F1 SLICE_16/B0 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_17/F1 SLICE_18/D0 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_17/F1 SLICE_20/B0 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_17/F1 SLICE_21/B0 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_17/F1 SLICE_21/D1 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_17/F1 SLICE_25/D0 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_17/F0 SLICE_17/C1 (267:287:307)(267:287:307))
+        (INTERCONNECT SLICE_18/F0 SLICE_17/A1 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_18/F0 SLICE_18/C1 (267:287:307)(267:287:307))
+        (INTERCONNECT SLICE_18/F0 SLICE_18/C0 (1987:2220:2454)(1987:2220:2454))
+        (INTERCONNECT SLICE_18/F0 SLICE_21/A0 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_18/F0 SLICE_25/B0 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_18/F0 position\[0\]_I/PADDO (3108:3328:3548)(3108:3328:3548))
+        (INTERCONNECT SLICE_20/F0 SLICE_17/B0 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_20/F0 SLICE_20/C1 (267:287:307)(267:287:307))
+        (INTERCONNECT SLICE_20/F0 SLICE_20/C0 (1987:2220:2454)(1987:2220:2454))
+        (INTERCONNECT SLICE_20/F0 SLICE_21/B1 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_20/F0 position\[2\]_I/PADDO (3108:3328:3548)(3108:3328:3548))
+        (INTERCONNECT SLICE_25/F0 SLICE_17/A0 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_25/F0 SLICE_20/D0 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_25/F0 SLICE_20/D1 (1680:1933:2187)(1680:1933:2187))
+        (INTERCONNECT SLICE_25/F0 SLICE_21/A1 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_25/F0 SLICE_25/C0 (1987:2220:2454)(1987:2220:2454))
+        (INTERCONNECT SLICE_25/F0 position\[1\]_I/PADDO (3108:3328:3548)(3108:3328:3548))
+        (INTERCONNECT SLICE_20/F1 SLICE_18/B1 (2041:2274:2507)(2041:2274:2507))
+        (INTERCONNECT SLICE_18/F1 SLICE_18/A0 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_18/F1 SLICE_21/C0 (267:287:307)(267:287:307))
+        (INTERCONNECT SLICE_18/F1 SLICE_25/A0 (2747:2960:3174)(2747:2960:3174))
+        (INTERCONNECT SLICE_21/F0 SLICE_20/A0 (2094:2334:2574)(2094:2334:2574))
+        (INTERCONNECT SLICE_21/F0 SLICE_21/C1 (267:287:307)(267:287:307))
+        (INTERCONNECT cannon_controller\.SLICE_26/F0 cannon_controller\.SLICE_26/C1 
+          (267:287:307)(267:287:307))
+        (INTERCONNECT SLICE_29/F0 fire_I/PADDO (3108:3328:3548)(3108:3328:3548))
+        (INTERCONNECT data_I/PADDI cannon_controller\.temp__i1/PADDI (0:0:0)(0:0:0))
       )
     )
   )

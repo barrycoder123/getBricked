@@ -9,6 +9,8 @@ set para(prj_dir) "/home/es4user/getBricked/game_logic"
 # synthesize IPs
 # synthesize VMs
 # synthesize top design
+file delete -force -- game_logic_impl_1.vm game_logic_impl_1.ldc
+run_engine_newmsg synthesis -f "game_logic_impl_1_lattice.synproj"
 run_postsyn [list -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o game_logic_impl_1_syn.udb game_logic_impl_1.vm] "/home/es4user/getBricked/game_logic/impl_1/game_logic_impl_1.ldc"
 
 } out]} {

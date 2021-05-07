@@ -53,7 +53,7 @@ Remove Duplicate Registers = TRUE
 Output HDL file name = game_logic_impl_1.vm.
 ROM style = auto
 RAM style = auto
-The -comp option is TRUE.
+The -comp option is FALSE.
 The -syn option is FALSE.
 -vh2008
 
@@ -71,7 +71,11 @@ VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd
 VHDL library = work
 VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd
 VHDL library = work
-VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/counter.vhd
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -116,26 +120,70 @@ INFO - synthesis: /home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd(4): ana
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd. VHDL-1481
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd
 
-INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(8): analyzing entity game_logic. VHDL-1012
-INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(21): analyzing architecture synth. VHDL-1010
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(9): analyzing entity game_logic. VHDL-1012
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(25): analyzing architecture synth. VHDL-1010
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd. VHDL-1481
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd
 
 INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd(5): analyzing entity ram. VHDL-1012
-INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd(19): analyzing architecture synth. VHDL-1010
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd(23): analyzing architecture synth. VHDL-1010
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd. VHDL-1481
 Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd
 
 INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd(4): analyzing entity lfsr. VHDL-1012
-INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd(13): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/counter.vhd. VHDL-1481
-Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/counter.vhd
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd(14): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd
 
-INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/counter.vhd(5): analyzing entity counter. VHDL-1012
-INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/counter.vhd(14): analyzing architecture synth. VHDL-1010
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd(5): analyzing entity cannon. VHDL-1012
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd(14): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd
+
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd(5): analyzing entity nes_counter. VHDL-1012
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd(14): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd
+
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd(5): analyzing entity nes. VHDL-1012
+INFO - synthesis: /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd(16): analyzing architecture sim. VHDL-1010
 INFO - synthesis: The default VHDL library search path is now "/home/es4user/getBricked/game_logic/impl_1". VHDL-1504
 Top module language type = VHDL.
+WARNING - synthesis: Net pwr has following drivers :
 unit game_logic is not yet analyzed. VHDL-1485
 Top module name (VHDL, mixed language): game_logic
-LSE: Compile Design done
+                                                         
+
+
+### Number of Logic Cells: 5280
+
+
+### Number of RAM Blocks: 30
+
+
+### Number of DSP Blocks: 8
+
+
+### Number of PLLs: 1
+
+
+### Number of IO Pins: 56
+
+
+##########################################################
+
+
+                                                         
+
+
+WARNING - synthesis: Initial value found on net gnd will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net pwr will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net position[4] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net position[3] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net position[2] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net position[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net position[0] will be ignored due to unrecognized driver type
+Software Tool error
+
+Please contact Lattice Semiconductor Corporation
 

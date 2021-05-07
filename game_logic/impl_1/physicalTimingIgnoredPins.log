@@ -1,0 +1,8 @@
+SLICE/CIN1 input cannon_controller.counter_C.SLICE_5 has no outgoing device arc
+SLICE/COUT0 GND  cannon_controller.counter_C.SLICE_8
+     *** cannon_controller.counter_C.SLICE_8/D1 is driven by constant or a pin on an incomplete path
+     *** cannon_controller.counter_C.SLICE_8/CIN1 is driven by constant or a pin on an incomplete path
+SLICE/F0 VCC  SLICE_28
+     *** cannon_controller.counter_C.SLICE_8/B1 is driven by constant or a pin on an incomplete path
+     *** cannon_controller.HSOSC_C/CLKHFPU is driven by constant or a pin on an incomplete path
+     *** cannon_controller.HSOSC_C/CLKHFEN is driven by constant or a pin on an incomplete path

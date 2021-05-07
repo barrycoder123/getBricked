@@ -29,7 +29,7 @@ architecture synth of cannon is
 begin
 	cannon_controller : nes port map(data => data, data_out(0) => move_left, data_out(1) => move_right, data_out(7) => fire_tmp);
 	fire <= not fire_tmp;
-	process(move_left, move_right) begin
+	process (move_left, move_right) begin
 		if (move_right = '0') and (position /= "11111") then
 			position <= position + to_unsigned(1, 5);
 		elsif (move_left = '0') and (position /= "00000") then

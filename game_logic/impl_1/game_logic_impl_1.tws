@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2.2.0.97.3
 
-Thu May  6 17:04:54 2021
+Thu May  6 20:38:06 2021
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -11,7 +11,7 @@ Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
 Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -html -rpt game_logic_impl_1.tws game_logic_impl_1_syn.udb -gui
 
 -----------------------------------------
-Design:          ram
+Design:          cannon
 Family:          iCE40UP
 Device:          iCE40UP5K
 Package:         SG48
@@ -27,6 +27,7 @@ Package Status:                     Preliminary    Version 1.5
         1.1  SDC Constraints
         1.2  Combinational Loop
     2  CLOCK SUMMARY
+        2.1  Clock cannon_controller/clk_d
     3  TIMING ANALYSIS SUMMARY
         3.1  Overall (Setup and Hold)
             3.1.1  Constraint Coverage
@@ -51,14 +52,78 @@ Package Status:                     Preliminary    Version 1.5
 
 1.1  SDC Constraints
 =====================
+create_clock -name {cannon_controller/clk_d} -period 20.8333 [get_pins {cannon_controller/HSOSC_C/CLKHF }] 
 
 1.2  Combinational Loop
 ========================
-None
+Combinational Loops
+-------------------
+++++ Loop1
+i2_3_lut/C	->	i2_3_lut/Z
+
+++++ Loop2
+i2_4_lut/D	->	i2_4_lut/Z
+
+++++ Loop3
+i2_3_lut/B	->	i2_3_lut/Z
+
+++++ Loop4
+i2_4_lut/B	->	i2_4_lut/Z
+
+++++ Loop5
+i2_4_lut_adj_3/D	->	i2_4_lut_adj_3/Z
+
+++++ Loop6
+i3_3_lut/A	->	i3_3_lut/Z
+
+++++ Loop7
+i114_4_lut/Z	->	i2_3_lut/A
+
+++++ Loop8
+i2_4_lut/C	->	i2_4_lut/Z
+
+++++ Loop9
+i2_4_lut_adj_3/C	->	i2_4_lut_adj_3/Z
+
+++++ Loop10
+i2_4_lut_adj_3/A	->	i2_4_lut_adj_3/Z
+
+++++ Loop11
+i3_3_lut/B	->	i3_3_lut/Z
+
+++++ Loop12
+i3_3_lut_adj_5/B	->	i3_3_lut_adj_5/Z
+
+++++ Loop13
+i2_3_lut_adj_6/C	->	i2_3_lut_adj_6/Z
+
+++++ Loop14
+i513_4_lut/D	->	i513_4_lut/Z
+
+++++ Loop15
+i2_3_lut_adj_4/C	->	i2_3_lut_adj_4/Z
+
+++++ Loop16
+position_4__I_2_4_lut/D	->	position_4__I_2_4_lut/Z
 
 ==============================================
 2  CLOCK SUMMARY
 ==============================================
+
+2.1 Clock "cannon_controller/clk_d"
+=======================
+create_clock -name {cannon_controller/clk_d} -period 20.8333 [get_pins {cannon_controller/HSOSC_C/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+     Clock cannon_controller/clk_d      |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From cannon_controller/clk_d           |             Target |          20.833 ns |         48.000 MHz 
+                                        | Actual (all paths) |          20.830 ns |         48.008 MHz 
+cannon_controller/HSOSC_C/CLKHF (MPW)   |   (50% duty cycle) |          20.830 ns |         48.008 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
 
 ==============================================
 3  TIMING ANALYSIS SUMMARY
@@ -69,7 +134,7 @@ None
 
 3.1.1  Constraint Coverage
 ---------------------------
-Constraint Coverage: 0%
+Constraint Coverage: 50.3876%
 
 3.1.2  Timing Errors
 ---------------------
@@ -82,20 +147,46 @@ Total Negative Slack: 0.000 ns (setup), 0.000 ns (hold)
 3.2  Setup Summary Report
 ==========================
 
---------------------------------------------------
-There is no end point satisfying reporting criteria
-
-Total Negative Slack: 0
-
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+cannon_controller/counter_C/i_78__i17/D  |    5.622 ns 
+cannon_controller/counter_C/i_78__i16/D  |    6.180 ns 
+cannon_controller/counter_C/i_78__i15/D  |    6.738 ns 
+cannon_controller/counter_C/i_78__i14/D  |    7.296 ns 
+cannon_controller/counter_C/i_78__i13/D  |    7.854 ns 
+cannon_controller/counter_C/i_78__i12/D  |    8.412 ns 
+cannon_controller/counter_C/i_78__i11/D  |    8.970 ns 
+cannon_controller/counter_C/i_78__i10/D  |    9.528 ns 
+cannon_controller/counter_C/i_78__i9/D   |   10.086 ns 
+cannon_controller/counter_C/i_78__i8/D   |   10.644 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
 
 3.3  Hold Summary Report
 =========================
 
---------------------------------------------------
-There is no end point satisfying reporting criteria
-
-Total Negative Slack: 0
-
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+cannon_controller/counter_C/i_78__i9/D   |    4.196 ns 
+cannon_controller/counter_C/i_78__i13/D  |    4.196 ns 
+cannon_controller/counter_C/i_78__i14/D  |    4.196 ns 
+cannon_controller/counter_C/i_78__i15/D  |    4.196 ns 
+cannon_controller/counter_C/i_78__i16/D  |    4.196 ns 
+cannon_controller/counter_C/i_78__i17/D  |    4.196 ns 
+cannon_controller/counter_C/i_78__i10/D  |    4.529 ns 
+cannon_controller/counter_C/i_78__i11/D  |    5.087 ns 
+cannon_controller/counter_C/i_78__i12/D  |    5.645 ns 
+cannon_controller/counter_C/i_78__i3/D   |    5.991 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
 
 3.4  Unconstrained Report
 ===========================
@@ -109,9 +200,25 @@ There is no start point satisfying reporting criteria
 
 
 Clocked but unconstrained timing end points
---------------------------------------------------
-There is no end point satisfying reporting criteria
-
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+cannon_controller/temp__i8/D            |    No arrival or required
+cannon_controller/temp__i8/SP           |    No arrival or required
+cannon_controller/temp__i7/D            |    No arrival or required
+cannon_controller/temp__i7/SP           |    No arrival or required
+cannon_controller/temp__i1/PADDI        |    No arrival or required
+cannon_controller/temp__i1/CE           |    No arrival or required
+cannon_controller/temp__i6/D            |    No arrival or required
+cannon_controller/temp__i6/SP           |    No arrival or required
+cannon_controller/temp__i5/D            |    No arrival or required
+cannon_controller/temp__i5/SP           |    No arrival or required
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                        16
+                                        |                          
+-------------------------------------------------------------------
 
 3.4.2  Start/End Points Without Timing Constraints
 ---------------------------------------------------
@@ -127,45 +234,23 @@ create_generated_clock,
 ...
 
 -------------------------------------------------------------------
-     Listing 10 Start or End Points     |           Type           
+     Listing 4 Start or End Points      |           Type           
 -------------------------------------------------------------------
-data_rd[19]                             |                    output
-data_rd[18]                             |                    output
-data_rd[17]                             |                    output
-data_rd[16]                             |                    output
-data_rd[15]                             |                    output
-data_rd[14]                             |                    output
-data_rd[13]                             |                    output
-data_rd[12]                             |                    output
-data_rd[11]                             |                    output
-data_rd[10]                             |                    output
+fire                                    |                    output
+position[2]                             |                    output
+position[1]                             |                    output
+position[0]                             |                    output
 -------------------------------------------------------------------
                                         |                          
-Number of I/O ports without constraint  |                        20
+Number of I/O ports without constraint  |                         4
                                         |                          
 -------------------------------------------------------------------
 
 Registers without clock definition
 Define the clock for these registers.
--------------------------------------------------------------------
-         Listing 10 Instance(s)         |           Type           
--------------------------------------------------------------------
-i46                                     |                  No Clock
-i49                                     |                  No Clock
-i52                                     |                  No Clock
-i55                                     |                  No Clock
-i58                                     |                  No Clock
-i61                                     |                  No Clock
-i64                                     |                  No Clock
-i67                                     |                  No Clock
-i70                                     |                  No Clock
-i73                                     |                  No Clock
--------------------------------------------------------------------
-                                        |                          
-Number of registers without clock defin |                          
-ition                                   |                       687
-                                        |                          
--------------------------------------------------------------------
+--------------------------------------------------
+There is no instance satisfying reporting criteria
+
 
 ==============================================
 4  DETAILED REPORT
@@ -184,6 +269,768 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i17/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 18
+Delay Ratio      : 57.5% (route), 42.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 5.622 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        10.907  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280        11.187  1       
+cannon_controller/counter_C/i_78_add_4_11/CI1->cannon_controller/counter_C/i_78_add_4_11/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        11.465  2       
+cannon_controller/counter_C/n911                          NET DELAY         0.280        11.745  1       
+cannon_controller/counter_C/i_78_add_4_13/CI0->cannon_controller/counter_C/i_78_add_4_13/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        12.023  2       
+cannon_controller/counter_C/n1351                         NET DELAY         0.280        12.303  1       
+cannon_controller/counter_C/i_78_add_4_13/CI1->cannon_controller/counter_C/i_78_add_4_13/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        12.581  2       
+cannon_controller/counter_C/n913                          NET DELAY         0.280        12.861  1       
+cannon_controller/counter_C/i_78_add_4_15/CI0->cannon_controller/counter_C/i_78_add_4_15/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        13.139  2       
+cannon_controller/counter_C/n1354                         NET DELAY         0.280        13.419  1       
+cannon_controller/counter_C/i_78_add_4_15/CI1->cannon_controller/counter_C/i_78_add_4_15/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        13.697  2       
+cannon_controller/counter_C/n915                          NET DELAY         0.280        13.977  1       
+cannon_controller/counter_C/i_78_add_4_17/CI0->cannon_controller/counter_C/i_78_add_4_17/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        14.255  2       
+cannon_controller/counter_C/n1357                         NET DELAY         0.280        14.535  1       
+cannon_controller/counter_C/i_78_add_4_17/D1->cannon_controller/counter_C/i_78_add_4_17/S1
+                                          FA2             D1_TO_S1_DELAY    0.477        15.012  1       
+cannon_controller/counter_C/n73[16] ( D )
+                                                          NET DELAY         2.075        17.087  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -17.086  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   5.622  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i16/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 17
+Delay Ratio      : 57.8% (route), 42.2% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 6.180 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        10.907  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280        11.187  1       
+cannon_controller/counter_C/i_78_add_4_11/CI1->cannon_controller/counter_C/i_78_add_4_11/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        11.465  2       
+cannon_controller/counter_C/n911                          NET DELAY         0.280        11.745  1       
+cannon_controller/counter_C/i_78_add_4_13/CI0->cannon_controller/counter_C/i_78_add_4_13/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        12.023  2       
+cannon_controller/counter_C/n1351                         NET DELAY         0.280        12.303  1       
+cannon_controller/counter_C/i_78_add_4_13/CI1->cannon_controller/counter_C/i_78_add_4_13/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        12.581  2       
+cannon_controller/counter_C/n913                          NET DELAY         0.280        12.861  1       
+cannon_controller/counter_C/i_78_add_4_15/CI0->cannon_controller/counter_C/i_78_add_4_15/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        13.139  2       
+cannon_controller/counter_C/n1354                         NET DELAY         0.280        13.419  1       
+cannon_controller/counter_C/i_78_add_4_15/CI1->cannon_controller/counter_C/i_78_add_4_15/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        13.697  2       
+cannon_controller/counter_C/n915                          NET DELAY         0.280        13.977  1       
+cannon_controller/counter_C/i_78_add_4_17/D0->cannon_controller/counter_C/i_78_add_4_17/S0
+                                          FA2             D0_TO_S0_DELAY    0.477        14.454  1       
+cannon_controller/counter_C/n73[15] ( D )
+                                                          NET DELAY         2.075        16.529  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -16.528  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   6.180  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i15/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 16
+Delay Ratio      : 58.1% (route), 41.9% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 6.738 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        10.907  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280        11.187  1       
+cannon_controller/counter_C/i_78_add_4_11/CI1->cannon_controller/counter_C/i_78_add_4_11/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        11.465  2       
+cannon_controller/counter_C/n911                          NET DELAY         0.280        11.745  1       
+cannon_controller/counter_C/i_78_add_4_13/CI0->cannon_controller/counter_C/i_78_add_4_13/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        12.023  2       
+cannon_controller/counter_C/n1351                         NET DELAY         0.280        12.303  1       
+cannon_controller/counter_C/i_78_add_4_13/CI1->cannon_controller/counter_C/i_78_add_4_13/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        12.581  2       
+cannon_controller/counter_C/n913                          NET DELAY         0.280        12.861  1       
+cannon_controller/counter_C/i_78_add_4_15/CI0->cannon_controller/counter_C/i_78_add_4_15/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        13.139  2       
+cannon_controller/counter_C/n1354                         NET DELAY         0.280        13.419  1       
+cannon_controller/counter_C/i_78_add_4_15/D1->cannon_controller/counter_C/i_78_add_4_15/S1
+                                          FA2             D1_TO_S1_DELAY    0.477        13.896  1       
+cannon_controller/counter_C/n73[14] ( D )
+                                                          NET DELAY         2.075        15.971  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -15.970  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   6.738  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i14/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 15
+Delay Ratio      : 58.4% (route), 41.6% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 7.296 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        10.907  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280        11.187  1       
+cannon_controller/counter_C/i_78_add_4_11/CI1->cannon_controller/counter_C/i_78_add_4_11/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        11.465  2       
+cannon_controller/counter_C/n911                          NET DELAY         0.280        11.745  1       
+cannon_controller/counter_C/i_78_add_4_13/CI0->cannon_controller/counter_C/i_78_add_4_13/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        12.023  2       
+cannon_controller/counter_C/n1351                         NET DELAY         0.280        12.303  1       
+cannon_controller/counter_C/i_78_add_4_13/CI1->cannon_controller/counter_C/i_78_add_4_13/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        12.581  2       
+cannon_controller/counter_C/n913                          NET DELAY         0.280        12.861  1       
+cannon_controller/counter_C/i_78_add_4_15/D0->cannon_controller/counter_C/i_78_add_4_15/S0
+                                          FA2             D0_TO_S0_DELAY    0.477        13.338  1       
+cannon_controller/counter_C/n73[13] ( D )
+                                                          NET DELAY         2.075        15.413  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -15.412  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   7.296  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i13/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 14
+Delay Ratio      : 58.8% (route), 41.2% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 7.854 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        10.907  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280        11.187  1       
+cannon_controller/counter_C/i_78_add_4_11/CI1->cannon_controller/counter_C/i_78_add_4_11/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        11.465  2       
+cannon_controller/counter_C/n911                          NET DELAY         0.280        11.745  1       
+cannon_controller/counter_C/i_78_add_4_13/CI0->cannon_controller/counter_C/i_78_add_4_13/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        12.023  2       
+cannon_controller/counter_C/n1351                         NET DELAY         0.280        12.303  1       
+cannon_controller/counter_C/i_78_add_4_13/D1->cannon_controller/counter_C/i_78_add_4_13/S1
+                                          FA2             D1_TO_S1_DELAY    0.477        12.780  1       
+cannon_controller/counter_C/n73[12] ( D )
+                                                          NET DELAY         2.075        14.855  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -14.854  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   7.854  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i12/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 13
+Delay Ratio      : 59.2% (route), 40.8% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 8.412 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        10.907  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280        11.187  1       
+cannon_controller/counter_C/i_78_add_4_11/CI1->cannon_controller/counter_C/i_78_add_4_11/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        11.465  2       
+cannon_controller/counter_C/n911                          NET DELAY         0.280        11.745  1       
+cannon_controller/counter_C/i_78_add_4_13/D0->cannon_controller/counter_C/i_78_add_4_13/S0
+                                          FA2             D0_TO_S0_DELAY    0.477        12.222  1       
+cannon_controller/counter_C/n73[11] ( D )
+                                                          NET DELAY         2.075        14.297  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -14.296  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   8.412  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i11/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 12
+Delay Ratio      : 59.6% (route), 40.4% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 8.970 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278        10.907  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280        11.187  1       
+cannon_controller/counter_C/i_78_add_4_11/D1->cannon_controller/counter_C/i_78_add_4_11/S1
+                                          FA2             D1_TO_S1_DELAY    0.477        11.664  1       
+cannon_controller/counter_C/n73[10] ( D )
+                                                          NET DELAY         2.075        13.739  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -13.738  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   8.970  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i10/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 11
+Delay Ratio      : 60.1% (route), 39.9% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 9.528 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/CI1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278        10.349  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280        10.629  1       
+cannon_controller/counter_C/i_78_add_4_11/D0->cannon_controller/counter_C/i_78_add_4_11/S0
+                                          FA2             D0_TO_S0_DELAY    0.477        11.106  1       
+cannon_controller/counter_C/n73[9] ( D )                  NET DELAY         2.075        13.181  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -13.180  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   9.528  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i9/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 10
+Delay Ratio      : 60.6% (route), 39.4% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 10.086 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/CI0->cannon_controller/counter_C/i_78_add_4_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         9.791  2       
+cannon_controller/counter_C/n1345                         NET DELAY         0.280        10.071  1       
+cannon_controller/counter_C/i_78_add_4_9/D1->cannon_controller/counter_C/i_78_add_4_9/S1
+                                          FA2             D1_TO_S1_DELAY    0.477        10.548  1       
+cannon_controller/counter_C/n73[8] ( D )                  NET DELAY         2.075        12.623  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -12.622  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                  10.086  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i1/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i8/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 9
+Delay Ratio      : 61.2% (route), 38.8% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 10.644 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i1/CK->cannon_controller/counter_C/i_78__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  1       
+cannon_controller/counter_C/n17                           NET DELAY         2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_1/C1->cannon_controller/counter_C/i_78_add_4_1/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.344         5.885  2       
+cannon_controller/counter_C/n901                          NET DELAY         0.280         6.165  1       
+cannon_controller/counter_C/i_78_add_4_3/CI0->cannon_controller/counter_C/i_78_add_4_3/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         6.443  2       
+cannon_controller/counter_C/n1336                         NET DELAY         0.280         6.723  1       
+cannon_controller/counter_C/i_78_add_4_3/CI1->cannon_controller/counter_C/i_78_add_4_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         7.001  2       
+cannon_controller/counter_C/n903                          NET DELAY         0.280         7.281  1       
+cannon_controller/counter_C/i_78_add_4_5/CI0->cannon_controller/counter_C/i_78_add_4_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         7.559  2       
+cannon_controller/counter_C/n1339                         NET DELAY         0.280         7.839  1       
+cannon_controller/counter_C/i_78_add_4_5/CI1->cannon_controller/counter_C/i_78_add_4_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         8.117  2       
+cannon_controller/counter_C/n905                          NET DELAY         0.280         8.397  1       
+cannon_controller/counter_C/i_78_add_4_7/CI0->cannon_controller/counter_C/i_78_add_4_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         8.675  2       
+cannon_controller/counter_C/n1342                         NET DELAY         0.280         8.955  1       
+cannon_controller/counter_C/i_78_add_4_7/CI1->cannon_controller/counter_C/i_78_add_4_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         9.233  2       
+cannon_controller/counter_C/n907                          NET DELAY         0.280         9.513  1       
+cannon_controller/counter_C/i_78_add_4_9/D0->cannon_controller/counter_C/i_78_add_4_9/S0
+                                          FA2             D0_TO_S0_DELAY    0.477         9.990  1       
+cannon_controller/counter_C/n73[7] ( D )                  NET DELAY         2.075        12.065  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000        20.833  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -12.064  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                  10.644  
+
+
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     End of Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
@@ -204,6 +1051,441 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i9/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i9/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 56.1% (route), 43.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 4.196 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i9/CK->cannon_controller/counter_C/i_78__i9/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY   1.391         3.466  9       
+cannon_controller/NESclk                                  NET DELAY       0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_9/C1->cannon_controller/counter_C/i_78_add_4_9/S1
+                                          FA2             C1_TO_S1_DELAY  0.450         4.196  1       
+cannon_controller/counter_C/n73[8] ( D )                  NET DELAY       2.075         6.271  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           6.271  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.196  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i13/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i13/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 56.1% (route), 43.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 4.196 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i13/CK->cannon_controller/counter_C/i_78__i13/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY   1.391         3.466  2       
+cannon_controller/NEScount[3]                             NET DELAY       0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_13/C1->cannon_controller/counter_C/i_78_add_4_13/S1
+                                          FA2             C1_TO_S1_DELAY  0.450         4.196  1       
+cannon_controller/counter_C/n73[12] ( D )
+                                                          NET DELAY       2.075         6.271  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           6.271  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.196  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i14/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i14/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 56.1% (route), 43.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 4.196 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i14/CK->cannon_controller/counter_C/i_78__i14/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY   1.391         3.466  2       
+cannon_controller/NEScount[4]                             NET DELAY       0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_15/C0->cannon_controller/counter_C/i_78_add_4_15/S0
+                                          FA2             C0_TO_S0_DELAY  0.450         4.196  1       
+cannon_controller/counter_C/n73[13] ( D )
+                                                          NET DELAY       2.075         6.271  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           6.271  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.196  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i15/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i15/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 56.1% (route), 43.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 4.196 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i15/CK->cannon_controller/counter_C/i_78__i15/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY   1.391         3.466  2       
+cannon_controller/NEScount[5]                             NET DELAY       0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_15/C1->cannon_controller/counter_C/i_78_add_4_15/S1
+                                          FA2             C1_TO_S1_DELAY  0.450         4.196  1       
+cannon_controller/counter_C/n73[14] ( D )
+                                                          NET DELAY       2.075         6.271  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           6.271  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.196  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i16/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i16/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 56.1% (route), 43.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 4.196 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i16/CK->cannon_controller/counter_C/i_78__i16/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY   1.391         3.466  2       
+cannon_controller/NEScount[6]                             NET DELAY       0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_17/C0->cannon_controller/counter_C/i_78_add_4_17/S0
+                                          FA2             C0_TO_S0_DELAY  0.450         4.196  1       
+cannon_controller/counter_C/n73[15] ( D )
+                                                          NET DELAY       2.075         6.271  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           6.271  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.196  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i17/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i17/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 56.1% (route), 43.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 4.196 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i17/CK->cannon_controller/counter_C/i_78__i17/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY   1.391         3.466  2       
+cannon_controller/NEScount[7]                             NET DELAY       0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_17/C1->cannon_controller/counter_C/i_78_add_4_17/S1
+                                          FA2             C1_TO_S1_DELAY  0.450         4.196  1       
+cannon_controller/counter_C/n73[16] ( D )
+                                                          NET DELAY       2.075         6.271  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           6.271  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.196  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i9/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i10/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 3
+Delay Ratio      : 58.2% (route), 41.8% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 4.529 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i9/CK->cannon_controller/counter_C/i_78__i9/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY    1.391         3.466  9       
+cannon_controller/NESclk                                  NET DELAY        0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_9/C1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             C1_TO_CO1_DELAY  0.053         3.799  2       
+cannon_controller/counter_C/n909                          NET DELAY        0.280         4.079  1       
+cannon_controller/counter_C/i_78_add_4_11/D0->cannon_controller/counter_C/i_78_add_4_11/S0
+                                          FA2             D0_TO_S0_DELAY   0.450         4.529  1       
+cannon_controller/counter_C/n73[9] ( D )                  NET DELAY        2.075         6.604  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           6.604  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.529  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i9/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i11/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 4
+Delay Ratio      : 57.3% (route), 42.7% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 5.087 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i9/CK->cannon_controller/counter_C/i_78__i9/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  9       
+cannon_controller/NESclk                                  NET DELAY         0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_9/C1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.053         3.799  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280         4.079  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         4.357  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280         4.637  1       
+cannon_controller/counter_C/i_78_add_4_11/D1->cannon_controller/counter_C/i_78_add_4_11/S1
+                                          FA2             D1_TO_S1_DELAY    0.450         5.087  1       
+cannon_controller/counter_C/n73[10] ( D )
+                                                          NET DELAY         2.075         7.162  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           7.162  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   5.087  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i9/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i12/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 5
+Delay Ratio      : 56.6% (route), 43.4% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 5.645 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d                                   NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i9/CK->cannon_controller/counter_C/i_78__i9/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391         3.466  9       
+cannon_controller/NESclk                                  NET DELAY         0.280         3.746  1       
+cannon_controller/counter_C/i_78_add_4_9/C1->cannon_controller/counter_C/i_78_add_4_9/CO1
+                                          FA2             C1_TO_CO1_DELAY   0.053         3.799  2       
+cannon_controller/counter_C/n909                          NET DELAY         0.280         4.079  1       
+cannon_controller/counter_C/i_78_add_4_11/CI0->cannon_controller/counter_C/i_78_add_4_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY  0.278         4.357  2       
+cannon_controller/counter_C/n1348                         NET DELAY         0.280         4.637  1       
+cannon_controller/counter_C/i_78_add_4_11/CI1->cannon_controller/counter_C/i_78_add_4_11/CO1
+                                          FA2             CI1_TO_CO1_DELAY  0.278         4.915  2       
+cannon_controller/counter_C/n911                          NET DELAY         0.280         5.195  1       
+cannon_controller/counter_C/i_78_add_4_13/D0->cannon_controller/counter_C/i_78_add_4_13/S0
+                                          FA2             D0_TO_S0_DELAY    0.450         5.645  1       
+cannon_controller/counter_C/n73[11] ( D )
+                                                          NET DELAY         2.075         7.720  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           7.720  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   5.645  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : cannon_controller/counter_C/i_78__i3/Q  (FD1P3XZ)
+Path End         : cannon_controller/counter_C/i_78__i3/D  (FD1P3XZ)
+Source Clock     : cannon_controller/clk_d (R)
+Destination Clock: cannon_controller/clk_d (R)
+Logic Level      : 2
+Delay Ratio      : 69.3% (route), 30.7% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 5.991 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+
+
+
+cannon_controller/counter_C/i_78__i3/CK->cannon_controller/counter_C/i_78__i3/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY   1.391         3.466  1       
+cannon_controller/counter_C/n15                           NET DELAY       2.075         5.541  1       
+cannon_controller/counter_C/i_78_add_4_3/C1->cannon_controller/counter_C/i_78_add_4_3/S1
+                                          FA2             C1_TO_S1_DELAY  0.450         5.991  1       
+cannon_controller/counter_C/n73[2] ( D )                  NET DELAY       2.075         8.066  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+cannon_controller/HSOSC_C/CLKHF           HSOSC_CORE      CLOCK LATENCY  0.000         0.000  17      
+cannon_controller/clk_d ( CK )                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           8.066  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   5.991  
+
+
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
                     End of Detailed Report for timing paths 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 

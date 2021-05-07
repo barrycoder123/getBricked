@@ -1,22 +1,214 @@
 
 "/home/es4user/tools/radiant/2.2/tcltk/linux/bin/tclsh" "game_logic_impl_1_synthesize.tcl"
 
-postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o game_logic_impl_1_syn.udb game_logic_impl_1.vm
-POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2.2.0.97.3
-Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o game_logic_impl_1_syn.udb -gui -msgset /home/es4user/getBricked/game_logic/promote.xml game_logic_impl_1.vm 
-   Architecture:     iCE40UP
-   Device:           iCE40UP5K
-   Package:          SG48
-   Performance:      High-Performance_1.2V
-Reading input file 'game_logic_impl_1.vm' ...
-CPU Time to convert: 0.042829
-REAL Time to convert: 0
-convert PEAK Memory Usage: 139 MB
-convert CURRENT Memory Usage: 139 MB
-Removing unused logic...
-    <postMsg mid="35811145" type="Info" dynamic="1" navigation="0" arg0="i24"  />
-    <postMsg mid="35811145" type="Info" dynamic="1" navigation="0" arg0="i25"  />
-Starting design annotation....
-child killed: segmentation violation
+synthesis -f game_logic_impl_1_lattice.synproj
+synthesis:  version Radiant Software (64-bit) 2.2.0.97.3
 
-Fail to run postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o game_logic_impl_1_syn.udb game_logic_impl_1.vm -gui -msgset /home/es4user/getBricked/game_logic/promote.xml 
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
+Thu May  6 20:39:59 2021
+
+
+Command Line:  synthesis -f game_logic_impl_1_lattice.synproj -gui -msgset /home/es4user/getBricked/game_logic/promote.xml 
+
+INFO - synthesis: Lattice Synthesis Engine Launched.
+Synthesis options:
+The -a option is iCE40UP.
+The -t option is SG48.
+The -sp option is High-Performance_1.2V.
+The -p option is iCE40UP5K.
+                                                          
+
+
+##########################################################
+
+
+### Lattice Family     : iCE40UP
+
+
+### Device             : iCE40UP5K
+
+
+### Package            : SG48
+
+
+### Performance Grade  : High-Performance_1.2V
+
+
+                                                         
+
+
+    <postMsg mid="35001786" type="Info" dynamic="0" navigation="0"  />
+Optimization goal = Area
+Top-level module name = game_logic.
+Target frequency = 1.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+RWCheckOnRam = 0
+
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+
+Mux style = auto (Default)
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+Output HDL file name = game_logic_impl_1.vm.
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-vh2008
+
+-path /home/es4user/getBricked/game_logic (searchpath added)
+-path /home/es4user/getBricked/game_logic/impl_1 (searchpath added)
+-path /home/es4user/tools/radiant/2.2/ispfpga/ice40tp/data (searchpath added)
+Mixed language design
+Verilog design file = /home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v
+VHDL library = pmi
+VHDL design file = /home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd
+VHDL library = work
+VHDL design file = /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Compile design.
+Compile Design Begin
+Analyzing Verilog file /home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v. VERI-1482
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(1): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_addsub.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="1"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_addsub.v(40): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_addsub.v" arg3="40"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(2): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_add.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="2"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_add.v(50): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/adder/rtl/lscc_adder.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_add.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(3): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_complex_mult.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="3"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_complex_mult.v(52): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_complex_mult.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(4): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_counter.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="4"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_counter.v(39): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/counter/rtl/lscc_cntr.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_counter.v" arg3="39"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(5): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="5"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo.v(44): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/fifo/rtl/lscc_fifo.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo.v" arg3="44"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(6): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo_dc.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="6"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo_dc.v(47): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/fifo_dc/rtl/lscc_fifo_dc.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_fifo_dc.v" arg3="47"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(7): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mac.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="7"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mac.v(52): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mac.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(8): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsubsum.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="8"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsubsum.v(53): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsubsum.v" arg3="53"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(9): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsub.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="9"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsub.v(52): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_multaddsub.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(10): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mult.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="10"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mult.v(51): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_mult.v" arg3="51"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(11): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="11"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp.v(48): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp.v" arg3="48"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(12): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="12"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq.v(45): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(13): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_rom.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="13"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_rom.v(45): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/rom/rtl/lscc_rom.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_rom.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(14): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_sub.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="14"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_sub.v(50): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_sub.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(15): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp_be.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="15"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp_be.v(49): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dp_be.v" arg3="49"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(16): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq_be.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="16"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq_be.v(45): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_ram_dq_be.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v(17): " arg1="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_dsp.v" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.v" arg3="17"  />
+Analyzing VHDL file /home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd
+
+    <postMsg mid="35921014" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd(4): " arg1="components" arg2="/home/es4user/tools/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd" arg3="4"  />
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(9): " arg1="game_logic" arg2="/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd" arg3="9"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd(25): " arg1="synth" arg2="/home/es4user/getBricked/game_logic/source/impl_1/game_logic.vhd" arg3="25"  />
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/ram.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/ram.vhd(5): " arg1="ram" arg2="/home/es4user/getBricked/game_logic/source/impl_1/ram.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/ram.vhd(23): " arg1="synth" arg2="/home/es4user/getBricked/game_logic/source/impl_1/ram.vhd" arg3="23"  />
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd(4): " arg1="lfsr" arg2="/home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd" arg3="4"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd(14): " arg1="synth" arg2="/home/es4user/getBricked/game_logic/source/impl_1/lfsr.vhd" arg3="14"  />
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd(5): " arg1="cannon" arg2="/home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd(14): " arg1="synth" arg2="/home/es4user/getBricked/game_logic/source/impl_1/cannon.vhd" arg3="14"  />
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd(5): " arg1="nes_counter" arg2="/home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd(14): " arg1="synth" arg2="/home/es4user/getBricked/game_logic/source/impl_1/nes_counter.vhd" arg3="14"  />
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd. VHDL-1481
+Analyzing VHDL file /home/es4user/getBricked/game_logic/source/impl_1/nes.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/nes.vhd(5): " arg1="nes" arg2="/home/es4user/getBricked/game_logic/source/impl_1/nes.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="/home/es4user/getBricked/game_logic/source/impl_1/nes.vhd(16): " arg1="sim" arg2="/home/es4user/getBricked/game_logic/source/impl_1/nes.vhd" arg3="16"  />
+    <postMsg mid="35921504" type="Info" dynamic="2" navigation="0" arg0="" arg1="/home/es4user/getBricked/game_logic/impl_1"  />
+Top module language type = VHDL.
+    <postMsg mid="35001714" type="Warning" dynamic="1" navigation="0" arg0="pwr"  />
+unit game_logic is not yet analyzed. VHDL-1485
+Top module name (VHDL, mixed language): game_logic
+                                                         
+
+
+### Number of Logic Cells: 5280
+
+
+### Number of RAM Blocks: 30
+
+
+### Number of DSP Blocks: 8
+
+
+### Number of PLLs: 1
+
+
+### Number of IO Pins: 56
+
+
+##########################################################
+
+
+                                                         
+
+
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="gnd"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="pwr"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="position[4]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="position[3]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="position[2]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="position[1]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="position[0]"  />
+Software Tool error
+
+Please contact Lattice Semiconductor Corporation
+
+
+
+Exception Condition: process is terminated
+For support, contact Lattice Semiconductor technical support
+	at 1-800-LATTICE or 503-268-8001,
+	or techsupport@latticesemi.com.
+child process exited abnormally
+Fail to run synthesis -f game_logic_impl_1_lattice.synproj -gui -msgset /home/es4user/getBricked/game_logic/promote.xml 

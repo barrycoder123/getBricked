@@ -1,5 +1,38 @@
 ----------------------------------------------------------------------
-Report for cell game_logic.TECH
-Register bits:  0 of 5280 (0.000%)
-I/O cells:      0
-                              TOTAL         0
+Report for cell cannon.TECH
+Register bits:  24 of 5280 (0.455%)
+I/O cells:      7
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               CCU2         9          100.0
+                            FD1P3XZ        24          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB         1          100.0
+                              IOL_B         1          100.0
+                               LUT4        14          100.0
+                                 OB         6          100.0
+SUB MODULES
+                                nes         1
+                        nes_counter         1
+                              TOTAL        58
+----------------------------------------------------------------------
+Report for cell nes.v1
+Instance Path : cannon_controller
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9          100.0
+                            FD1P3XZ        24          100.0
+                         HSOSC_CORE         1          100.0
+                              IOL_B         1          100.0
+                               LUT4         2           14.3
+SUB MODULES
+                        nes_counter         1
+                              TOTAL        38
+----------------------------------------------------------------------
+Report for cell nes_counter.v1
+Instance Path : cannon_controller.counter_C
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9          100.0
+                            FD1P3XZ        17           70.8
+                              TOTAL        26

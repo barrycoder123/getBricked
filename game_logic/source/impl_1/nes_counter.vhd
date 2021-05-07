@@ -14,7 +14,7 @@ end nes_counter;
 architecture synth of nes_counter is
 signal i : unsigned(N - 1 downto 0);
 begin
-	process(clk, reset) begin
+	process (clk, reset) begin
 		if (reset = '1') then 
 			i <= to_unsigned(0, N);
 		elsif rising_edge(clk) then 
