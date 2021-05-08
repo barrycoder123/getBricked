@@ -84,7 +84,7 @@ architecture synth of top is
     signal brick_out: std_logic_vector(31 downto 0);
 
     -- cannonball/cannon 
-    signal cannon_row: unsigned( 9 downto 0 );
+    signal cannon_row: unsigned( 9 downto 0 ) := "0111000100";
     
     --signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
     signal frame_clk: std_logic;
@@ -169,6 +169,7 @@ begin
                 if(cannon_row > 10d"0") then
                     cannon_row <= cannon_row - 100; -- moving the cannon ball up 
                 end if;
+                
                 frame_count <= "000000";
             end if;
         end if;
