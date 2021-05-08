@@ -50,7 +50,7 @@ architecture synth of top is
             data_in: in std_logic_vector(31 downto 0);
 
             -- -- cannonball
-            cannon_row: in unsigned( 9 downto 0);
+            cannon_row: in unsigned( 9 downto 0); --technically equivalent ball_pos 
             cannon_col: in unsigned( 9 downto 0);
 
             --canon
@@ -65,7 +65,8 @@ architecture synth of top is
             nes_clk: out std_logic;
             nes_latch: out std_logic;
             fire : out std_logic;
-            position : out unsigned(9 downto 0) := (others => '0')
+            position : out unsigned(9 downto 0) := (others => '0');
+            ball_pos : out unsigned(9 downto 0)
         );
     end component;
 
@@ -83,7 +84,7 @@ architecture synth of top is
     signal brick_out: std_logic_vector(31 downto 0);
 
     -- cannonball/cannon 
-    signal cannon_row: unsigned( 9 downto 0 ) := "0111000100";
+    signal cannon_row: unsigned( 9 downto 0 );
     
     --signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
     signal frame_clk: std_logic;
@@ -91,9 +92,9 @@ architecture synth of top is
 
     --NES
     signal fire_sig : std_logic;
-    signal ball_pos_sig:  unsigned(9 downto 0):= (others => '0');
+    signal ball_pos_sig:  unsigned(9 downto 0);
     signal cannon_pos_sig: unsigned( 9 downto 0);
-    signal cannonPos: unsigned( 9 downto 0);
+    signal cannonPos_d: unsigned( 9 downto 0);
 
     
   
@@ -135,7 +136,7 @@ begin
         cannon_col => ball_pos_sig,
 
         --cannon
-        cannonPos => cannonPos
+        cannonPos => cannonPos_d
     );
 
     CANNON1: cannon
@@ -145,6 +146,7 @@ begin
         nes_clk => nes_clk,
         nes_latch => nes_latch,
         fire => fire_sig,
+        ball_pos => ball_pos_sig,
         position => cannon_pos_sig
     );
 
@@ -163,8 +165,10 @@ begin
         if (rising_edge(frame_clk)) then
             frame_count <= frame_count + 1;
             if (frame_count = 16) then
-                cannonPos <= cannon_pos_sig;
-                cannon_row <= cannon_row - 8;
+                cannonPos_d <= cannon_pos_sig; --updating cannon position based on nes control
+                if(cannon_row > 10d"0") then
+                    cannon_row <= cannon_row - 100; -- moving the cannon ball up 
+                end if;
                 frame_count <= "000000";
             end if;
         end if;

@@ -9,7 +9,9 @@ entity cannon is
 		nes_clk: out std_logic;
 		nes_latch: out std_logic;
 		fire : out std_logic;
-		position : out unsigned(9 downto 0) := (others => '0')
+		position : out unsigned(9 downto 0) := (others => '0');
+		ball_pos : out unsigned(9 downto 0)
+		-- ball_row : out unsigned(9 downto 0)
     );
 end cannon;
 
@@ -39,7 +41,7 @@ begin
 		data_out(7) => fire_tmp,
 		data_out(6 downto 2) => temp
 		);
-	fire <= not fire_tmp;
+	-- fire <= not fire_tmp;
 	process(frame_clk) begin
 		if((rising_edge(frame_clk))) then
 			if (move_right = '0') and (position /= "1111111111") then
@@ -47,6 +49,10 @@ begin
 			end if;
 			if (move_left = '0') and (position /= "0000000000") then
 				position <= position - to_unsigned(1, 10);
+			end if;
+			if fire_tmp = '0' then
+				-- ball_row <= 10d"448"; 
+				ball_pos <= position;
 			end if;
 		end if;
 	end process;
