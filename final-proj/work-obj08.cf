@@ -1,31 +1,31 @@
 v 4
-file . "vga.vhdl" "e4309b630d8ac4e8756c4287daf6aba047b34dd8" "20210508022322.450":
+file . "vga.vhdl" "e4309b630d8ac4e8756c4287daf6aba047b34dd8" "20210508043645.812":
   entity vga at 1( 0) + 0 on 29;
   architecture synth of vga at 16( 311) + 0 on 30;
-file . "top.vhdl" "18c1fb650fdcfd9a2fde3f7aed6de142a109b538" "20210508022322.448":
+file . "top.vhdl" "3804065b710a694cd091d1f56e35d3984ba46289" "20210508043645.811":
   entity top at 1( 0) + 0 on 27;
   architecture synth of top at 20( 403) + 0 on 28;
-file . "pll.vhdl" "95976f4cd60142e1fa85775b20a6cf09280fe4e4" "20210508022322.443":
+file . "pll.vhdl" "95976f4cd60142e1fa85775b20a6cf09280fe4e4" "20210508043645.809":
   entity pll at 1( 0) + 0 on 25;
   architecture synth of pll at 13( 211) + 0 on 26;
-file . "nes.vhdl" "2ed7425ac8e7c50d5d768b5cb1668904cbe6d347" "20210508022322.440":
+file . "nes.vhdl" "2ed7425ac8e7c50d5d768b5cb1668904cbe6d347" "20210508043645.808":
   entity nes at 1( 0) + 0 on 23;
   architecture sim of nes at 16( 349) + 0 on 24;
-file . "lfsr.vhdl" "06ba97b32230942c987297ae52c01d1f47f4500f" "20210508022322.438":
+file . "lfsr.vhdl" "06ba97b32230942c987297ae52c01d1f47f4500f" "20210508043645.807":
   entity lfsr at 1( 0) + 0 on 21;
   architecture synth of lfsr at 15( 269) + 0 on 22;
-file . "display.vhdl" "e2e4a240bcf9581af53ff2fdb8cb0881bb159807" "20210508022322.437":
+file . "display.vhdl" "e2e4a240bcf9581af53ff2fdb8cb0881bb159807" "20210508043645.806":
   entity display at 1( 0) + 0 on 19;
   architecture synth of display at 26( 512) + 0 on 20;
-file . "counter.vhdl" "67615adb56759f26ebd7c31051035231c1639076" "20210508022322.434":
+file . "counter.vhdl" "67615adb56759f26ebd7c31051035231c1639076" "20210508043645.805":
   entity counter at 1( 0) + 0 on 17;
   architecture synth of counter at 14( 250) + 0 on 18;
-file . "cannon.vhdl" "7f37c6aadcf3f2b6a940287a6661b415780ea8b0" "20210508022322.432":
+file . "cannon.vhdl" "19403d18d14e37b2c4f12a056cacca448591d51f" "20210508043645.804":
   entity cannon at 1( 0) + 0 on 15;
-  architecture synth of cannon at 18( 400) + 0 on 16;
-file . "brick_ram.vhdl" "9906942db302767585e090bea0b3857e8bdb262c" "20210508022322.429":
+  architecture synth of cannon at 18( 398) + 0 on 16;
+file . "brick_ram.vhdl" "9906942db302767585e090bea0b3857e8bdb262c" "20210508043645.803":
   entity brick_ram at 1( 0) + 0 on 13;
   architecture rtl of brick_ram at 22( 524) + 0 on 14;
-file . "brick_gen.vhdl" "4997bc2df302ac87cf492aff60da409d2a4a3ee5" "20210508022322.425":
+file . "brick_gen.vhdl" "4997bc2df302ac87cf492aff60da409d2a4a3ee5" "20210508043645.801":
   entity brick_gen at 1( 0) + 0 on 11;
   architecture synth of brick_gen at 12( 170) + 0 on 12;

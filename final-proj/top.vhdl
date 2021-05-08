@@ -66,7 +66,8 @@ architecture synth of top is
             nes_latch: out std_logic;
             fire : out std_logic;
             position : out unsigned(9 downto 0) := (others => '0');
-            ball_pos : out unsigned(9 downto 0)
+            ball_pos : out unsigned(9 downto 0);
+            ball_row : out unsigned(9 downto 0)
         );
     end component;
 
@@ -84,7 +85,8 @@ architecture synth of top is
     signal brick_out: std_logic_vector(31 downto 0);
 
     -- cannonball/cannon 
-    signal cannon_row: unsigned( 9 downto 0 ) := "0111000100";
+    signal cannon_row: unsigned( 9 downto 0 );
+    signal cannonball_reset: unsigned(9 downto 0);
     
     --signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
     signal frame_clk: std_logic;
@@ -147,7 +149,8 @@ begin
         nes_latch => nes_latch,
         fire => fire_sig,
         ball_pos => ball_pos_sig,
-        position => cannon_pos_sig
+        position => cannon_pos_sig,
+        ball_row => cannonball_reset
     );
 
     row_clk <= '1' when colCount > 10d"640" else '0';
@@ -157,19 +160,16 @@ begin
             brick_out <= ram_block(to_integer(ram_address));
         end if;
     end process;
-
+    
     -- -- cannonball/cannon
     frame_clk <= '1' when rowCount > 10d"480" else '0';
     process(frame_clk)
     begin
         if (rising_edge(frame_clk)) then
             frame_count <= frame_count + 1;
-            if (frame_count = 16) then
+            if (frame_count = 4) then
                 cannonPos_d <= cannon_pos_sig; --updating cannon position based on nes control
-                if(cannon_row > 10d"0") then
-                    cannon_row <= cannon_row - 100; -- moving the cannon ball up 
-                end if;
-                
+                cannon_row <= cannonball_reset;
                 frame_count <= "000000";
             end if;
         end if;
