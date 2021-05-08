@@ -6,6 +6,8 @@ entity cannon is
     port(
 		frame_clk: in std_logic;
 		data : in std_logic;
+		nes_clk: out std_logic;
+		nes_latch: out std_logic;
 		fire : out std_logic;
 		position : out unsigned(9 downto 0) := (others => '0')
     );
@@ -29,6 +31,8 @@ architecture synth of cannon is
 	signal temp: std_logic_vector(4 downto 0) := "00000";
 begin
 	cannon_controller : nes port map(
+		NESclk => nes_clk,
+		latch => nes_latch,
 		data => data, 
 		data_out(0) => move_left, 
 		data_out(1) => move_right, 
@@ -40,7 +44,8 @@ begin
 		if((rising_edge(frame_clk))) then
 			if (move_right = '0') and (position /= "1111111111") then
 				position <= position + to_unsigned(1, 10);
-			elsif (move_left = '0') and (position /= "0000000000") then
+			end if;
+			if (move_left = '0') and (position /= "0000000000") then
 				position <= position - to_unsigned(1, 10);
 			end if;
 		end if;

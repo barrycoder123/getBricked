@@ -31,29 +31,14 @@ begin
   process(pixel_clk)
   begin
     if(rising_edge(pixel_clk)) then
-      if(valid = '1' and (( (data_in(to_integer(column_in)) = '1')) or ( cannon_row <= row and (cannon_row + 16) > row and cannon_col <= column and (cannon_col + 16) > column) )) then
-        rgb <= '1';
-      end if;
-      if (valid = '1' and (cannonPos <= column and (cannonPos + 32) > column and 10d"520" <= row and 10d"488" > row)) then
+      if(valid = '1' and (( (data_in(to_integer(column_in)) = '1')) or 
+                            (cannon_row <= row and (cannon_row + 16) > row and cannon_col <= column and (cannon_col + 16) > column) or --cannonball
+                            (10d"448"<= row and (10d"448" + 32) > row and cannonPos <= column and (cannonPos + 32) > column) )) then --cannon
         rgb <= '1';
       else
         rgb <='0';
       end if;
     end if;
   end process;
-
-  -- on_ball <='1' when ( "0000100" = row(9 downto 3) and ("0000100" = column(9 downto 3)) ) else '0';
-  -- rgb <= '1' when valid = '1' and ( (data_in(to_integer(column_in)) = '1') or 
-
-  --         ("0000100" = row(9 downto 3) and "0000100" = column(9 downto 3)) ) else '0';
-
-  --   rgb <= '1' when valid = '1' and ( (data_in(to_integer(column_in)) = '1') or 
-
-  --         ("0000100000" = row and "0000100000" = column) ) else '0';
-  -- rgb <= '1' when valid = '1' and column < 10d"320" and row < 10d"320" 
-  -- else '0';
-  
-  
-  -- rgb <= '1' when valid = '1' and data_in(to_integer(column_in)) = '1' else '0';
 
 end;

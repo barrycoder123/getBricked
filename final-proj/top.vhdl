@@ -6,6 +6,8 @@ entity top is
   port(
     CLK_12M: in std_logic; --12M input clock 
     controller_data: in std_logic;
+    nes_clk: out std_logic;
+    nes_latch: out std_logic;
     Hsync: out std_logic;
     Vsync: out std_logic;
     ground: out std_logic;
@@ -60,6 +62,8 @@ architecture synth of top is
         port(
             frame_clk: in std_logic;
             data : in std_logic;
+            nes_clk: out std_logic;
+            nes_latch: out std_logic;
             fire : out std_logic;
             position : out unsigned(9 downto 0) := (others => '0')
         );
@@ -80,13 +84,16 @@ architecture synth of top is
 
     -- cannonball/cannon 
     signal cannon_row: unsigned( 9 downto 0 ) := "0111000100";
+    
     --signal cannon_col: unsigned( 9 downto 0 ) := "0010000000";
     signal frame_clk: std_logic;
     signal frame_count: unsigned(5 downto 0) := "000000";
 
     --NES
     signal fire_sig : std_logic;
-    signal pos_sig : unsigned(9 downto 0);
+    signal ball_pos_sig:  unsigned(9 downto 0):= (others => '0');
+    signal cannon_pos_sig: unsigned( 9 downto 0);
+    signal cannonPos: unsigned( 9 downto 0);
 
     
   
@@ -125,18 +132,20 @@ begin
 
         -- -- cannon ball
         cannon_row => cannon_row,
-        cannon_col => pos_sig,
+        cannon_col => ball_pos_sig,
 
         --cannon
-        cannonPos => pos_sig
+        cannonPos => cannonPos
     );
 
     CANNON1: cannon
     port map(
         frame_clk => frame_clk,
         data => controller_data,
+        nes_clk => nes_clk,
+        nes_latch => nes_latch,
         fire => fire_sig,
-        position => pos_sig
+        position => cannon_pos_sig
     );
 
     row_clk <= '1' when colCount > 10d"640" else '0';
@@ -147,41 +156,19 @@ begin
         end if;
     end process;
 
-    -- -- cannonball
+    -- -- cannonball/cannon
     frame_clk <= '1' when rowCount > 10d"480" else '0';
     process(frame_clk)
     begin
         if (rising_edge(frame_clk)) then
             frame_count <= frame_count + 1;
             if (frame_count = 16) then
+                cannonPos <= cannon_pos_sig;
                 cannon_row <= cannon_row - 8;
                 frame_count <= "000000";
             end if;
         end if;
     end process;
-
-    -- -- cannon
-    -- process(frame_clk)
-    -- begin
-    --     if (rising_edge(frame_clk)) then
-    --         frame_count <= frame_count + 1;
-    --         if (frame_count = 16) then
-                
-    --             frame_count <= "000000";
-    --         end if;
-    --     end if;
-    -- end process;
-
-
-    -- brick_ram1: brick_ram
-    -- port map(
-    --     clock =>  row_clk,
-    --     data => "00000000001000000000" & 12d"0",
-    --     write_address => "00000",
-    --     read_address => std_logic_vector(ram_address),
-    --     we => '0',
-    --     q => brick_out
-    -- );
 
     ground <= '0';
 end;

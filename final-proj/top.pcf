@@ -20,6 +20,8 @@ set_io test 28
 
 #NES
 set_io controller_data 43
+set_io nes_clk 34
+set_io nes_latch 37
 
 
 # set_io -pullup 1
