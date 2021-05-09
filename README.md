@@ -73,6 +73,8 @@ VGA not outputting the defined row and col
 14. it is able to display when it is set to equal but it is only 1 pixel which can barely be seen on the screen.
 SOLUTION
 15. hsync and vsync needs to be in a process so it doesn't have the glitch. This solves the glitch issue.
+
+16. The NES wasn't working because the latch and clock signals weren't included in the top module. SOLUTION: After adding a latch and clock signals to the top module everything worked well as needed. 
 ---
 
 # Reflection
