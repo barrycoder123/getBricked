@@ -72,7 +72,12 @@ architecture synth of top is
     end component;
 
     TYPE ram_brick IS ARRAY(0 TO 2 ** 5 - 1) OF std_logic_vector(32 - 1 DOWNTO 0);
-	SIGNAL ram_block : ram_brick := (0 => (others => '1'), others => (others => '0'));
+	SIGNAL ram_block : ram_brick := (0 =>  "00000000000011111100111100111111", 
+                                     1 =>  "00000000000011111111111111111111",
+                                     2 =>  "00000000000011111110000001111111",
+                                     3 =>  "00000000000011111001111110011111",
+                                     4 =>  "00000000000011110011111111001111",
+                                     others => (others => '0'));
     
 
     signal rowCount: unsigned( 9 downto 0);
@@ -169,7 +174,7 @@ begin
             frame_count <= frame_count + 1;
             if (frame_count = 4) then
                 cannonPos_d <= cannon_pos_sig; --updating cannon position based on nes control
-                cannon_row <= cannonball_reset;
+                cannon_row <= cannonball_reset; -- updating the cannonball
                 frame_count <= "000000";
             end if;
         end if;
