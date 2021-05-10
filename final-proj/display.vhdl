@@ -33,7 +33,8 @@ begin
     if(rising_edge(pixel_clk)) then
       if(valid = '1' and (( (data_in(to_integer(column_in)) = '1')) or 
                             (cannon_row <= row and (cannon_row + 16) > row and cannon_col <= column and (cannon_col + 16) > column) or --cannonball
-                            (10d"448"<= row and (10d"448" + 32) > row and cannonPos <= column and (cannonPos + 32) > column) )) then --cannon
+                            (10d"448"<= row and (10d"480") > row and cannonPos <= column and (cannonPos + 32) > column) or
+                            (10d"424" <= row and 10d"448" > row and (cannonPos + 8) <= column and (cannonPos + 24) > column))) then --cannon
         rgb <= '1';
       else
         rgb <='0';
