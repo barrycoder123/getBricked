@@ -53,7 +53,7 @@ begin
 			if fire_tmp = '0' then
 				ball_pos <= position;
 				if(ball_row > 10d"0") then
-					ball_row <= ball_row - 40;
+					ball_row <= ball_row - 16;
 				end if;
 			end if;
 			if fire_tmp = '1' then

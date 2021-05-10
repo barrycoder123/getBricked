@@ -162,23 +162,41 @@ begin
     process(row_clk)
     begin
         if(rising_edge(row_clk)) then
+            
+            -- if(brick_out(to_integer(cannon_col(9 downto 5))) = '1') then
+
+            -- end if;
             brick_out <= ram_block(to_integer(ram_address));
+
         end if;
     end process;
     
     -- -- cannonball/cannon
     frame_clk <= '1' when rowCount > 10d"480" else '0';
     process(frame_clk)
+    VARIABLE cur_col: std_logic_vector(31 downto 0);
     begin
         if (rising_edge(frame_clk)) then
             frame_count <= frame_count + 1;
             if (frame_count = 4) then
                 cannonPos_d <= cannon_pos_sig; --updating cannon position based on nes control
-                cannon_row <= cannonball_reset; -- updating the cannonball
+                cannon_row <= cannonball_reset; -- updating the cannonballpos
+                
+                
+                
+                cur_col := ram_block(to_integer(cannonball_reset(9 downto 5)));
+
+                if cur_col(to_integer(cannon_pos_sig(9 downto 5))) = '1' then
+                    --cur_col := cur_col xor std_logic_vector(shift_left(32b"1",(to_integer(cannon_pos_sig(9 downto 5)))));
+                    ram_block(to_integer(cannonball_reset(9 downto 5))) <= cur_col xor (32b"1" sll to_integer(cannon_pos_sig(9 downto 5)));
+                end if;
+                
                 frame_count <= "000000";
             end if;
         end if;
     end process;
+
+
 
     ground <= '0';
 end;
