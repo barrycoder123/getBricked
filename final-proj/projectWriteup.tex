@@ -84,85 +84,32 @@ We create a new bit word of the same size as the ram block  with the correspondi
 and the other bits to '0'. Then $ 1 \oplus 1 = 0$ so this will invert the bit we
 want inverted. The other bits are unchanged as $1 \oplus 0 = 1$ and $0 \oplus 0 = 0$.  
 
-\subsection{Display Module}
+\subsection{Cannon Control Module}
+This is where the NES gamepad is used to control our game objects: the cannon
+and the cannon ball. Cannon sends it's data signal (which is also in the top
+module) to the NES controller and outputs the ball and cannon position based on
+the which button is pressed. Instead of using all 8 bits of the output of the
+NES only three were used the left and right button to move the cannon
+horizontally and the "A" button to fire the cannon ball. The rest of the bits
+were sent to 0. \\
+The logic for moving the cannon was relatively simple: if the button is pressed
+(the signal is low) change the cannon's position by 1 to the left or right (which is later used in the top
+and display modules in order to actually display the change). If the fire button
+is pressed: change the row the ball is displayed (move the ball up) else set the
+column of the ball to the cannon's colum and it's row to the cannon's row as
+well. \\
 
-
+The biggest challenge we had was figuring out how to smoothly fire the cannon
+ball. The firing was happening too rapidly, pressing the button jumped the ball
+too far up the screen. The solution we came up with was to have the ball
+continously be where the cannonis and if the user presses the fire button the
+ball goes up and stops once the user stops pressing the button. THe ball shot
+4-24 times based on how long the button was held. 
 \section{Results and Testing}
-
-The behavior of the circuit was farily straightforward to test. One could
-manually use the DIP switches to do all $2^6$ possible number combinations which
-would take very long (but doable). 
-
-Doing this for all possible digits I was sure the circuit functioned correctly.
-Also a lab TA looked over my work and agreed it worked as intended.\\
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Explain the simuation waves
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Debugging Log}
 
-\begin{enumerate}
-    \item A few LEDs on the 7-seg weren't lighting up or they were very dim.
-    \begin{itemize} 
-        \item Manually setting the LEDs on would work but not otherwise. 
-        \item some possible causes included something wrong with VHDL code, the
-wiring of the breadboard, and a hardware component not working (not likely). 
-        \item Resolution: I needed to ground both GND pins of the Upduino. After
-that the dim effect went away. 
-        \item Lesson: Always check ground connections because even if other
-parts of the circut make sense you can get unexpected results. 
-    \end{itemize}
-    \item problem: The transistors weren't acting as switches for the LED on the
-7-seg. properly. 
-    \begin{itemize}
-        \item I knew there was a problem because both the digits on the 7-seg
-would always have the same numerical value. Both digits were displaying the
-value of the ones place. 
-        \item possible causes included wiring of the transistor, confusion of
-what is the gate, drain and source. 
-        \item The issue was that while the transistors were wired correctly they
-weren't acting as switches because the power pins of the 7-seg for both digits
-were also connected. I.e the transistors weren't controlling the flow of current
-in a meaningful way since both the digits were always on regardless of the what
-the transistors were doing. 
-        \item the lesson I learned was to really understand what each component
-does and not just wire it up mindlessly. If I understood the role of the
-transistors, I would have recognized that the LED's on the 7-seg do not need to
-be connected to power while the source of the transistor was already connected
-to power. 
-    \end{itemize}
-    \item problem: The LEDs weren't giving values as expected from the input
-given by the DIP switches. 
-        \begin{itemize}
-            \item There was a problem because when I toggled the switches the
-LEDs weren't producing the correct values. 
-            \item Possible causes included: FPGA pin's not connected properly,
-the logic in the VHDL code. 
-            \item It turned out that the reset signal on my counter was not set
-to any value. After making this change the outputs seen on the LEDs of the 7-seg
-were correct. 
-        \end{itemize}
-
-\end{enumerate}
-
 \section{Reflection} 
-
-\begin{enumerate}
-    \item What was the most valuable thing you learned, and why?\\
-        - I learned how to debug my VHDL code in a way different to how one
-debugs code in a language like Java or Python. Many times the code can compile
-but the hardware implementation may not behave the way you want it.
-    \item What skills or concepts are you still struggling with? What will you do to 
-          learn or practice these?\\
-        - I'm still struggling with how to write testbenches for very large
-complicated code. To practice I will review the textbook and try writing
-testbenches for other VHDL code I've written. 
-    \item This assignment took about 72 hours (not including several hours
-tyring to write a testbench) during all of the  days in which I
-worked on it. 
-
-\end{enumerate}
 
 \section{Work Divison} 
 
