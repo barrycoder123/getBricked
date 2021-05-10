@@ -72,6 +72,9 @@ VGA not outputting the defined row and col
 14. it is able to display when it is set to equal but it is only 1 pixel which can barely be seen on the screen.
 SOLUTION
 15. hsync and vsync needs to be in a process so it doesn't have the glitch. This solves the glitch issue.
+
+BRICKS NOT DELETING 
+16. We tried to 
 ---
 
 # Reflection

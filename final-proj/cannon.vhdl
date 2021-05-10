@@ -44,7 +44,7 @@ begin
 	fire <= not fire_tmp;
 	process(frame_clk) begin
 		if((rising_edge(frame_clk))) then
-			if (move_right = '0') and (position /= "1111111111") then
+			if (move_right = '0') and (position /= "1001100000") then
 				position <= position + to_unsigned(1, 10);
 			end if;
 			if (move_left = '0') and (position /= "0000000000") then
