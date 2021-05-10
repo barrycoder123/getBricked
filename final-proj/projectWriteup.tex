@@ -39,50 +39,53 @@
 \begin{flushleft}
 
 \section{Overview}
-
-In this lab, a dual digit display decoder(dddd) was designed using VHDL and it's output was
-displayed on a 7-segment display decoder (with two digit places). First, VHDL
-code (device.vhd) to alternately flash two LEDs was made. The purpose which was to eventually
-do a similar thing with the two digit slots of the 7-seg. display decoder. The
-idea was to have both LEDs alternate with great enough frequency so they
-appeared to be on simultaneously. . Then, vhdl code (dddd.vhd) to produce the output of
-the one's place and ten's place on the 7-seg. was made. Finally, using a DIP
-switch with 6 bits wired up, the values $[0, 2^6 - 1]$ were displayed on the 7-seg.  
-
+\begin{center}
+\includegraphics[width=10cm, height=10cm]{blockDiagram}
+\end{center}
+This game is a variation of the game brickBreaker where the player fires a
+cannonball out of a cannon and works to destroy the bricks that are displayed on
+the screen. There are three main parts to this project: displays, controls, and
+game logic. 'Displays' were done using a VGA, 'controls' were done by using
+an NES gamepad, and 'game logic' done in the 'top' module of our project. 
+VGA sends the current row and column to display on the screen. The NES gamepad
+takes data in the form of buttons pressed and stores it in a shift-register. A
+clock is driven for 8 cycles (the number of buttons is 8) and the data signal is
+synchronized with the clock. When a button is pressed the corresponding bit of
+the output of the register is set to low. The top module controls the general
+logic of the game such as drawing the bricks and the cannnon. Top also controls
+the memory usage of the game. Overall, objects are drawn in the top module,
+displayed via the display module, and those objects are then controlled via the
+cannon module (which is connected to the gamepad). 
 
 \section{Technical Description and Design}
-\textbf{Flashing LEDs:}\\
-The HSOC built-in module with a 26-bit counter was used to drive two LEDs. By
-changing the bit of the counter used to drive the LEDs the ON-OFF frequency of
-the LEDs was changed. It turned out at using the 18th bit of the counter made it
-so that the two LEDs seemed to be ON at the same time:  \\
+\subsection{Top Module}
 
-at $48MHz/2^{20}$ => still seems to blinking \\
-at $48MHz/2^{19}$ => still seems to blinking just a bit \\
-at $48MHz/2^{18}$ => steady not blinking \\
+The top module is where the main game logic is handled. It's inputs are the
+12MHz clock of the FPGA and the data from the the controller. It outputs the
+necessary signals for the controller and the VGA to work. It's components
+are the pll, vga, display, and cannon. The main function of top is to draw the
+game objects. This the code to draw the bricks:\\
+\includegraphics[width=15cm, height=5cm]{drawingBricks}
 
-\hfill \break
+Where there is a '1' bit is where a brick is drawn. The other details are more
+complicated but in general $'1' = $ brick drawn $'0'=$ brick not drawn. $0 - 4$
+represent the row being drawin. One of the major challenges encountered here was
+figuring out how to destroy a brick when it is hit by a cannon. This means where
+there is a $'1'$ bit, meaning a block is drawn at that position, we have to invert
+the bit when it is hit by the ball. The display module now knows not to draw
+that brick. This was solved by using bit-masking to change the bit.\\ 
+eg) consider the row of bricks: $00000000000011111100111100111111$
+suppose the block at index 31 needs to be destroyed then the $XOR$ logical
+operatoin works well for this. 
+$00000000000011111100111100111111 \oplus 00000000000000000000000000000010 =
+00000000000011111100111100111101$ 
 
-\textbf{Two-Digit Display:}\\
-By understanding how to make the two LEDs look they're on simultaneously, two
-NMOS transistors were used as "switches" turning on and off each digit.
-Here is the schematic: \\
+We create a new bit word of the same size as the ram block  with the corresponding bit we want destroyed to be '1'
+and the other bits to '0'. Then $ 1 \oplus 1 = 0$ so this will invert the bit we
+want inverted. The other bits are unchanged as $1 \oplus 0 = 1$ and $0 \oplus 0 = 0$.  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Display Module}
 
-Then in the top module (device.vhd) the code to switch between which LED output
-is on was written. The logic for the left and right digits from (dddd.vhd) were
-used as inputs to a MUX with the select input being the msb of the counter
-driver. Then based on whether or not that bit was on or off one 7-bit output was
-(for the ones-place or tens-place) was outputted. Here is the block diagram for
-this process: \\
-
-
-A zip file of all the source code will be provided. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-This is the final implementation on the breadboard:\\
 
 \section{Results and Testing}
 
