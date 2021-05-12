@@ -42,7 +42,7 @@
 \begin{center}
 \includegraphics[width=10cm, height=10cm]{blockDiagram}
 \end{center}
-This game is a variation of the game brickBreaker where the player fires a
+This game is a variation of the game Brick-Breaker where the player fires a
 cannonball out of a cannon and works to destroy the bricks that are displayed on
 the screen. There are three main parts to this project: displays, controls, and
 game logic. 'Displays' were done using a VGA, 'controls' were done by using
@@ -52,7 +52,7 @@ takes data in the form of buttons pressed and stores it in a shift-register. A
 clock is driven for 8 cycles (the number of buttons is 8) and the data signal is
 synchronized with the clock. When a button is pressed the corresponding bit of
 the output of the register is set to low. The top module controls the general
-logic of the game such as drawing the bricks and the cannnon. Top also controls
+logic of the game such as drawing the bricks and the cannon. Top also controls
 the memory usage of the game. Overall, objects are drawn in the top module,
 displayed via the display module, and those objects are then controlled via the
 cannon module (which is connected to the gamepad). 
@@ -61,7 +61,7 @@ cannon module (which is connected to the gamepad).
 \subsection{Top Module}
 
 The top module is where the main game logic is handled. It's inputs are the
-12MHz clock of the FPGA and the data from the the controller. It outputs the
+12MHz clock of the FPGA and the data from the controller. It outputs the
 necessary signals for the controller and the VGA to work. It's components
 are the pll, vga, display, and cannon. The main function of top is to draw the
 game objects. This the code to draw the bricks:\\
@@ -69,7 +69,7 @@ game objects. This the code to draw the bricks:\\
 
 Where there is a '1' bit is where a brick is drawn. The other details are more
 complicated but in general $'1' = $ brick drawn $'0'=$ brick not drawn. $0 - 4$
-represent the row being drawin. One of the major challenges encountered here was
+represent the row being drawn. One of the major challenges encountered here was
 figuring out how to destroy a brick when it is hit by a cannon. This means where
 there is a $'1'$ bit, meaning a block is drawn at that position, we have to invert
 the bit when it is hit by the ball. The display module now knows not to draw
@@ -116,15 +116,15 @@ The logic for moving the cannon was relatively simple: if the button is pressed
 (the signal is low) change the cannon's position by 1 to the left or right (which is later used in the top
 and display modules in order to actually display the change). If the fire button
 is pressed: change the row the ball is displayed (move the ball up) else set the
-column of the ball to the cannon's colum and it's row to the cannon's row as
+column of the ball to the cannon's column and it's row to the cannon's row as
 well. \\
 
 \hfill \break
 The biggest challenge we had was figuring out how to smoothly fire the cannon
 ball. The firing was happening too rapidly, pressing the button jumped the ball
 too far up the screen. The solution we came up with was to have the ball
-continously be where the cannonis and if the user presses the fire button the
-ball goes up and stops once the user stops pressing the button. THe ball shot
+continuously be where the cannon is and if the user presses the fire button the
+ball goes up and stops once the user stops pressing the button. The ball shot
 4-24 times based on how long the button was held. 
 \section{Results and Testing}
 
@@ -144,7 +144,7 @@ This is the initial state of the game: \\
 \end{center}
 
 After firing some cannon balls some of the bricks were destroyed and this is
-ther result:\\
+the result:\\
 \begin{center}
 \includegraphics[width=10cm, height=8cm]{game2}
 \end{center}
@@ -152,9 +152,9 @@ ther result:\\
 The game did have some bugs at the end however:\\
 \begin{enumerate}
     \item The cannonball does not move smoothly and can only move if the fire
-button is held. It also doesn’t go through each row and skips rows so it might
+button is held. It also doe not go through each row and skips rows so it might
 not destroy all the blocks at once. 
-    \item Sometimes the connection isn’t tight or fully connected so it would randomly move or shoot.
+    \item Sometimes the connection is not tight or fully connected so it would randomly move or shoot.
     \item The firing is not exactly very smooth and might skip some bricks that
 were supposed to be deleted.
 \end{enumerate}
@@ -162,17 +162,17 @@ were supposed to be deleted.
 \section{Reflection} 
 This project overall was fairly difficult and a lot of issues occurred. I think
 next time we should have planned the modules, especially the brick diagram more
-closely and specifically so it would be easier to implement the vhdl. In
+closely and specifically so it would be easier to implement the VHDL. In
 addition if we can add anything it would add complexity so there would be
 different levels with different patterns of bricks. Also, we would add it so the
 cannonball and cannon can change angles and also bounce to destroy the bricks.
 Finally, we would make it harder so the bricks would move down every 3 seconds
-like tetris. What went well was the fact that we were able to combine what other
+like Tetris. What went well was the fact that we were able to combine what other
 team members into the top level effortlessly without any issues. It was a nice
 surprise. There were so many errors from other parts of the project that that
 was our best moment. Aside from the VGA and NES which was done by people that
 did the labs, we all live coded using VSCode for the rest of the parts of the
-projects. We all worked on fixing issues in every vhdl file and merging
+projects. We all worked on fixing issues in every VHDL file and merging
 everything to the top level to create this game. So all the work was distributed
 equally.
 
